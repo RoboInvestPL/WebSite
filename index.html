@@ -6,352 +6,324 @@
   <title>RoboInvest</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
   <style>
-   /* Ustawienie modelu pudełkowego na border-box dla wszystkich elementów */
-* {
-  box-sizing: border-box;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-/* Ustawienia ogólne dla całego dokumentu */
-body {
-  margin: 0; 									/* Usunięcie marginesów */
-  font-family: 'DM Sans', sans-serif;			/* Główna czcionka */
-  color: #222; 									/* Kolor tekstu */
-  background-color: white; 						/* Białe tło */
-}
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      color: #222;
+      background-color: white;
+    }
 
+    /* --- Sekcja Header --- */
+    header {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
 
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
 
-/* Sekcja nagłówka */
+    header * {
+      position: relative;
+      z-index: 1;
+    }
 
+    .bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.7;
+    }
 
+    @keyframes fadeInText {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
+    .fade-start {
+      opacity: 0;
+      animation: fadeInText 0.5s ease-out forwards;
+      animation-delay: 0.1s;
+    }
 
-header {
-  position: relative; 							/* Potrzebne dla absolutnych dzieci */
-  height: 100vh; 								/* 100% wysokości widoku */
-  display: flex; 								/* Flexbox dla centrowania */
-  flex-direction: column; 						/* Ustawienie elementów w kolumnie */
-  justify-content: center; 						/* Wyśrodkowanie w pionie */
-  align-items: center; 							/* Wyśrodkowanie w poziomie */
-  text-align: center; 							/* Wyrównanie tekstu do środka */
-  color: white; 								/* Biały kolor tekstu */
-  overflow: hidden; 							/* Ukrycie nadmiaru (np. video tła) */
-}
+    .fade-later {
+      opacity: 0;
+      animation: fadeInText 1.2s ease-out forwards;
+      animation-delay: 0.6s;
+    }
 
-/* Półprzezroczysta nakładka na wideo */
-header::before {
-  content: ''; 									/* Wymagane do działania pseudo-elementu */
-  position: absolute; 							/* Nakładka musi być absolutnie pozycjonowana */
-  inset: 0; 									/* Skrócone: top: 0; right: 0; bottom: 0; left: 0 */
-  background: rgba(0, 0, 0, 0.4); 				/* Ciemne przezroczyste tło */
-  z-index: 0; 									/* Z tyłu za całą zawartością */
-}
+    header img {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      max-width: 250px;
+    }
 
-/* Wszystkie elementy wewnątrz headera są nad warstwą tła */
-header * {
-  position: relative;
-  z-index: 1;
-}
+    nav {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+    }
 
-/* Wideo jako tło */
-.bg-video {
-  position: absolute; 							/* Aby pokryć cały header */
-  inset: 0; 									/* Pokrycie całego kontenera */
-  width: 100%; 									/* Pełna szerokość */
-  height: 100%; 								/* Pełna wysokość */
-  object-fit: cover; 							/* Dopasowanie obrazu bez rozciągania */
-  z-index: -1; 									/* Umieszczone pod wszystkimi warstwami */
-  opacity: 0.7; 								/* Delikatne przyciemnienie */
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      font-size: 1.4em;
+      text-shadow: 0 0 10px rgba(0,0,0,1);
+    }
 
-/* ANIMACJA fadeInText – przesunięcie z dołu i zanikanie */
-@keyframes fadeInText {
-  from {
-    opacity: 0; /* Start – niewidoczny */
-    transform: translateY(40px); 				/* Start – przesunięcie w dół */
-  }
-  to {
-    opacity: 1; /* Koniec – widoczny */
-    transform: translateY(0); 					/* Koniec – na miejscu */
-  }
-}
+    header h1 {
+      font-size: 3.5em;
+      line-height: 1.2;
+      max-width: 90%;
+      padding: 0 20px;
+      text-shadow: 0 0 15px rgba(0,0,0,0.7);
+      margin: 0;
+      position: relative;
+      top: -20px;
+    }
 
-/* Klasa do użycia dla animacji elementu jako pierwszy */
-.fade-start {
-  opacity: 0; 									/* Ukrycie początkowe */
-  animation: fadeInText 0.5s ease-out forwards; /* Użycie animacji */
-  animation-delay: 0.1s; 						/* Opóźnienie przed rozpoczęciem */
-}
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      padding: 0 20px;
+      text-align: center;
+      z-index: 2;
+    }
 
-/* Klasa do użycia dla animacji elementu z większym opóźnieniem */
-.fade-later {
-  opacity: 0;
-  animation: fadeInText 1.2s ease-out forwards;
-  animation-delay: 0.6s;
-}
+    /* --- Sekcja Oferta --- */
+    .highlight {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: white;
+    }
 
-/* Styl logotypu */
-header img {
-  position: absolute; 					/* Pozycjonowanie w rogu */
-  top: 20px; 							/* Odległość od góry */
-  left: 30px; 							/* Odległość od lewej */
-  max-width: 250px; 					/* Ograniczenie szerokości */
-}
+    .highlight-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.5em;
+      line-height: 1.6;
+    }
 
-/* Nawigacja – pozycjonowanie w prawym górnym rogu */
-nav {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-}
+    .highlight-inner h2 {
+      font-size: 2.4em;
+      margin: 80px 0 30px;
+    }
 
-/* Linki w nawigacji */
-nav a {
-  color: white; 						/* Kolor tekstu */
-  text-decoration: none; 				/* Bez podkreślenia */
-  margin-left: 20px; 					/* Odstęp między linkami */
-  font-weight: bold; 					/* Pogrubienie */
-  font-size: 1.4em; 					/* Większy rozmiar tekstu */
-  text-shadow: 0 0 10px rgba(0,0,0,1); 	/* Cień tekstu */
-}
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      justify-items: center;
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-/* Nagłówek główny w sekcji header */
-header h1 {
-  font-size: 3.5em;                /* Lekko zmniejszona czcionka, lepsza równowaga */
-  line-height: 1.2;                /* Zmniejszony odstęp między liniami */
-  max-width: 90%;                  /* Zapobiega rozciąganiu na całej szerokości */
-  padding: 0 20px;                 /* Dodany poziomy padding */
-  text-shadow: 0 0 15px rgba(0,0,0,0.7); /* Mocniejszy cień dla lepszej czytelności */
-  margin: 0;                       /* Reset marginesów */
-  position: relative;             
-  top: -20px;                      /* Delikatne podniesienie (można dostroić) */
-}
+    .icon-grid p {
+      font-size: 1.5em;
+      line-height: 1.6;
+    }
 
-.header-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;               /* Zapewnia centrowanie na całym ekranie */
-  width: 100%;
-  padding: 0 20px;
-  text-align: center;
-  z-index: 2;
-}
+    .icon-grid h3 {
+      font-size: 2em;
+      line-height: 1.6;
+    }
 
+    .icon-grid > div {
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      background-color: white;
+      border-radius: 8px;
+    }
 
+    .icon-grid > div:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
 
- /* Sekcja Oferta */
- 
- 
- 
- 
-/* Sekcja nagłówka dla siatki ikon */
-.highlight {
-  padding: 60px 20px;               /* Pionowy i poziomy padding */
-  text-align: center;              /* Wyśrodkowanie tekstu */
-  background-color: white;   
-}
+    /* --- Sekcja Dla Kogo --- */
+    .dla-kogo-bg {
+      background: #f4f4f4;
+      color: black;
+      width: 100%;
+      padding: 100px 20px;
+      margin-bottom: 0px;
+    }
 
-/* Kontener wewnętrzny – ogranicza szerokość i poprawia czytelność */
-.highlight-inner {
-  max-width: 900px;                /* Maksymalna szerokość treści */
-  margin: 0 auto;                  /* Wyśrodkowanie w poziomie */
-  font-size: 1.5em;                /* Powiększenie tekstu */
-  line-height: 1.6;                /* Zwiększony odstęp między wierszami */
-  text-align: center;
-  background-color: white; 
-}
+    .dla-kogo-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      font-size: 1.4em;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      gap: 150px;
+    }
 
-/* Nagłówek sekcji */
-.highlight-inner h2 {
-  font-size: 2.4em;                /* Duży nagłówek */
-  margin-bottom: 30px;            /* Odstęp pod nagłówkiem */
-  margin-top: 80px;            /* Odstęp pod nagłówkiem */
-  text-align: center;
-  background-color: white; 
-}
+    .dla-kogo-inner h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 2.8em;
+      line-height: 1.2;
+    }
 
-/* Siatka ikon – np. z usługami */
-.icon-grid {
-  display: grid;                               	/* Użycie siatki CSS */
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-  /* Automatyczne dopasowanie liczby kolumn, każda min 220px */
-  gap: 40px;                                   	/* Odstęp między elementami siatki */
-  justify-items: center;                      	/* Wyśrodkowanie zawartości w kolumnach */
-  padding: 80px 20px;                         	/* Odstępy wewnętrzne sekcji */
-  max-width: 1200px;                          	/* Maksymalna szerokość całej siatki */
-  margin: 0 auto;                             	/* Wyśrodkowanie na stronie */
-  background-color: white; 
-}
+    .dla-kogo-row {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
 
-/* Styl tekstu (paragrafów) w icon-grid */
-.icon-grid p {
-  font-size: 1.5em;                           /* Większy rozmiar czcionki */
-  line-height: 1.6;                           /* Odstęp między wierszami */
-}
+    .dla-kogo-row.reverse {
+      flex-direction: row-reverse;
+    }
 
-.icon-grid h3 {
-  font-size: 2em;                           /* Większy rozmiar czcionki */
-  line-height: 1.6;                           /* Odstęp między wierszami */
-}
+    .dla-kogo-text {
+      flex: 1;
+      max-width: 50%;
+    }
 
-/* Karta/sekcja ikony w siatce */
-.icon-grid > div {
-  width: 100%;                                	/* Pełna szerokość komórki */
-  padding: 20px;                              	/* Odstęp wewnętrzny */
-  display: flex;                              	/* Flexbox do pionowego ustawienia */
-  flex-direction: column;                     	/* Elementy w kolumnie */
-  align-items: center;                        	/* Wyśrodkowanie poziome */
-  text-align: center;                         	/* Tekst do środka */
-  transition: transform 0.3s, box-shadow 0.3s;	/* Animacje przy najechaniu */
-  background-color: white;                    	/* Białe tło kart */
-  border-radius: 8px;                        	/* Zaokrąglenie rogów */
-}
+    .dla-kogo-img {
+      flex: 1;
+      max-width: 50%;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      object-fit: cover;
+    }
 
-/* Animacja efektu unoszenia i cienia przy najechaniu */
-.icon-grid > div:hover {
-  transform: translateY(-10px);               /* Uniesienie do góry */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);    /* Lekki cień pod kartą */
-}
+    /* --- Sekcja Kontakt --- */
+    .kontakt-sekcja {
+      background: black;
+      color: white;
+      padding: 80px 20px;
+    }
 
+    .kontakt-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: stretch;
+      gap: 40px;
+	  margin-top: 50px;
+    }
 
+    .kontakt-lewa,
+    .kontakt-prawa {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-/* === SEKSCJA: Dla Kogo === */
+    .kontakt-lewa h2 {
+      font-size: 2.6em;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
 
+    .kontakt-lewa address {
+      font-style: normal;
+      margin-top: 20px;
+      line-height: 1.8;
+    }
 
+    .hala-zdjecie {
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 20px auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
 
-/* Tło sekcji */
-.dla-kogo-bg {
-  background: lightgrey;                 /* Tło sekcji */
-  color: black;                          /* Kolor tekstu */
-  width: 100vw;                          /* Pełna szerokość okna */
-  max-width: 100%;                       /* Ograniczenie do 100% */
-  padding: 100px 20px;                   /* Odstępy góra/dół + boki */
-}
+    .hala-cytat {
+      font-style: italic;
+      font-size: 1.1em;
+      color: #ccc;
+      text-align: center;
+      line-height: 1.5;
+      max-width: 500px;
+      margin: 0 auto;
+    }
 
-/* Kontener wewnętrzny sekcji */
-.dla-kogo-inner {
-  max-width: 1200px;                     /* Maksymalna szerokość kontenera */
-  margin: 0 auto;                        /* Wyśrodkowanie */
-  font-size: 1.4em;                      /* Większy tekst */
-  line-height: 1.6;                      /* Czytelność tekstu */
-  display: flex;
-  flex-direction: column;
-  gap: 150px;                             /* Odstęp między wierszami */
-}
+    .hala-cytat strong {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+      font-style: normal;
+    }
 
-/* Nagłówek sekcji */
-.dla-kogo-inner h2 {
-  text-align: center;
-  margin-bottom: 10px;
-  font-size: 2.8em;
-  line-height: 1.2;
-}
+    footer .copyright {
+      color: #aaa;
+      text-align: center;
+      font-size: 0.9em;
+      padding-top: 20px;
+	  margin-top: 150px;
+	  margin-bottom: -50px;
+    }
 
-/* Każdy rząd: tekst + zdjęcie */
-.dla-kogo-row {
-  display: flex;
-  align-items: center;                  /* Wyrównanie do środka */
-  gap: 40px;
-}
+    @media (max-width: 768px) {
+      .dla-kogo-row,
+      .kontakt-wrapper {
+        flex-direction: column;
+      }
 
-/* Dla naprzemiennego układu: zamiana kolejności wiersza */
-.dla-kogo-row.reverse {
-  flex-direction: row-reverse;         /* Odwraca kolejność: zdjęcie po lewej */
-}
+      .dla-kogo-text,
+      .dla-kogo-img {
+        max-width: 100%;
+      }
 
-/* Styl tekstu */
-.dla-kogo-text {
-  flex: 1;
-  max-width: 50%;
-}
+      .hala-zdjecie {
+        width: 180px;
+        height: 180px;
+      }
 
-/* Styl zdjęcia */
-.dla-kogo-img {
-  flex: 1;
-  max-width: 50%;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-  object-fit: cover;
-}
+      .hala-cytat {
+        font-size: 1em;
+        padding: 0 10px;
+      }
 
-
-
-    /* Sekcja kontaktu */
-
-
-.kontakt-sekcja {
-  background: black;
-  color: white;
-  padding: 80px 20px;
-}
-
-.kontakt-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: stretch; /* <- zapewnia równe wysokości kolumn */
-  gap: 40px;
-}
-
-.kontakt-lewa,
-.kontakt-prawa {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* lepsze wyrównanie w pionie */
-}
-
-/* Tekstowa część kontaktu */
-.kontakt-lewa h2 {
-  font-size: 2.6em;
-  margin-bottom: 20px;
-}
-
-.kontakt-lewa address {
-  font-style: normal;
-  margin-top: 20px;
-  line-height: 1.8;
-}
-
-/* Obraz profilowy właściciela */
-.hala-zdjecie {
-  width: 240px;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin: 0 auto 20px auto; /* centrowanie i odstęp */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
-
-/* Cytat pod zdjęciem */
-.hala-cytat {
-  font-style: italic;
-  font-size: 1.1em;
-  color: #ccc;
-  text-align: center;
-  line-height: 1.5;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.hala-cytat strong {
-  display: block;
-  margin-top: 20px;
-  font-weight: bold;
-  font-style: normal;
-}
-
-/* Stopka */
-footer .copyright {
-  color: #aaa;
-  text-align: center;
-  font-size: 0.9em;
-  margin-top: 80px;
-  padding-top: 20px;
-}
-
+      .kontakt-lewa,
+      .kontakt-prawa {
+        align-items: center;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
