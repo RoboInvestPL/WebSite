@@ -13,6 +13,7 @@
       color: #222;
       background-color: #fff;
     }
+
     header {
       position: relative;
       height: 100vh;
@@ -24,6 +25,7 @@
       color: white;
       text-align: center;
     }
+
     header::before {
       content: '';
       position: absolute;
@@ -32,25 +34,52 @@
       background: rgba(0, 0, 0, 0.4);
       z-index: 0;
     }
-    header * { position: relative; z-index: 1; }
-    .bg-video {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover; z-index: -1; opacity: 0.7;
+
+    header * {
+      position: relative;
+      z-index: 1;
     }
+
+    .bg-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.7;
+    }
+
+    /* ANIMACJE WPROWADZAJĄCE */
+    @keyframes fadeInText {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-start {
+      opacity: 0;
+      animation: fadeInText 1s ease-out forwards;
+      animation-delay: 0.3s;
+    }
+
+    .fade-later {
+      opacity: 0;
+      animation: fadeInText 1.5s ease-out forwards;
+      animation-delay: 1.5s;
+    }
+
     header img {
       position: absolute;
-      top: 20px; left: 30px;
+      top: 20px;
+      left: 30px;
       max-width: 250px;
-      opacity: 0;
-      animation: fadeInText 1s ease forwards 0.3s;
     }
+
     nav {
       position: absolute;
-      top: 20px; right: 30px;
-      opacity: 0;
-      animation: fadeInText 1s ease forwards 0.3s;
+      top: 20px;
+      right: 30px;
     }
+
     nav a {
       color: white;
       text-decoration: none;
@@ -59,46 +88,53 @@
       font-size: 2em;
       text-shadow: 0 0 10px rgba(0,0,0,1);
     }
+
     header h1 {
       font-size: 4em;
       line-height: 1.4;
       text-shadow: 0 0 10px rgba(0,0,0,1);
       max-width: 90%;
-      opacity: 0;
-      animation: fadeInText 1.5s ease forwards 1.3s;
     }
+
     .highlight {
       position: relative;
-      width: 100vw; max-width: 100%;
+      width: 100vw;
+      max-width: 100%;
       padding: 100px 20px;
       text-align: center;
       background-size: cover;
       background-position: center;
       color: #ffffff;
     }
+
     .highlight::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5); z-index: 0;
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
     }
+
     .highlight * {
-      position: relative; z-index: 1;
+      position: relative;
+      z-index: 1;
       text-shadow: 0 0 5px rgba(0,0,0,0.6);
     }
+
     .highlight-inner {
-      max-width: 1200px;
-	  max-width: 900px;
+      max-width: 900px;
       margin: 0 auto;
       font-size: 1.5em;
       line-height: 1.6;
     }
 
-    .highlight h2{
-	text-align: center;
-	margin-bottom: 40px;
-	font-size: 2.8em;
+    .highlight h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.8em;
     }
-	
+
     .icon-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -108,13 +144,12 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-	
-	.icon-grid p{
-	  font-size: 1.5em;
+
+    .icon-grid p {
+      font-size: 1.5em;
       line-height: 1.6;
     }
-	
-	
+
     .icon-grid > div {
       width: 100%;
       padding: 20px;
@@ -126,10 +161,12 @@
       background-color: #fff;
       border-radius: 8px;
     }
+
     .icon-grid > div:hover {
       transform: translateY(-10px);
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
+
     .dla-kogo-bg {
       background: url('obrazy/dla-kogo.jpg') center/cover no-repeat;
       color: #fff;
@@ -138,6 +175,7 @@
       padding: 100px 20px;
       text-shadow: 0 0 5px rgba(0,0,0,0.6);
     }
+
     .dla-kogo-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -148,134 +186,123 @@
       gap: 80px;
       padding: 0 20px;
     }
-	
+
     .dla-kogo-inner p {
       max-width: 600px;
     }
-	
-	.dla-kogo-inner h2 {
-	text-align: center;
-	margin-bottom: 40px;
-	font-size: 2.8em;
-	line-height: 1.2;
+
+    .dla-kogo-inner h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.8em;
+      line-height: 1.2;
     }
-	
+
     .left-half { text-align: left; align-self: flex-start; }
     .right-half { text-align: right; align-self: flex-end; }
-    footer {
-      background: #111;
+
+    /* Styl kontaktu */
+    .kontakt-sekcja {
+      background-color: #111;
       color: white;
       padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      font-size: 1.2em;
+      line-height: 1.6;
     }
 
-.kontakt-sekcja {
-  background-color: #111;
-  color: white;
-  padding: 80px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 40px;
-  font-size: 1.2em;
-  line-height: 1.6;
-}
-
-.kontakt-lewa {
-  flex: 1 1 400px;
-}
-
-.kontakt-lewa h2 {
-  font-size: 2.5em;
-  margin-bottom: 30px;
-  text-align: left;
-}
-
-.kontakt-lewa h2 span {
-  color: #ffcc00;
-}
-
-.kontakt-lewa address {
-  font-style: normal;
-  margin-top: 20px;
-  line-height: 1.8;
-}
-
-.formularz-kontaktowa {
-  flex: 1 1 400px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.formularz-kontaktowa input,
-.formularz-kontaktowa textarea {
-  background-color: #222;
-  color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 5px;
-  font-size: 1em;
-}
-
-.formularz-kontaktowa input::placeholder,
-.formularz-kontaktowa textarea::placeholder {
-  color: #aaa;
-}
-
-.formularz-kontaktowa .zgoda {
-  display: flex;
-  gap: 10px;
-  font-size: 0.9em;
-  color: #ccc;
-  align-items: flex-start;
-  line-height: 1.4;
-}
-
-.formularz-kontaktowa .zgoda input {
-  margin-top: 5px;
-}
-
-.formularz-kontaktowa button {
-  background-color: #ffcc00;
-  color: #000;
-  padding: 14px;
-  border: none;
-  font-size: 1.1em;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.formularz-kontaktowa button:hover {
-  background-color: #e6b800;
-}
-
-footer .copyright {
-  background: #111;
-  color: #aaa;
-  text-align: center;
-  padding: 30px 20px;
-  font-size: 0.9em;
-}
-
-@media (max-width: 768px) {
-  .kontakt-sekcja {
-    flex-direction: column;
-  }
-
-  .kontakt-lewa h2 {
-    text-align: center;
-  }
-}
-
-
+    .kontakt-lewa {
+      flex: 1 1 400px;
     }
-    @keyframes fadeInText {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    .kontakt-lewa h2 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    .kontakt-lewa h2 span {
+      color: #ffcc00;
+    }
+
+    .kontakt-lewa address {
+      font-style: normal;
+      margin-top: 20px;
+      line-height: 1.8;
+    }
+
+    .formularz-kontaktowa {
+      flex: 1 1 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .formularz-kontaktowa input,
+    .formularz-kontaktowa textarea {
+      background-color: #222;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    .formularz-kontaktowa input::placeholder,
+    .formularz-kontaktowa textarea::placeholder {
+      color: #aaa;
+    }
+
+    .formularz-kontaktowa .zgoda {
+      display: flex;
+      gap: 10px;
+      font-size: 0.9em;
+      color: #ccc;
+      align-items: flex-start;
+      line-height: 1.4;
+    }
+
+    .formularz-kontaktowa .zgoda input {
+      margin-top: 5px;
+    }
+
+    .formularz-kontaktowa button {
+      background-color: #ffcc00;
+      color: #000;
+      padding: 14px;
+      border: none;
+      font-size: 1.1em;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .formularz-kontaktowa button:hover {
+      background-color: #e6b800;
+    }
+
+    footer .copyright {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+      .kontakt-sekcja {
+        flex-direction: column;
+      }
+
+      .kontakt-lewa h2 {
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -285,13 +312,13 @@ footer .copyright {
   <video autoplay muted loop playsinline class="bg-video">
     <source src="filmy/film.mp4" type="video/mp4">
   </video>
-  <img src="ikony/logo.svg" alt="RoboInvest">
-  <nav>
+  <img src="ikony/logo.svg" alt="RoboInvest" class="fade-start">
+  <nav class="fade-start">
     <a href="#oferta">Oferta</a>
     <a href="#dla-kogo">Dla kogo</a>
     <a href="#kontakt">Kontakt</a>
   </nav>
-  <h1>TWÓJ PARTNER<br>W ŚWIADOMEJ<br>AUTOMATYZACJI PRODUKCJI</h1>
+  <h1 class="fade-later">TWÓJ PARTNER<br>W ŚWIADOMEJ<br>AUTOMATYZACJI PRODUKCJI</h1>
 </header>
 
 <section class="highlight" id="oferta">
