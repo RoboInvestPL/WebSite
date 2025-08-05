@@ -16,7 +16,7 @@ body {
   margin: 0; 									/* Usunięcie marginesów */
   font-family: 'DM Sans', sans-serif;			/* Główna czcionka */
   color: #222; 									/* Kolor tekstu */
-  background-color: #fff; 						/* Białe tło */
+  background-color: white; 						/* Białe tło */
 }
 
 
@@ -117,12 +117,27 @@ nav a {
 
 /* Nagłówek główny w sekcji header */
 header h1 {
-  font-size: 4em; 						/* Duża czcionka */
-  line-height: 1.4;						/* Odstęp między wierszami */
-  max-width: 90%; 						/* Szerokość ograniczona */
-  text-shadow: 0 0 10px rgba(0,0,0,1); 	/* Cień dla czytelności */
+  font-size: 3.5em;                /* Lekko zmniejszona czcionka, lepsza równowaga */
+  line-height: 1.2;                /* Zmniejszony odstęp między liniami */
+  max-width: 90%;                  /* Zapobiega rozciąganiu na całej szerokości */
+  padding: 0 20px;                 /* Dodany poziomy padding */
+  text-shadow: 0 0 15px rgba(0,0,0,0.7); /* Mocniejszy cień dla lepszej czytelności */
+  margin: 0;                       /* Reset marginesów */
+  position: relative;             
+  top: -20px;                      /* Delikatne podniesienie (można dostroić) */
 }
 
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;               /* Zapewnia centrowanie na całym ekranie */
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+  z-index: 2;
+}
 
 
 
@@ -131,7 +146,7 @@ header h1 {
  
  
  
-./* Sekcja nagłówka dla siatki ikon */
+/* Sekcja nagłówka dla siatki ikon */
 .highlight {
   padding: 60px 20px;               /* Pionowy i poziomy padding */
   text-align: center;              /* Wyśrodkowanie tekstu */
@@ -145,6 +160,7 @@ header h1 {
   font-size: 1.5em;                /* Powiększenie tekstu */
   line-height: 1.6;                /* Zwiększony odstęp między wierszami */
   text-align: center;
+  background-color: white; 
 }
 
 /* Nagłówek sekcji */
@@ -153,6 +169,7 @@ header h1 {
   margin-bottom: 30px;            /* Odstęp pod nagłówkiem */
   margin-top: 80px;            /* Odstęp pod nagłówkiem */
   text-align: center;
+  background-color: white; 
 }
 
 /* Siatka ikon – np. z usługami */
@@ -165,6 +182,7 @@ header h1 {
   padding: 80px 20px;                         	/* Odstępy wewnętrzne sekcji */
   max-width: 1200px;                          	/* Maksymalna szerokość całej siatki */
   margin: 0 auto;                             	/* Wyśrodkowanie na stronie */
+  background-color: white; 
 }
 
 /* Styl tekstu (paragrafów) w icon-grid */
@@ -187,7 +205,7 @@ header h1 {
   align-items: center;                        	/* Wyśrodkowanie poziome */
   text-align: center;                         	/* Tekst do środka */
   transition: transform 0.3s, box-shadow 0.3s;	/* Animacje przy najechaniu */
-  background-color: #fff;                    	/* Białe tło kart */
+  background-color: white;                    	/* Białe tło kart */
   border-radius: 8px;                        	/* Zaokrąglenie rogów */
 }
 
@@ -263,78 +281,77 @@ header h1 {
     /* Sekcja kontaktu */
 
 
-/* Sekcja kontaktu - ogólne tło i kolor tekstu */
 .kontakt-sekcja {
-   background: black;       /* Ciemne tło dla kontrastu */
-  color: white;                /* Jasny tekst na ciemnym tle */
-  padding: 80px 20px;          /* Wewnętrzne marginesy */
+  background: black;
+  color: white;
+  padding: 80px 20px;
 }
 
-/* Kontener wewnętrzny - układ Flexbox */
 .kontakt-wrapper {
-  max-width: 1200px;           /* Ograniczenie szerokości sekcji */
-  margin: 0 auto;              /* Wyśrodkowanie na stronie */
-  display: flex;               /* Flexbox do ustawienia kolumn */
-  align-items: flex-start;     /* Wyrównanie górnych krawędzi elementów */
-  gap: 40px;                   /* Odstęp między kolumnami */
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch; /* <- zapewnia równe wysokości kolumn */
+  gap: 40px;
 }
 
-/* Nagłówek w lewej kolumnie */
-.kontakt-lewa h2 {
-  font-size: 3em;              /* Duży nagłówek */
-  margin-bottom: 20px;         /* Odstęp poniżej nagłówka */
-}
-
-/* Adres kontaktowy */
-.kontakt-lewa address {
-  font-style: normal;          /* Normalny styl czcionki (bez kursywy) */
-  margin-top: 20px;            /* Odstęp od poprzedniego elementu */
-  line-height: 1.8;            /* Odstęp między liniami */
-}
-
-/* Ustawienia obu kolumn (lewej i prawej) */
 .kontakt-lewa,
 .kontakt-prawa {
-  flex: 1;                     /* Obie kolumny mają równą szerokość */
-  display: flex;               /* Flexbox wewnątrz kolumn */
-  flex-direction: column;      /* Układ pionowy */
-  justify-content: flex-start; /* Wyrównanie zawartości do góry */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* lepsze wyrównanie w pionie */
 }
 
-/* Obraz hali po prawej stronie */
-.kontakt-prawa img.hala-zdjecie {
-  width: 100%;                 /* Obraz zajmuje całą szerokość kontenera */
-  max-width: 100%;             /* Nie przekracza szerokości kontenera */
-  border-radius: 10px;         /* Zaokrąglone rogi */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Cień */
-  margin-bottom: 10px;         /* Odstęp poniżej zdjęcia */
+/* Tekstowa część kontaktu */
+.kontakt-lewa h2 {
+  font-size: 2.6em;
+  margin-bottom: 20px;
 }
 
-/* Styl cytatu pod zdjęciem */
+.kontakt-lewa address {
+  font-style: normal;
+  margin-top: 20px;
+  line-height: 1.8;
+}
+
+/* Obraz profilowy właściciela */
+.hala-zdjecie {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 20px auto; /* centrowanie i odstęp */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Cytat pod zdjęciem */
 .hala-cytat {
-  font-style: italic;          /* Kursywa */
-  font-size: 1.1em;            /* Średni rozmiar czcionki */
-  color: #ccc;                 /* Jasnoszary kolor tekstu */
-  text-align: center;          /* Wyśrodkowanie tekstu */
-  line-height: 1.5;            /* Wysokość linii */
+  font-style: italic;
+  font-size: 1.1em;
+  color: #ccc;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-/* Podpis pod cytatem */
 .hala-cytat strong {
-  display: block;              /* Nowy wiersz */
-  margin-top: 20px;            /* Odstęp nad podpisem */
-  font-weight: bold;           /* Pogrubienie */
-  font-style: normal;          /* Bez kursywy */
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+  font-style: normal;
 }
 
-/* Stopka - informacje o prawach autorskich */
+/* Stopka */
 footer .copyright {
-  background: #111;            /* Tło jak reszta sekcji kontakt */
-  color: #aaa;                 /* Jasnoszary tekst */
-  text-align: center;          /* Wyśrodkowanie */
-  padding: 30px 20px;          /* Marginesy wewnętrzne */
-  font-size: 0.9em;            /* Mniejszy tekst */
+  color: #aaa;
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 80px;
+  padding-top: 20px;
 }
+
   </style>
 </head>
 <body>
@@ -350,6 +367,7 @@ footer .copyright {
   <video autoplay muted loop playsinline class="bg-video">
     <source src="filmy/film.mp4" type="video/mp4">
   </video>
+<div class="header-content">
   <img src="ikony/Logo.svg" alt="RoboInvest" class="fade-start">
   <nav class="fade-start">
     <a href="#oferta">Oferta</a>
@@ -357,6 +375,7 @@ footer .copyright {
     <a href="#kontakt">Kontakt</a>
   </nav>
   <h1 class="fade-later">TWÓJ PARTNER<br>W ŚWIADOMEJ<br>AUTOMATYZACJI PRODUKCJI</h1>
+</div>
 </header>
 
   <!-- Sekcja: Usługi - siatka ikon -->
@@ -476,32 +495,34 @@ footer .copyright {
   <section class="kontakt-sekcja">
     <div class="kontakt-wrapper">
       
-      <!-- LEWA STRONA: Kontakt -->
       <div class="kontakt-lewa">
         <h2>Jesteś zainteresowany<br>współpracą?</h2>
 
         <p>Skontaktuj się z nami mailowo lub telefonicznie</p>
-        <p><strong>biuro.roboinvest@gmail.com</strong><br><strong>+48 531 402 009</strong></p>
+        <address>
+          <strong>e-mail:</strong> biuro.roboinvest@gmail.com<br>
+          <strong>m:</strong> +48 531 402 009
+        </address>
 
         <address>
           <strong>RoboInvest Kamil Dzik</strong><br>
-          NIP 1234567890<br>
-          REGON 123456789
+          NIP: 8943024691<br>
+          REGON: 528421610
         </address>
       </div>
 
-      <!-- PRAWA STRONA: Zdjęcie + Cytat -->
       <div class="kontakt-prawa">
-  <img src="obrazy/ja.jpg" alt="Właściciel firmy" class="hala-zdjecie">
-  <blockquote class="hala-cytat">
-    "Właściwie przygotowane środowisko, szczegółowo zdefiniowany zakres oraz rzetelnie realizowany plan to podstawa świadomej automatyzacji która jest kluczem do maksymalizacji korzyści z wykorzystania automatyki przemysłowej."
-    <strong>KAMIL DZIK</strong>
-  </blockquote>
-</div>
+        <img src="obrazy/ja.jpg" alt="Właściciel firmy" class="hala-zdjecie">
+        <blockquote class="hala-cytat">
+          "Właściwie przygotowane środowisko, szczegółowo zdefiniowany zakres oraz rzetelnie realizowany plan to podstawa świadomej automatyzacji która jest kluczem do maksymalizacji korzyści z wykorzystania automatyki przemysłowej."
+          <strong>KAMIL DZIK</strong>
+        </blockquote>
+      </div>
 
-    </div>
+    </div> 
+
+    <p class="copyright">&copy; 2025 RoboInvest Kamil Dzik</p>
   </section>
-  <p class="copyright">&copy; 2025 RoboInvest Kamil Dzik</p>
 </footer>
 
 </body>
