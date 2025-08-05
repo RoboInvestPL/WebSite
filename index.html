@@ -4,310 +4,348 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RoboInvest</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      color: #222;
-      background-color: #fff;
-    }
+   /* Ustawienie modelu pudełkowego na border-box dla wszystkich elementów */
+* {
+  box-sizing: border-box;
+}
 
-    header {
-      position: relative;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-    }
+/* Ustawienia ogólne dla całego dokumentu */
+body {
+  margin: 0; 									/* Usunięcie marginesów */
+  font-family: 'DM Sans', sans-serif;			/* Główna czcionka */
+  color: #222; 									/* Kolor tekstu */
+  background-color: #fff; 						/* Białe tło */
+}
 
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 0;
-    }
 
-    header * {
-      position: relative;
-      z-index: 1;
-    }
 
-    .bg-video {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.7;
-    }
+/* Sekcja nagłówka */
 
-    /* ANIMACJE WPROWADZAJĄCE */
-    @keyframes fadeInText {
-      from { opacity: 0; transform: translateY(40px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
 
-    .fade-start {
-      opacity: 0;
-      animation: fadeInText 0.5s ease-out forwards;
-      animation-delay: 0.1s;
-    }
 
-    .fade-later {
-      opacity: 0;
-      animation: fadeInText 1.2s ease-out forwards;
-      animation-delay: 0.6s;
-    }
 
-    header img {
-      position: absolute;
-      top: 20px;
-      left: 30px;
-      max-width: 250px;
-    }
+header {
+  position: relative; 							/* Potrzebne dla absolutnych dzieci */
+  height: 100vh; 								/* 100% wysokości widoku */
+  display: flex; 								/* Flexbox dla centrowania */
+  flex-direction: column; 						/* Ustawienie elementów w kolumnie */
+  justify-content: center; 						/* Wyśrodkowanie w pionie */
+  align-items: center; 							/* Wyśrodkowanie w poziomie */
+  text-align: center; 							/* Wyrównanie tekstu do środka */
+  color: white; 								/* Biały kolor tekstu */
+  overflow: hidden; 							/* Ukrycie nadmiaru (np. video tła) */
+}
 
-    nav {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-    }
+/* Półprzezroczysta nakładka na wideo */
+header::before {
+  content: ''; 									/* Wymagane do działania pseudo-elementu */
+  position: absolute; 							/* Nakładka musi być absolutnie pozycjonowana */
+  inset: 0; 									/* Skrócone: top: 0; right: 0; bottom: 0; left: 0 */
+  background: rgba(0, 0, 0, 0.4); 				/* Ciemne przezroczyste tło */
+  z-index: 0; 									/* Z tyłu za całą zawartością */
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-      font-size: 1.4em;
-      text-shadow: 0 0 10px rgba(0,0,0,1);
-    }
+/* Wszystkie elementy wewnątrz headera są nad warstwą tła */
+header * {
+  position: relative;
+  z-index: 1;
+}
 
-    header h1 {
-      font-size: 4em;
-      line-height: 1.4;
-      text-shadow: 0 0 10px rgba(0,0,0,1);
-      max-width: 90%;
-    }
+/* Wideo jako tło */
+.bg-video {
+  position: absolute; 							/* Aby pokryć cały header */
+  inset: 0; 									/* Pokrycie całego kontenera */
+  width: 100%; 									/* Pełna szerokość */
+  height: 100%; 								/* Pełna wysokość */
+  object-fit: cover; 							/* Dopasowanie obrazu bez rozciągania */
+  z-index: -1; 									/* Umieszczone pod wszystkimi warstwami */
+  opacity: 0.7; 								/* Delikatne przyciemnienie */
+}
 
-    .highlight {
-      position: relative;
-      width: 100vw;
-      max-width: 100%;
-      padding: 100px 20px;
-      text-align: center;
-      background-size: cover;
-      background-position: center;
-      color: #ffffff;
-    }
+/* ANIMACJA fadeInText – przesunięcie z dołu i zanikanie */
+@keyframes fadeInText {
+  from {
+    opacity: 0; /* Start – niewidoczny */
+    transform: translateY(40px); 				/* Start – przesunięcie w dół */
+  }
+  to {
+    opacity: 1; /* Koniec – widoczny */
+    transform: translateY(0); 					/* Koniec – na miejscu */
+  }
+}
 
-    .highlight::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 0;
-    }
+/* Klasa do użycia dla animacji elementu jako pierwszy */
+.fade-start {
+  opacity: 0; 									/* Ukrycie początkowe */
+  animation: fadeInText 0.5s ease-out forwards; /* Użycie animacji */
+  animation-delay: 0.1s; 						/* Opóźnienie przed rozpoczęciem */
+}
 
-    .highlight * {
-      position: relative;
-      z-index: 1;
-      text-shadow: 0 0 5px rgba(0,0,0,0.6);
-    }
+/* Klasa do użycia dla animacji elementu z większym opóźnieniem */
+.fade-later {
+  opacity: 0;
+  animation: fadeInText 1.2s ease-out forwards;
+  animation-delay: 0.6s;
+}
 
-    .highlight-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      font-size: 1.5em;
-      line-height: 1.6;
-    }
+/* Styl logotypu */
+header img {
+  position: absolute; 					/* Pozycjonowanie w rogu */
+  top: 20px; 							/* Odległość od góry */
+  left: 30px; 							/* Odległość od lewej */
+  max-width: 250px; 					/* Ograniczenie szerokości */
+}
 
-    .highlight h2 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 2.8em;
-    }
+/* Nawigacja – pozycjonowanie w prawym górnym rogu */
+nav {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
 
-    .icon-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 40px;
-      justify-items: center;
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+/* Linki w nawigacji */
+nav a {
+  color: white; 						/* Kolor tekstu */
+  text-decoration: none; 				/* Bez podkreślenia */
+  margin-left: 20px; 					/* Odstęp między linkami */
+  font-weight: bold; 					/* Pogrubienie */
+  font-size: 1.4em; 					/* Większy rozmiar tekstu */
+  text-shadow: 0 0 10px rgba(0,0,0,1); 	/* Cień tekstu */
+}
 
-    .icon-grid p {
-      font-size: 1.5em;
-      line-height: 1.6;
-    }
+/* Nagłówek główny w sekcji header */
+header h1 {
+  font-size: 4em; 						/* Duża czcionka */
+  line-height: 1.4;						/* Odstęp między wierszami */
+  max-width: 90%; 						/* Szerokość ograniczona */
+  text-shadow: 0 0 10px rgba(0,0,0,1); 	/* Cień dla czytelności */
+}
 
-    .icon-grid > div {
-      width: 100%;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-      background-color: #fff;
-      border-radius: 8px;
-    }
 
-    .icon-grid > div:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
 
-    .dla-kogo-bg {
-      background: url('obrazy/dla-kogo.jpg') center/cover no-repeat;
-      color: #fff;
-      width: 100vw;
-      max-width: 100%;
-      padding: 100px 20px;
-      text-shadow: 0 0 5px rgba(0,0,0,0.6);
-    }
 
-    .dla-kogo-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      font-size: 1.5em;
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      gap: 80px;
-      padding: 0 20px;
-    }
+ /* Sekcja Oferta */
+ 
+ 
+ 
+ 
+./* Sekcja nagłówka dla siatki ikon */
+.highlight {
+  padding: 60px 20px;               /* Pionowy i poziomy padding */
+  text-align: center;              /* Wyśrodkowanie tekstu */
+  background-color: white;   
+}
 
-    .dla-kogo-inner p {
-      max-width: 600px;
-    }
+/* Kontener wewnętrzny – ogranicza szerokość i poprawia czytelność */
+.highlight-inner {
+  max-width: 900px;                /* Maksymalna szerokość treści */
+  margin: 0 auto;                  /* Wyśrodkowanie w poziomie */
+  font-size: 1.5em;                /* Powiększenie tekstu */
+  line-height: 1.6;                /* Zwiększony odstęp między wierszami */
+  text-align: center;
+}
 
-    .dla-kogo-inner h2 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 2.8em;
-      line-height: 1.2;
-    }
+/* Nagłówek sekcji */
+.highlight-inner h2 {
+  font-size: 2.4em;                /* Duży nagłówek */
+  margin-bottom: 30px;            /* Odstęp pod nagłówkiem */
+  margin-top: 80px;            /* Odstęp pod nagłówkiem */
+  text-align: center;
+}
 
-    .left-half { text-align: left; align-self: flex-start; }
-    .right-half { text-align: right; align-self: flex-end; }
+/* Siatka ikon – np. z usługami */
+.icon-grid {
+  display: grid;                               	/* Użycie siatki CSS */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+  /* Automatyczne dopasowanie liczby kolumn, każda min 220px */
+  gap: 40px;                                   	/* Odstęp między elementami siatki */
+  justify-items: center;                      	/* Wyśrodkowanie zawartości w kolumnach */
+  padding: 80px 20px;                         	/* Odstępy wewnętrzne sekcji */
+  max-width: 1200px;                          	/* Maksymalna szerokość całej siatki */
+  margin: 0 auto;                             	/* Wyśrodkowanie na stronie */
+}
 
-    /* Styl kontaktu */
-    .kontakt-sekcja {
-      background-color: #111;
-      color: white;
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 40px;
-      font-size: 1.2em;
-      line-height: 1.6;
-    }
+/* Styl tekstu (paragrafów) w icon-grid */
+.icon-grid p {
+  font-size: 1.5em;                           /* Większy rozmiar czcionki */
+  line-height: 1.6;                           /* Odstęp między wierszami */
+}
 
-    .kontakt-lewa {
-      flex: 1 1 400px;
-    }
+.icon-grid h3 {
+  font-size: 2em;                           /* Większy rozmiar czcionki */
+  line-height: 1.6;                           /* Odstęp między wierszami */
+}
 
-    .kontakt-lewa h2 {
-      font-size: 2.5em;
-      margin-bottom: 30px;
-      text-align: left;
-    }
+/* Karta/sekcja ikony w siatce */
+.icon-grid > div {
+  width: 100%;                                	/* Pełna szerokość komórki */
+  padding: 20px;                              	/* Odstęp wewnętrzny */
+  display: flex;                              	/* Flexbox do pionowego ustawienia */
+  flex-direction: column;                     	/* Elementy w kolumnie */
+  align-items: center;                        	/* Wyśrodkowanie poziome */
+  text-align: center;                         	/* Tekst do środka */
+  transition: transform 0.3s, box-shadow 0.3s;	/* Animacje przy najechaniu */
+  background-color: #fff;                    	/* Białe tło kart */
+  border-radius: 8px;                        	/* Zaokrąglenie rogów */
+}
 
-    .kontakt-lewa h2 span {
-      color: #ffcc00;
-    }
+/* Animacja efektu unoszenia i cienia przy najechaniu */
+.icon-grid > div:hover {
+  transform: translateY(-10px);               /* Uniesienie do góry */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);    /* Lekki cień pod kartą */
+}
 
-    .kontakt-lewa address {
-      font-style: normal;
-      margin-top: 20px;
-      line-height: 1.8;
-    }
 
-    .formularz-kontaktowa {
-      flex: 1 1 400px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
 
-    .formularz-kontaktowa input,
-    .formularz-kontaktowa textarea {
-      background-color: #222;
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 5px;
-      font-size: 1em;
-    }
+/* === SEKSCJA: Dla Kogo === */
 
-    .formularz-kontaktowa input::placeholder,
-    .formularz-kontaktowa textarea::placeholder {
-      color: #aaa;
-    }
 
-    .formularz-kontaktowa .zgoda {
-      display: flex;
-      gap: 10px;
-      font-size: 0.9em;
-      color: #ccc;
-      align-items: flex-start;
-      line-height: 1.4;
-    }
 
-    .formularz-kontaktowa .zgoda input {
-      margin-top: 5px;
-    }
+/* Tło sekcji */
+.dla-kogo-bg {
+  background: lightgrey;                 /* Tło sekcji */
+  color: black;                          /* Kolor tekstu */
+  width: 100vw;                          /* Pełna szerokość okna */
+  max-width: 100%;                       /* Ograniczenie do 100% */
+  padding: 100px 20px;                   /* Odstępy góra/dół + boki */
+}
 
-    .formularz-kontaktowa button {
-      background-color: #ffcc00;
-      color: #000;
-      padding: 14px;
-      border: none;
-      font-size: 1.1em;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
+/* Kontener wewnętrzny sekcji */
+.dla-kogo-inner {
+  max-width: 1200px;                     /* Maksymalna szerokość kontenera */
+  margin: 0 auto;                        /* Wyśrodkowanie */
+  font-size: 1.4em;                      /* Większy tekst */
+  line-height: 1.6;                      /* Czytelność tekstu */
+  display: flex;
+  flex-direction: column;
+  gap: 150px;                             /* Odstęp między wierszami */
+}
 
-    .formularz-kontaktowa button:hover {
-      background-color: #e6b800;
-    }
+/* Nagłówek sekcji */
+.dla-kogo-inner h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 2.8em;
+  line-height: 1.2;
+}
 
-    footer .copyright {
-      background: #111;
-      color: #aaa;
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 0.9em;
-    }
+/* Każdy rząd: tekst + zdjęcie */
+.dla-kogo-row {
+  display: flex;
+  align-items: center;                  /* Wyrównanie do środka */
+  gap: 40px;
+}
 
-    @media (max-width: 768px) {
-      .kontakt-sekcja {
-        flex-direction: column;
-      }
+/* Dla naprzemiennego układu: zamiana kolejności wiersza */
+.dla-kogo-row.reverse {
+  flex-direction: row-reverse;         /* Odwraca kolejność: zdjęcie po lewej */
+}
 
-      .kontakt-lewa h2 {
-        text-align: center;
-      }
-    }
+/* Styl tekstu */
+.dla-kogo-text {
+  flex: 1;
+  max-width: 50%;
+}
+
+/* Styl zdjęcia */
+.dla-kogo-img {
+  flex: 1;
+  max-width: 50%;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  object-fit: cover;
+}
+
+
+
+    /* Sekcja kontaktu */
+
+
+/* Sekcja kontaktu - ogólne tło i kolor tekstu */
+.kontakt-sekcja {
+   background: black;       /* Ciemne tło dla kontrastu */
+  color: white;                /* Jasny tekst na ciemnym tle */
+  padding: 80px 20px;          /* Wewnętrzne marginesy */
+}
+
+/* Kontener wewnętrzny - układ Flexbox */
+.kontakt-wrapper {
+  max-width: 1200px;           /* Ograniczenie szerokości sekcji */
+  margin: 0 auto;              /* Wyśrodkowanie na stronie */
+  display: flex;               /* Flexbox do ustawienia kolumn */
+  align-items: flex-start;     /* Wyrównanie górnych krawędzi elementów */
+  gap: 40px;                   /* Odstęp między kolumnami */
+}
+
+/* Nagłówek w lewej kolumnie */
+.kontakt-lewa h2 {
+  font-size: 3em;              /* Duży nagłówek */
+  margin-bottom: 20px;         /* Odstęp poniżej nagłówka */
+}
+
+/* Adres kontaktowy */
+.kontakt-lewa address {
+  font-style: normal;          /* Normalny styl czcionki (bez kursywy) */
+  margin-top: 20px;            /* Odstęp od poprzedniego elementu */
+  line-height: 1.8;            /* Odstęp między liniami */
+}
+
+/* Ustawienia obu kolumn (lewej i prawej) */
+.kontakt-lewa,
+.kontakt-prawa {
+  flex: 1;                     /* Obie kolumny mają równą szerokość */
+  display: flex;               /* Flexbox wewnątrz kolumn */
+  flex-direction: column;      /* Układ pionowy */
+  justify-content: flex-start; /* Wyrównanie zawartości do góry */
+}
+
+/* Obraz hali po prawej stronie */
+.kontakt-prawa img.hala-zdjecie {
+  width: 100%;                 /* Obraz zajmuje całą szerokość kontenera */
+  max-width: 100%;             /* Nie przekracza szerokości kontenera */
+  border-radius: 10px;         /* Zaokrąglone rogi */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Cień */
+  margin-bottom: 10px;         /* Odstęp poniżej zdjęcia */
+}
+
+/* Styl cytatu pod zdjęciem */
+.hala-cytat {
+  font-style: italic;          /* Kursywa */
+  font-size: 1.1em;            /* Średni rozmiar czcionki */
+  color: #ccc;                 /* Jasnoszary kolor tekstu */
+  text-align: center;          /* Wyśrodkowanie tekstu */
+  line-height: 1.5;            /* Wysokość linii */
+}
+
+/* Podpis pod cytatem */
+.hala-cytat strong {
+  display: block;              /* Nowy wiersz */
+  margin-top: 20px;            /* Odstęp nad podpisem */
+  font-weight: bold;           /* Pogrubienie */
+  font-style: normal;          /* Bez kursywy */
+}
+
+/* Stopka - informacje o prawach autorskich */
+footer .copyright {
+  background: #111;            /* Tło jak reszta sekcji kontakt */
+  color: #aaa;                 /* Jasnoszary tekst */
+  text-align: center;          /* Wyśrodkowanie */
+  padding: 30px 20px;          /* Marginesy wewnętrzne */
+  font-size: 0.9em;            /* Mniejszy tekst */
+}
   </style>
 </head>
 <body>
 
+
+
+
+
+
+
+  <!-- Sekcja: Nagłówek -->
 <header>
   <video autoplay muted loop playsinline class="bg-video">
     <source src="filmy/film.mp4" type="video/mp4">
@@ -321,7 +359,9 @@
   <h1 class="fade-later">TWÓJ PARTNER<br>W ŚWIADOMEJ<br>AUTOMATYZACJI PRODUKCJI</h1>
 </header>
 
-<section class="highlight" id="oferta">
+  <!-- Sekcja: Usługi - siatka ikon -->
+
+ <section class="highlight" id="oferta">
   <div class="highlight-inner">
     <h2>W czym możemy Ci pomóc?</h2>
     <p>
@@ -330,9 +370,8 @@
       Dobór odpowiedniej technologii, podzespołów czy poddostawcy będzie realizowany zgodnie z Twoim uzasadnieniem biznesowym. 
     </p>
   </div>
-</section>
-
-  <!-- Sekcja: Usługi - siatka ikon -->
+ </section>
+  
   <section>
     <div class="icon-grid">
       <div>
@@ -404,40 +443,64 @@
   </section>
 
   <!-- Sekcja: Dla kogo? -->
-  <section class="dla-kogo-bg" id="dla-kogo">
-    <div class="dla-kogo-inner">
-      <h2>Niezależnie na jakim etapie jest Twoja produkcja</h2>
-      <p class="left-half">
-        Korzystając z doświadczenia z pracy zarówno z globalnymi przedsiębiorstwami produkcyjnymi jak i integratorami automatyki przemysłowej możemy pomóc Twojemu przedsiębiorstwu niezależnie od rodzaju inwestycji. Czy to będzie integracja nowej linii produkcyjnej, zakup stanowisk półautomatycznych czy modernizacja starych maszyn jesteśmy przekonani, że wspólnymi siłami zakończymy każdy projekt sukcesem.
-      </p>
-      <p class="right-half">
-        Jeśli posiadasz już wysoce zautomatyzowany zakład produkcyjny, masz wypracowane standardy i procedury ale brakuje Ci kogoś kto poprowadzi kompleksowo Twoje przedsięwzięcia, z przyjemnością odciążymy Cię z szeregu obowiązków i zadbamy o najwyższą jakość prowadzenia projektu.
-      </p>
-      <p class="left-half">
-        Pomagamy również firmom usługowym z sektora IT w zrozumieniu świata automatyki przemysłowej i wypracowaniu wspólnej nici porozumienia przy łączeniu najnowocześniejszych technologii z standardami przemysłowymi. 
-      </p>
-    </div>
-  </section>
+  
+<section class="dla-kogo-bg" id="dla-kogo">
+  <div class="dla-kogo-inner">
+    <h2>Niezależnie na jakim etapie jest Twoja produkcja</h2>
 
-<!-- Kontakt -->
+    <div class="dla-kogo-row">
+      <div class="dla-kogo-text">
+        <p>Korzystając z doświadczenia z pracy zarówno z globalnymi przedsiębiorstwami produkcyjnymi jak i integratorami automatyki przemysłowej możemy pomóc Twojemu przedsiębiorstwu niezależnie od rodzaju inwestycji. Czy to będzie integracja nowej linii produkcyjnej, zakup stanowisk półautomatycznych czy modernizacja starych maszyn jesteśmy przekonani, że wspólnymi siłami zakończymy każdy projekt sukcesem. </p>
+      </div>
+      <img src="obrazy/produkcja.jpg" alt="" class="dla-kogo-img">
+    </div>
+
+    <div class="dla-kogo-row reverse">
+      <div class="dla-kogo-text">
+        <p>Jeśli posiadasz już wysoce zautomatyzowany zakład produkcyjny, masz wypracowane standardy i procedury ale brakuje Ci kogoś kto poprowadzi kompleksowo Twoje przedsięwzięcia, z przyjemnością odciążymy Cię z szeregu obowiązków i zadbamy o najwyższą jakość prowadzenia projektu.</p>
+      </div>
+      <img src="obrazy/automatyzacja.jpg" alt="" class="dla-kogo-img">
+    </div>
+
+    <div class="dla-kogo-row">
+      <div class="dla-kogo-text">
+        <p>Pomagamy również firmom usługowym z sektora IT w zrozumieniu świata automatyki przemysłowej i wypracowaniu wspólnej nici porozumienia przy łączeniu najnowocześniejszych technologii z standardami przemysłowymi.</p>
+      </div>
+      <img src="obrazy/IT.jpg" alt="" class="dla-kogo-img">
+    </div>
+  </div>
+</section>
+
+<!-- SEKJA KONTAKT -->
 <footer id="kontakt">
   <section class="kontakt-sekcja">
-    <div class="kontakt-lewa">
-      <h2>Jesteś zainteresowany współpracą?</h2>
+    <div class="kontakt-wrapper">
+      
+      <!-- LEWA STRONA: Kontakt -->
+      <div class="kontakt-lewa">
+        <h2>Jesteś zainteresowany<br>współpracą?</h2>
 
-      <p>Skontaktuj się z nami mailowo lub telefonicznie</p>
-      <p><strong>biuro.roboinvest@gmail.com</strong><br><strong>+48 531 402 009</strong></p>
+        <p>Skontaktuj się z nami mailowo lub telefonicznie</p>
+        <p><strong>biuro.roboinvest@gmail.com</strong><br><strong>+48 531 402 009</strong></p>
 
-      <address>
-        <strong>RoboInvest Kamil Dzik</strong><br>
-        NIP 1234567890<br>
-        REGON 123456789<br>
-      </address>
+        <address>
+          <strong>RoboInvest Kamil Dzik</strong><br>
+          NIP 1234567890<br>
+          REGON 123456789
+        </address>
+      </div>
+
+      <!-- PRAWA STRONA: Zdjęcie + Cytat -->
+      <div class="kontakt-prawa">
+  <img src="obrazy/ja.jpg" alt="Właściciel firmy" class="hala-zdjecie">
+  <blockquote class="hala-cytat">
+    "Właściwie przygotowane środowisko, szczegółowo zdefiniowany zakres oraz rzetelnie realizowany plan to podstawa świadomej automatyzacji która jest kluczem do maksymalizacji korzyści z wykorzystania automatyki przemysłowej."
+    <strong>KAMIL DZIK</strong>
+  </blockquote>
+</div>
+
     </div>
-
-    
   </section>
-
   <p class="copyright">&copy; 2025 RoboInvest Kamil Dzik</p>
 </footer>
 
