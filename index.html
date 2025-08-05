@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RoboInvest</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #222;
+      background-color: #fff;
+    }
+    header {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+    header * { position: relative; z-index: 1; }
+    .bg-video {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; z-index: -1; opacity: 0.7;
+    }
+    header img {
+      position: absolute;
+      top: 20px; left: 30px;
+      max-width: 250px;
+      opacity: 0;
+      animation: fadeInText 1s ease forwards 0.3s;
+    }
+    nav {
+      position: absolute;
+      top: 20px; right: 30px;
+      opacity: 0;
+      animation: fadeInText 1s ease forwards 0.3s;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      font-size: 2em;
+      text-shadow: 0 0 10px rgba(0,0,0,1);
+    }
+    header h1 {
+      font-size: 4em;
+      line-height: 1.4;
+      text-shadow: 0 0 10px rgba(0,0,0,1);
+      max-width: 90%;
+      opacity: 0;
+      animation: fadeInText 1.5s ease forwards 1.3s;
+    }
+    .highlight {
+      position: relative;
+      width: 100vw; max-width: 100%;
+      padding: 100px 20px;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      color: #ffffff;
+    }
+    .highlight::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5); z-index: 0;
+    }
+    .highlight * {
+      position: relative; z-index: 1;
+      text-shadow: 0 0 5px rgba(0,0,0,0.6);
+    }
+    .highlight-inner {
+      max-width: 1200px;
+	  max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.5em;
+      line-height: 1.6;
+    }
+
+    .highlight h2{
+	text-align: center;
+	margin-bottom: 40px;
+	font-size: 2.8em;
+    }
+	
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      justify-items: center;
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+	
+	.icon-grid p{
+	  font-size: 1.5em;
+      line-height: 1.6;
+    }
+	
+	
+    .icon-grid > div {
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      background-color: #fff;
+      border-radius: 8px;
+    }
+    .icon-grid > div:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .dla-kogo-bg {
+      background: url('obrazy/dla-kogo.jpg') center/cover no-repeat;
+      color: #fff;
+      width: 100vw;
+      max-width: 100%;
+      padding: 100px 20px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.6);
+    }
+    .dla-kogo-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      font-size: 1.5em;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+      padding: 0 20px;
+    }
+	
+    .dla-kogo-inner p {
+      max-width: 600px;
+    }
+	
+	.dla-kogo-inner h2 {
+	text-align: center;
+	margin-bottom: 40px;
+	font-size: 2.8em;
+	line-height: 1.2;
+    }
+	
+    .left-half { text-align: left; align-self: flex-start; }
+    .right-half { text-align: right; align-self: flex-end; }
+    footer {
+      background: #111;
+      color: white;
+      padding: 80px 20px;
+    }
+
+.kontakt-sekcja {
+  background-color: #111;
+  color: white;
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+.kontakt-lewa {
+  flex: 1 1 400px;
+}
+
+.kontakt-lewa h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.kontakt-lewa h2 span {
+  color: #ffcc00;
+}
+
+.kontakt-lewa address {
+  font-style: normal;
+  margin-top: 20px;
+  line-height: 1.8;
+}
+
+.formularz-kontaktowa {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formularz-kontaktowa input,
+.formularz-kontaktowa textarea {
+  background-color: #222;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.formularz-kontaktowa input::placeholder,
+.formularz-kontaktowa textarea::placeholder {
+  color: #aaa;
+}
+
+.formularz-kontaktowa .zgoda {
+  display: flex;
+  gap: 10px;
+  font-size: 0.9em;
+  color: #ccc;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+.formularz-kontaktowa .zgoda input {
+  margin-top: 5px;
+}
+
+.formularz-kontaktowa button {
+  background-color: #ffcc00;
+  color: #000;
+  padding: 14px;
+  border: none;
+  font-size: 1.1em;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.formularz-kontaktowa button:hover {
+  background-color: #e6b800;
+}
+
+footer .copyright {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+  .kontakt-sekcja {
+    flex-direction: column;
+  }
+
+  .kontakt-lewa h2 {
+    text-align: center;
+  }
+}
+
+
+    }
+    @keyframes fadeInText {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="filmy/film.mp4" type="video/mp4">
+  </video>
+  <img src="ikony/logo.svg" alt="RoboInvest">
+  <nav>
+    <a href="#oferta">Oferta</a>
+    <a href="#dla-kogo">Dla kogo</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+  <h1>TWÓJ PARTNER<br>W ŚWIADOMEJ<br>AUTOMATYZACJI PRODUKCJI</h1>
+</header>
+
+<section class="highlight" id="oferta">
+  <div class="highlight-inner">
+    <h2>W czym możemy Ci pomóc?</h2>
+    <p>
+      Będziemy reprezentować Cię i dbać o Twoje interesy podczas całego cyklu projektu inwestycyjnego w automatyzację/robotyzację. 
+      Jako Twój partner działamy z nastawieniem na maksymalizację korzyści i minimalizację ryzyk z automatyzacji Twojej produkcji.
+      Dobór odpowiedniej technologii, podzespołów czy poddostawcy będzie realizowany zgodnie z Twoim uzasadnieniem biznesowym. 
+    </p>
+  </div>
+</section>
+
+  <!-- Sekcja: Usługi - siatka ikon -->
+  <section>
+    <div class="icon-grid">
+      <div>
+        <h3>DORADZIMY</h3>
+        <img src="ikony/doradzimy.svg" alt="Ikona Doradzimy">
+        <p>Wybór procesu produkcyjnego wartego automatyzacji czy robotyzacji nie zawsze jest oczywisty. Doradzamy który z nich wybrać.</p>
+      </div>
+      <div>
+        <h3>ANALIZUJEMY</h3>
+        <img src="ikony/analizujemy.svg" alt="Ikona Analizujemy">
+        <p>Wskażemy procesy najlepiej nadające się na automatyzację w oparciu o wielopłaszczyznowe analizy i raporty finansowe, techniczne i biznesowe.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="icon-grid">
+      <div>
+        <h3>ZDEFINIUJEMY</h3>
+        <img src="ikony/zdefiniujemy.svg" alt="Ikona Zdefiniujemy">
+        <p>Podstawą każdego projektu inwestycyjnego są jasno określone cele i oczekiwania stawiane przed finalnym produktem. Pomożemy w zdefiniowaniu wymagań i standaryzacji dla nowego, zautomatyzowanego procesu produkcyjnego. .</p>
+      </div>
+      <div>
+        <h3>PRZYGOTUJEMY</h3>
+        <img src="ikony/przygotujemy.svg" alt="Ikona Przygotujemy">
+        <p>Właściwe przygotowanie zakładu produkcyjnego i wykwalifikowana kadra przed wprowadzeniem automatyzacji to połowa sukcesu. Zbadamy czy Twój zespół i procesy są gotowe aby być częścią nowych linii technologicznych.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="icon-grid">
+      <div>
+        <h3>PLANUJEMY</h3>
+        <img src="ikony/planujemy.svg" alt="Ikona Planujemy">
+        <p>Po zbadaniu Twoich potrzeb, zbudujemy mapę drogową wskazującą optymalne podejście do całego przedsięwzięcia. Stworzymy harmonogram inwestycji, macierz ryzyk i szans, oszacujemy ich wpływ i będziemy dbali o ich ciągłą ewaluację.  </p>
+      </div>
+      <div>
+        <h3>WYBIERZEMY</h3>
+        <img src="ikony/wybierzemy.svg" alt="Ikona Wybierzemy">
+        <p>Wybór właściwego poddostawcy jest kluczowy do realizacji każdego przedsięwzięcia w automatyzację. Na podstawie specjalizacji, opinii rynkowej oraz analiz płynności finansowej wskażemy kontrahentów godnych współpracy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="icon-grid">
+      <div>
+        <h3>KOORDYNUJEMY</h3>
+        <img src="ikony/koordynujemy.svg" alt="Ikona Koordynujemy">
+        <p>Cykliczne spotkania projektowe, ciągłe monitorowanie i właściwe monitowanie postępów prac pozwoli minimalizować ryzyko opóźnień lub zmian w zakresie. Zarządzamy inwestycją na podstawie wspólnie wypracowanych tolerancji i wskaźników.</p>
+      </div>
+      <div>
+        <h3>ZORGANIZUJEMY</h3>
+        <img src="ikony/zorganizujemy.svg" alt="Ikona Zorganizujemy">
+        <p>Organizacja i właściwe przeprowadzone odbiory u dostawcy (FAT) oraz po instalacji na Twoim zakładzie produkcyjnym (SAT) pozwolą upewnić się, że zamówiony produkt spełnia wszystkie wyspecyfikowane wymagania oraz jest bezpieczny dla Twoich pracowników.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="icon-grid">
+      <div>
+        <h3>DOPILNUJEMY</h3>
+        <img src="ikony/dopilnujemy.svg" alt="Ikona Dopilnujemy">
+        <p>Przypilnujemy procesu instalacji i rozruchu na Twoim zakładzie, dbając o ciągłość produkcyjną. Dopilnujemy aby ten etap przebiegał sprawnie oraz bezpiecznie, a planowane przestoje nie wpływały na plany produkcyjne.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sekcja: Dla kogo? -->
+  <section class="dla-kogo-bg" id="dla-kogo">
+    <div class="dla-kogo-inner">
+      <h2>Niezależnie na jakim etapie jest Twoja produkcja</h2>
+      <p class="left-half">
+        Korzystając z doświadczenia z pracy zarówno z globalnymi przedsiębiorstwami produkcyjnymi jak i integratorami automatyki przemysłowej możemy pomóc Twojemu przedsiębiorstwu niezależnie od rodzaju inwestycji. Czy to będzie integracja nowej linii produkcyjnej, zakup stanowisk półautomatycznych czy modernizacja starych maszyn jesteśmy przekonani, że wspólnymi siłami zakończymy każdy projekt sukcesem.
+      </p>
+      <p class="right-half">
+        Jeśli posiadasz już wysoce zautomatyzowany zakład produkcyjny, masz wypracowane standardy i procedury ale brakuje Ci kogoś kto poprowadzi kompleksowo Twoje przedsięwzięcia, z przyjemnością odciążymy Cię z szeregu obowiązków i zadbamy o najwyższą jakość prowadzenia projektu.
+      </p>
+      <p class="left-half">
+        Pomagamy również firmom usługowym z sektora IT w zrozumieniu świata automatyki przemysłowej i wypracowaniu wspólnej nici porozumienia przy łączeniu najnowocześniejszych technologii z standardami przemysłowymi. 
+      </p>
+    </div>
+  </section>
+
+<!-- Kontakt -->
+<footer id="kontakt">
+  <section class="kontakt-sekcja">
+    <div class="kontakt-lewa">
+      <h2>Jesteś zainteresowany współpracą?</h2>
+
+      <p>Skontaktuj się z nami mailowo lub telefonicznie</p>
+      <p><strong>biuro.roboinvest@gmail.com</strong><br><strong>+48 531 402 009</strong></p>
+
+      <address>
+        <strong>RoboInvest Kamil Dzik</strong><br>
+        NIP 1234567890<br>
+        REGON 123456789<br>
+      </address>
+    </div>
+
+    <form class="formularz-kontaktowa" action="https://formsubmit.co/biuro.roboinvest@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="Imię i nazwisko *" required>
+      <input type="text" name="company" placeholder="Firma *" required>
+      <input type="email" name="email" placeholder="Adres e-mail *" required>
+      <textarea name="message" placeholder="Treść wiadomości *" rows="5" required></textarea>
+
+      <label class="zgoda">
+        <input type="checkbox" name="zgoda" required>
+        <span>
+          Wyrażam zgodę na przetwarzanie moich danych osobowych w celach obsługi wysłanego przeze mnie za pośrednictwem formularza kontaktowego zapytania. Przyjmuję do wiadomości, że administratorem danych osobowych będzie RoboInvest Kamil Dzik oraz, że podanie przeze mnie danych jest dobrowolne i przysługuje mi prawo dostępu do treści moich danych, ich poprawiania, wyrażenia sprzeciwu wobec ich przetwarzania oraz żądania ich usunięcia.
+        </span>
+      </label>
+
+      <button type="submit">Wyślij wiadomość →</button>
+    </form>
+  </section>
+
+  <p class="copyright">&copy; 2025 RoboInvest Kamil Dzik</p>
+</footer>
+
+</body>
+</html>
