@@ -120,6 +120,29 @@
       text-align: center;
       z-index: 2;
     }
+	
+	@media (max-width: 768px) {
+  header h1 {
+    font-size: 2em;
+    line-height: 1.3;
+  }
+
+  header img {
+    max-width: 180px;
+    top: 10px;
+    left: 10px;
+  }
+
+  nav {
+    top: 10px;
+    right: 10px;
+  }
+
+  nav a {
+    font-size: 1em;
+    margin-left: 12px;
+  }
+}
 
     /* --- Sekcja Oferta --- */
     .highlight {
@@ -176,6 +199,21 @@
       transform: translateY(-10px);
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
+	
+	@media (max-width: 768px) {
+  .icon-grid {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+  }
+
+  .icon-grid p {
+    font-size: 1.2em;
+  }
+
+  .icon-grid h3 {
+    font-size: 1.5em;
+  }
+}
 
     /* --- Sekcja Dla Kogo --- */
     .dla-kogo-bg {
@@ -225,6 +263,23 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.3);
       object-fit: cover;
     }
+	
+	@media (max-width: 768px) {
+  .dla-kogo-row,
+  .dla-kogo-row.reverse {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .dla-kogo-text,
+  .dla-kogo-img {
+    max-width: 100%;
+  }
+
+  .dla-kogo-img {
+    margin-top: 20px;
+  }
+}
 
     /* --- Sekcja Kontakt --- */
     .kontakt-sekcja {
@@ -298,32 +353,28 @@
     }
 
     @media (max-width: 768px) {
-      .dla-kogo-row,
-      .kontakt-wrapper {
-        flex-direction: column;
-      }
+  .kontakt-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-      .dla-kogo-text,
-      .dla-kogo-img {
-        max-width: 100%;
-      }
+  .kontakt-lewa,
+  .kontakt-prawa {
+    align-items: center;
+  }
 
-      .hala-zdjecie {
-        width: 180px;
-        height: 180px;
-      }
+  .hala-zdjecie {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 20px;
+  }
 
-      .hala-cytat {
-        font-size: 1em;
-        padding: 0 10px;
-      }
-
-      .kontakt-lewa,
-      .kontakt-prawa {
-        align-items: center;
-        text-align: center;
-      }
-    }
+  .hala-cytat {
+    font-size: 1em;
+    padding: 0 20px;
+  }
+}
   </style>
 </head>
 <body>
