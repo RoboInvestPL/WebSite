@@ -2,26 +2,10 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-<<<<<<< HEAD
-  <!-- WYMUSZENIE UKŁADU DESKTOPOWEGO NA MOBILE -->
-  <!-- Zamiast device-width ustawiamy stałą szerokość widoku 1280px,
-       dzięki czemu układ i proporcje pozostają identyczne jak na PC. -->
-=======
->>>>>>> 5728678 (Pierwsze publikowanie strony)
   <meta name="viewport" content="width=1280" />
   <title>RoboInvest – Świadoma automatyzacja i robotyzacja produkcji</title>
   <meta name="description" content="Pomagamy wdrażać rozwiązania z zakresu robotyki przemysłowej, automatyzacji i optymalizacji produkcji.">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
-<<<<<<< HEAD
-  <style>
-    * { box-sizing: border-box; }
-
-    /* Zapobiega automatycznemu powiększaniu czcionek na iOS/Android */
-    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-
-    /* Ukrywa ewentualny przewij poziomy na skutek stałej szerokości viewportu */
-    html, body { overflow-x: hidden; }
-=======
 
   <style>
     * {
@@ -37,21 +21,11 @@
     body {
       overflow-x: hidden;
     }
->>>>>>> 5728678 (Pierwsze publikowanie strony)
 
     body {
       margin: 0;
       font-family: 'DM Sans', sans-serif;
       color: #222;
-<<<<<<< HEAD
-      background-color: white;
-    }
-
-    /* --- Sekcja Header --- */
-    header {
-      position: relative;
-      height: 100vh;
-=======
       background-color: #f6f6f6;
     }
 
@@ -61,16 +35,10 @@
     header {
       position: relative;
       height: 80vh;
->>>>>>> 5728678 (Pierwsze publikowanie strony)
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-<<<<<<< HEAD
-      text-align: center;
-      color: white;
-      overflow: hidden;
-=======
       color: #fff;
       overflow: hidden;
       background: #000; /* fallback zanim zdjęcia się załadują */
@@ -95,7 +63,6 @@
 
     .hero-slide.active {
       opacity: 1;
->>>>>>> 5728678 (Pierwsze publikowanie strony)
     }
 
     header::before {
@@ -103,33 +70,11 @@
       position: absolute;
       inset: 0;
       background: rgba(0, 0, 0, 0.4);
-<<<<<<< HEAD
-      z-index: 0;
-=======
       z-index: 1;
->>>>>>> 5728678 (Pierwsze publikowanie strony)
     }
 
     header * {
       position: relative;
-<<<<<<< HEAD
-      z-index: 1;
-    }
-
-    .bg-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.7;
-    }
-
-    @keyframes fadeInText {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-=======
       z-index: 2;
     }
 
@@ -142,7 +87,6 @@
         opacity: 1;
         transform: translateY(0);
       }
->>>>>>> 5728678 (Pierwsze publikowanie strony)
     }
 
     .fade-start {
@@ -154,53 +98,21 @@
     .fade-later {
       opacity: 0;
       animation: fadeInText 1.2s ease-out forwards;
-<<<<<<< HEAD
-      animation-delay: 0.6s;
-    }
-
-    header img {
-=======
       animation-delay: 0.4s;
     }
 
     .brand-logo {
->>>>>>> 5728678 (Pierwsze publikowanie strony)
       position: absolute;
       top: 20px;
       left: 30px;
       max-width: 250px;
-<<<<<<< HEAD
-=======
       display: block;
->>>>>>> 5728678 (Pierwsze publikowanie strony)
     }
 
     nav {
       position: absolute;
       top: 20px;
       right: 30px;
-<<<<<<< HEAD
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-      font-size: 1.4em;
-      text-shadow: 0 0 10px rgba(0,0,0,1);
-    }
-
-    header h1 {
-      font-size: 3.5em;
-      line-height: 1.2;
-      max-width: 90%;
-      padding: 0 20px;
-      text-shadow: 0 0 15px rgba(0,0,0,0.7);
-      margin: 0;
-      position: relative;
-      top: -20px;
-=======
       display: flex;
       gap: 12px;
       background: rgba(0, 0, 0, 0.35);
@@ -235,7 +147,6 @@
 
     nav a:hover {
       color: #919191;
->>>>>>> 5728678 (Pierwsze publikowanie strony)
     }
 
     .header-content {
@@ -243,21 +154,6 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-<<<<<<< HEAD
-      height: 100%;
-      width: 100%;
-      padding: 0 20px;
-      text-align: center;
-      z-index: 2;
-    }
-
-    /* --- Sekcja Oferta --- */
-    .highlight { padding: 60px 20px; text-align: center; background-color: white; }
-
-    .highlight-inner { max-width: 900px; margin: 0 auto; font-size: 1.5em; line-height: 1.6; }
-
-    .highlight-inner h2 { font-size: 2.4em; margin: 80px 0 30px; }
-=======
       width: 100%;
       padding: 0 20px;
     }
@@ -385,7 +281,6 @@
       font-size: 2.4em;
       margin: 80px 0 30px;
     }
->>>>>>> 5728678 (Pierwsze publikowanie strony)
 
     .icon-grid {
       display: grid;
@@ -397,12 +292,6 @@
       margin: 0 auto;
     }
 
-<<<<<<< HEAD
-    .icon-grid p { font-size: 1.5em; line-height: 1.6; }
-    .icon-grid h3 { font-size: 2em; line-height: 1.6; }
-
-=======
->>>>>>> 5728678 (Pierwsze publikowanie strony)
     .icon-grid > div {
       width: 100%;
       padding: 20px;
@@ -410,26 +299,6 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-<<<<<<< HEAD
-      transition: transform 0.3s, box-shadow 0.3s;
-      background-color: white;
-      border-radius: 8px;
-    }
-
-    .icon-grid > div:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-
-    /* --- Sekcja Dla Kogo --- */
-    .dla-kogo-bg { background: #f4f4f4; color: black; width: 100%; padding: 100px 20px; margin-bottom: 0px; }
-
-    .dla-kogo-inner { max-width: 1200px; margin: 0 auto; font-size: 1.4em; line-height: 1.6; display: flex; flex-direction: column; gap: 150px; }
-
-    .dla-kogo-inner h2 { text-align: center; margin-bottom: 10px; font-size: 2.8em; line-height: 1.2; }
-
-    .dla-kogo-row { display: flex; align-items: center; gap: 40px; }
-    .dla-kogo-row.reverse { flex-direction: row-reverse; }
-
-    .dla-kogo-text { flex: 1; max-width: 50%; }
-=======
       background-color: #f6f6f6;
       border-radius: 8px;
       transition: transform 0.3s, box-shadow 0.3s;
@@ -492,72 +361,11 @@
       flex: 1;
       max-width: 50%;
     }
->>>>>>> 5728678 (Pierwsze publikowanie strony)
 
     .dla-kogo-img {
       flex: 1;
       max-width: 50%;
       border-radius: 10px;
-<<<<<<< HEAD
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-      object-fit: cover;
-    }
-
-    /* --- Sekcja Kontakt --- */
-    .kontakt-sekcja { background: black; color: white; padding: 80px 20px; }
-
-    .kontakt-wrapper { max-width: 1200px; margin: 0 auto; display: flex; align-items: stretch; gap: 40px; margin-top: 50px; }
-
-    .kontakt-lewa, .kontakt-prawa { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
-
-    .kontakt-lewa h2 { font-size: 2.6em; margin-bottom: 20px; line-height: 1.3; }
-
-    .kontakt-lewa address { font-style: normal; margin-top: 20px; line-height: 1.8; }
-
-    .hala-zdjecie { width: 240px; height: 240px; object-fit: cover; border-radius: 50%; margin: 0 auto 20px auto; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); }
-
-    .hala-cytat { font-style: italic; font-size: 1.1em; color: #ccc; text-align: center; line-height: 1.5; max-width: 500px; margin: 0 auto; }
-
-    .hala-cytat strong { display: block; margin-top: 20px; font-weight: bold; font-style: normal; }
-
-    footer .copyright { color: #aaa; text-align: center; font-size: 0.9em; padding-top: 20px; margin-top: 150px; margin-bottom: -50px; }
-
-    /*
-      UWAGA: Nie usuwamy istniejących media queries –
-      dzięki stałej szerokości viewportu (1280px) one się
-      po prostu nie aktywują na telefonach. Układ pozostaje
-      1:1 jak na PC.
-    */
-
-    @media (max-width: 768px) {
-      /* Te reguły pozostają jako fallback, ale nie zadziałają przy width=1280 */
-      .kontakt-wrapper { flex-direction: column; align-items: center; text-align: center; }
-      .kontakt-lewa, .kontakt-prawa { align-items: center; }
-      .hala-zdjecie { width: 180px; height: 180px; margin-bottom: 20px; }
-      .hala-cytat { font-size: 1em; padding: 0 20px; }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Sekcja: Nagłówek -->
-  <header>
-    <video autoplay muted loop playsinline class="bg-video">
-      <source src="filmy/film.mp4" type="video/mp4">
-    </video>
-    <div class="header-content">
-      <img src="ikony/Logo.svg" alt="RoboInvest" class="fade-start">
-      <nav class="fade-start">
-        <a href="#oferta">Oferta</a>
-        <a href="#dla-kogo">Dla kogo</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-      <h1 class="fade-later">TWÓJ PARTNER<br>W ŚWIADOMEJ<br>AUTOMATYZACJI PRODUKCJI</h1>
-    </div>
-  </header>
-
-  <!-- Sekcja: Usługi - siatka ikon -->
-=======
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
       object-fit: cover;
     }
@@ -895,20 +703,10 @@
   <!-- =========================
        OFERTA
   ========================= -->
->>>>>>> 5728678 (Pierwsze publikowanie strony)
   <section class="highlight" id="oferta">
     <div class="highlight-inner">
       <h2>W czym możemy Ci pomóc?</h2>
       <p>
-<<<<<<< HEAD
-        Będziemy reprezentować Cię i dbać o Twoje interesy podczas całego cyklu projektu inwestycyjnego w automatyzację/robotyzację. 
-        Jako Twój partner działamy z nastawieniem na maksymalizację korzyści i minimalizację ryzyk z automatyzacji Twojej produkcji.
-        Dobór odpowiedniej technologii, podzespołów czy poddostawcy będzie realizowany zgodnie z Twoim uzasadnieniem biznesowym. 
-      </p>
-    </div>
-  </section>
-  
-=======
         Będziemy reprezentować Cię i dbać o Twoje interesy podczas całego cyklu projektu inwestycyjnego w automatyzację/robotyzację.
         Jako Twój partner działamy z nastawieniem na maksymalizację korzyści i minimalizację ryzyk z automatyzacji Twojej produkcji.
         Dobór odpowiedniej technologii, podzespołów czy poddostawcy będzie realizowany zgodnie z Twoim uzasadnieniem biznesowym.
@@ -916,20 +714,10 @@
     </div>
   </section>
 
->>>>>>> 5728678 (Pierwsze publikowanie strony)
   <section>
     <div class="icon-grid">
       <div>
         <h3>DORADZIMY</h3>
-<<<<<<< HEAD
-        <img src="ikony/doradzimy.svg" alt="Doradztwo inwestycyjne">
-        <p>Wybór procesu produkcyjnego wartego automatyzacji czy robotyzacji nie zawsze jest oczywisty. Doradzamy który z nich wybrać.</p>
-      </div>
-      <div>
-        <h3>ANALIZUJEMY</h3>
-        <img src="ikony/analizujemy.svg" alt="Analizy techniczne">
-        <p>Wskażemy procesy najlepiej nadające się na automatyzację w oparciu o wielopłaszczyznowe analizy i raporty finansowe, techniczne i biznesowe.</p>
-=======
         <img src="ikony/doradzimy.svg" alt="Doradztwo inwestycyjne" />
         <p>
           Wybór procesu produkcyjnego wartego automatyzacji czy robotyzacji nie zawsze jest oczywisty.
@@ -944,7 +732,6 @@
           Wskażemy procesy najlepiej nadające się na automatyzację w oparciu o wielopłaszczyznowe analizy
           i raporty finansowe, techniczne i biznesowe.
         </p>
->>>>>>> 5728678 (Pierwsze publikowanie strony)
       </div>
     </div>
   </section>
@@ -953,15 +740,6 @@
     <div class="icon-grid">
       <div>
         <h3>ZDEFINIUJEMY</h3>
-<<<<<<< HEAD
-        <img src="ikony/zdefiniujemy.svg" alt="Wymagania i standaryzacja">
-        <p>Podstawą każdego projektu inwestycyjnego są jasno określone cele i oczekiwania stawiane przed finalnym produktem. Pomożemy w zdefiniowaniu wymagań i standaryzacji dla nowego, zautomatyzowanego procesu produkcyjnego. .</p>
-      </div>
-      <div>
-        <h3>PRZYGOTUJEMY</h3>
-        <img src="ikony/przygotujemy.svg" alt="Gotowość procesów">
-        <p>Właściwe przygotowanie zakładu produkcyjnego i wykwalifikowana kadra przed wprowadzeniem automatyzacji to połowa sukcesu. Zbadamy czy Twój zespół i procesy są gotowe aby być częścią nowych linii technologicznych.</p>
-=======
         <img src="ikony/zdefiniujemy.svg" alt="Wymagania i standaryzacja" />
         <p>
           Podstawą każdego projektu inwestycyjnego są jasno określone cele i oczekiwania stawiane przed finalnym produktem.
@@ -976,7 +754,6 @@
           Właściwe przygotowanie zakładu produkcyjnego i wykwalifikowana kadra przed wprowadzeniem automatyzacji
           to połowa sukcesu. Zbadamy czy Twój zespół i procesy są gotowe aby być częścią nowych linii technologicznych.
         </p>
->>>>>>> 5728678 (Pierwsze publikowanie strony)
       </div>
     </div>
   </section>
@@ -985,15 +762,6 @@
     <div class="icon-grid">
       <div>
         <h3>PLANUJEMY</h3>
-<<<<<<< HEAD
-        <img src="ikony/planujemy.svg" alt="Mapa drogowa inwestycji">
-        <p>Po zbadaniu Twoich potrzeb, zbudujemy mapę drogową wskazującą optymalne podejście do całego przedsięwzięcia. Stworzymy harmonogram inwestycji, macierz ryzyk i szans, oszacujemy ich wpływ i będziemy dbali o ich ciągłą ewaluację.  </p>
-      </div>
-      <div>
-        <h3>WYBIERZEMY</h3>
-        <img src="ikony/wybierzemy.svg" alt="Właściwy poddostawca">
-        <p>Wybór właściwego poddostawcy jest kluczowy do realizacji każdego przedsięwzięcia w automatyzację. Na podstawie specjalizacji, opinii rynkowej oraz analiz płynności finansowej wskażemy kontrahentów godnych współpracy.</p>
-=======
         <img src="ikony/planujemy.svg" alt="Mapa drogowa inwestycji" />
         <p>
           Po zbadaniu Twoich potrzeb, zbudujemy mapę drogową wskazującą optymalne podejście do całego przedsięwzięcia.
@@ -1010,7 +778,6 @@
           Na podstawie specjalizacji, opinii rynkowej oraz analiz płynności finansowej wskażemy kontrahentów
           godnych współpracy.
         </p>
->>>>>>> 5728678 (Pierwsze publikowanie strony)
       </div>
     </div>
   </section>
@@ -1019,15 +786,6 @@
     <div class="icon-grid">
       <div>
         <h3>KOORDYNUJEMY</h3>
-<<<<<<< HEAD
-        <img src="ikony/koordynujemy.svg" alt="Koordynacja prac">
-        <p>Cykliczne spotkania projektowe, ciągłe monitorowanie i właściwe monitowanie postępów prac pozwoli minimalizować ryzyko opóźnień lub zmian w zakresie. Zarządzamy inwestycją na podstawie wspólnie wypracowanych tolerancji i wskaźników.</p>
-      </div>
-      <div>
-        <h3>ZORGANIZUJEMY</h3>
-        <img src="ikony/zorganizujemy.svg" alt="Testy FAT i SAT">
-        <p>Organizacja i właściwe przeprowadzone odbiory u dostawcy (FAT) oraz po instalacji na Twoim zakładzie produkcyjnym (SAT) pozwolą upewnić się, że zamówiony produkt spełnia wszystkie wyspecyfikowane wymagania oraz jest bezpieczny dla Twoich pracowników.</p>
-=======
         <img src="ikony/koordynujemy.svg" alt="Koordynacja prac" />
         <p>
           Cykliczne spotkania projektowe, ciągłe monitorowanie i właściwe raportowanie postępów prac
@@ -1044,7 +802,6 @@
           produkcyjnym (SAT) pozwolą upewnić się, że zamówiony produkt spełnia wszystkie wyspecyfikowane wymagania
           oraz jest bezpieczny dla Twoich pracowników.
         </p>
->>>>>>> 5728678 (Pierwsze publikowanie strony)
       </div>
     </div>
   </section>
@@ -1053,39 +810,25 @@
     <div class="icon-grid">
       <div>
         <h3>DOPILNUJEMY</h3>
-<<<<<<< HEAD
-        <img src="ikony/dopilnujemy.svg" alt="Proces instalacji">
-        <p>Przypilnujemy procesu instalacji i rozruchu na Twoim zakładzie, dbając o ciągłość produkcyjną. Dopilnujemy aby ten etap przebiegał sprawnie oraz bezpiecznie, a planowane przestoje nie wpływały na plany produkcyjne.</p>
-=======
         <img src="ikony/dopilnujemy.svg" alt="Proces instalacji" />
         <p>
           Przypilnujemy procesu instalacji i rozruchu na Twoim zakładzie, dbając o ciągłość produkcyjną.
           Dopilnujemy aby ten etap przebiegał sprawnie oraz bezpiecznie,
           a planowane przestoje nie wpływały na plany produkcyjne.
         </p>
->>>>>>> 5728678 (Pierwsze publikowanie strony)
       </div>
     </div>
   </section>
 
-<<<<<<< HEAD
-  <!-- Sekcja: Dla kogo? -->
-=======
   <!-- =========================
        DLA KOGO
   ========================= -->
->>>>>>> 5728678 (Pierwsze publikowanie strony)
   <section class="dla-kogo-bg" id="dla-kogo">
     <div class="dla-kogo-inner">
       <h2>Niezależnie na jakim etapie jest Twoja produkcja</h2>
 
       <div class="dla-kogo-row">
         <div class="dla-kogo-text">
-<<<<<<< HEAD
-          <p>Korzystając z doświadczenia z pracy zarówno z globalnymi przedsiębiorstwami produkcyjnymi jak i integratorami automatyki przemysłowej możemy pomóc Twojemu przedsiębiorstwu niezależnie od rodzaju inwestycji. Czy to będzie integracja nowej linii produkcyjnej, zakup stanowisk półautomatycznych czy modernizacja starych maszyn jesteśmy przekonani, że wspólnymi siłami zakończymy każdy projekt sukcesem. </p>
-        </div>
-        <img src="obrazy/produkcja.jpg" alt="Automatyzacja produkcji" class="dla-kogo-img">
-=======
           <p>
             Korzystając z doświadczenia z pracy zarówno z globalnymi przedsiębiorstwami produkcyjnymi
             jak i integratorami automatyki przemysłowej możemy pomóc Twojemu przedsiębiorstwu niezależnie od rodzaju inwestycji.
@@ -1099,16 +842,10 @@
           alt="Automatyzacja produkcji"
           class="dla-kogo-img"
         />
->>>>>>> 5728678 (Pierwsze publikowanie strony)
       </div>
 
       <div class="dla-kogo-row reverse">
         <div class="dla-kogo-text">
-<<<<<<< HEAD
-          <p>Jeśli posiadasz już wysoce zautomatyzowany zakład produkcyjny, masz wypracowane standardy i procedury ale brakuje Ci kogoś kto poprowadzi kompleksowo Twoje przedsięwzięcia, z przyjemnością odciążymy Cię z szeregu obowiązków i zadbamy o najwyższą jakość prowadzenia projektu.</p>
-        </div>
-        <img src="obrazy/automatyzacja.jpg" alt="Robotyzacja produkcji" class="dla-kogo-img">
-=======
           <p>
             Jeśli posiadasz już wysoce zautomatyzowany zakład produkcyjny,
             masz wypracowane standardy i procedury ale brakuje Ci kogoś kto poprowadzi kompleksowo Twoje przedsięwzięcia,
@@ -1121,32 +858,10 @@
           alt="Robotyzacja produkcji"
           class="dla-kogo-img"
         />
->>>>>>> 5728678 (Pierwsze publikowanie strony)
       </div>
 
       <div class="dla-kogo-row">
         <div class="dla-kogo-text">
-<<<<<<< HEAD
-          <p>Pomagamy również firmom usługowym z sektora IT w zrozumieniu świata automatyki przemysłowej i wypracowaniu wspólnej nici porozumienia przy łączeniu najnowocześniejszych technologii z standardami przemysłowymi.</p>
-        </div>
-        <img src="obrazy/IT.jpg" alt="IT w produkcji" class="dla-kogo-img">
-      </div>
-    </div>
-  </section>
-
-  <!-- SEKJA KONTAKT -->
-  <footer id="kontakt">
-    <section class="kontakt-sekcja">
-      <div class="kontakt-wrapper">
-        
-        <div class="kontakt-lewa">
-          <h2>Jesteś zainteresowany<br>współpracą?</h2>
-
-          <p>Skontaktuj się z nami mailowo lub telefonicznie</p>
-          <address>
-            <strong>e-mail:</strong> biuro.roboinvest@gmail.com<br>
-            <strong>m:</strong> +48 531 402 009<br>
-=======
           <p>
             Pomagamy również firmom usługowym z sektora IT w zrozumieniu świata automatyki przemysłowej
             i wypracowaniu wspólnej nici porozumienia przy łączeniu najnowocześniejszych technologii
@@ -1257,33 +972,17 @@
           <address>
             <strong>e-mail:</strong> biuro.roboinvest@gmail.com<br />
             <strong>m:</strong> +48 531 402 009<br />
->>>>>>> 5728678 (Pierwsze publikowanie strony)
             <strong>a:</strong> 51-126 Wrocław, POLSKA
           </address>
 
           <address>
-<<<<<<< HEAD
-            <strong>RoboInvest Kamil Dzik</strong><br>
-            NIP: 8943024691<br>
-=======
             <strong>RoboInvest Kamil Dzik</strong><br />
             NIP: 8943024691<br />
->>>>>>> 5728678 (Pierwsze publikowanie strony)
             REGON: 528421610
           </address>
         </div>
 
         <div class="kontakt-prawa">
-<<<<<<< HEAD
-          <img src="obrazy/ja.jpg" alt="Właściciel firmy" class="hala-zdjecie">
-          <blockquote class="hala-cytat">
-            "Właściwie przygotowane środowisko, szczegółowo zdefiniowany zakres oraz rzetelnie realizowany plan to podstawa świadomej automatyzacji która jest kluczem do maksymalizacji korzyści z wykorzystania automatyki przemysłowej."
-            <strong>KAMIL DZIK</strong>
-          </blockquote>
-        </div>
-
-      </div> 
-=======
           <img
             src="obrazy/ja.jpg"
             alt="Właściciel firmy"
@@ -1298,14 +997,11 @@
           </blockquote>
         </div>
       </div>
->>>>>>> 5728678 (Pierwsze publikowanie strony)
 
       <p class="copyright">&copy; 2025 RoboInvest Kamil Dzik</p>
     </section>
   </footer>
 
-<<<<<<< HEAD
-=======
   <!-- =========================
        LOGIKA SLIDERA
   ========================= -->
@@ -1394,6 +1090,5 @@
       }
     });
   </script>
->>>>>>> 5728678 (Pierwsze publikowanie strony)
 </body>
 </html>
