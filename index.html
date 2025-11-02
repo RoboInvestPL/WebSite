@@ -2,13 +2,17 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
+<<<<<<< HEAD
   <!-- WYMUSZENIE UKŁADU DESKTOPOWEGO NA MOBILE -->
   <!-- Zamiast device-width ustawiamy stałą szerokość widoku 1280px,
        dzięki czemu układ i proporcje pozostają identyczne jak na PC. -->
+=======
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
   <meta name="viewport" content="width=1280" />
   <title>RoboInvest – Świadoma automatyzacja i robotyzacja produkcji</title>
   <meta name="description" content="Pomagamy wdrażać rozwiązania z zakresu robotyki przemysłowej, automatyzacji i optymalizacji produkcji.">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+<<<<<<< HEAD
   <style>
     * { box-sizing: border-box; }
 
@@ -17,11 +21,29 @@
 
     /* Ukrywa ewentualny przewij poziomy na skutek stałej szerokości viewportu */
     html, body { overflow-x: hidden; }
+=======
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
 
     body {
       margin: 0;
       font-family: 'DM Sans', sans-serif;
       color: #222;
+<<<<<<< HEAD
       background-color: white;
     }
 
@@ -29,13 +51,51 @@
     header {
       position: relative;
       height: 100vh;
+=======
+      background-color: #f6f6f6;
+    }
+
+    /* =========================
+       HEADER / HERO
+    ========================= */
+    header {
+      position: relative;
+      height: 80vh;
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+<<<<<<< HEAD
       text-align: center;
       color: white;
       overflow: hidden;
+=======
+      color: #fff;
+      overflow: hidden;
+      background: #000; /* fallback zanim zdjęcia się załadują */
+    }
+
+    .hero-slider {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 1s ease;
+      filter: brightness(0.7) contrast(1.05);
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
     }
 
     header::before {
@@ -43,11 +103,16 @@
       position: absolute;
       inset: 0;
       background: rgba(0, 0, 0, 0.4);
+<<<<<<< HEAD
       z-index: 0;
+=======
+      z-index: 1;
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
     }
 
     header * {
       position: relative;
+<<<<<<< HEAD
       z-index: 1;
     }
 
@@ -64,6 +129,20 @@
     @keyframes fadeInText {
       from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
+=======
+      z-index: 2;
+    }
+
+    @keyframes fadeInText {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
     }
 
     .fade-start {
@@ -75,20 +154,32 @@
     .fade-later {
       opacity: 0;
       animation: fadeInText 1.2s ease-out forwards;
+<<<<<<< HEAD
       animation-delay: 0.6s;
     }
 
     header img {
+=======
+      animation-delay: 0.4s;
+    }
+
+    .brand-logo {
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
       position: absolute;
       top: 20px;
       left: 30px;
       max-width: 250px;
+<<<<<<< HEAD
+=======
+      display: block;
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
     }
 
     nav {
       position: absolute;
       top: 20px;
       right: 30px;
+<<<<<<< HEAD
     }
 
     nav a {
@@ -109,6 +200,42 @@
       margin: 0;
       position: relative;
       top: -20px;
+=======
+      display: flex;
+      gap: 12px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px) saturate(140%);
+      -webkit-backdrop-filter: blur(8px) saturate(140%);
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1em;
+      line-height: 1;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    nav a.lang-switch {
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 8px;
+      padding: 6px 10px;
+      line-height: 1.1;
+      font-size: 0.95em;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    nav a:hover {
+      color: #919191;
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
     }
 
     .header-content {
@@ -116,6 +243,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+<<<<<<< HEAD
       height: 100%;
       width: 100%;
       padding: 0 20px;
@@ -129,6 +257,135 @@
     .highlight-inner { max-width: 900px; margin: 0 auto; font-size: 1.5em; line-height: 1.6; }
 
     .highlight-inner h2 { font-size: 2.4em; margin: 80px 0 30px; }
+=======
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    .hero-box {
+      max-width: 800px;
+      width: calc(100% - 40px);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #heroTitle {
+      font-size: 3em;
+      line-height: 1.2;
+      margin: 0 0 40px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+      text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+      transition: opacity 0.2s linear;
+    }
+
+    #heroDesc {
+      font-size: 1.5em;
+      line-height: 1.6;
+      margin: 0;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.85);
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+      max-width: 1000px;
+      transition: opacity 0.2s linear;
+    }
+
+    .hero-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 80px;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 3;
+    }
+
+    .hero-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .hero-dot.active {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(255, 255, 255, 1);
+      transform: scale(1.2);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      left: 50%;
+      bottom: 15px;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9em;
+      line-height: 1.4;
+      text-align: center;
+      font-weight: 500;
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+      z-index: 3;
+      user-select: none;
+      pointer-events: none;
+      opacity: 0;
+      animation: fadeInScroll 1s ease forwards 1.2s;
+    }
+
+    .scroll-indicator .arrow {
+      font-size: 1.2em;
+      line-height: 1;
+      display: block;
+      margin-top: 6px;
+      animation: bounceArrow 1.3s infinite ease-in-out;
+    }
+
+    @keyframes fadeInScroll {
+      from {
+        opacity: 0;
+        transform: translate(-50%, 10px);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+    }
+
+    @keyframes bounceArrow {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(4px);
+      }
+    }
+
+    /* =========================
+       OFERTA / CO ROBIMY
+    ========================= */
+    .highlight {
+      padding: 0;
+      text-align: center;
+      background-color: #f6f6f6;
+    }
+
+    .highlight-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.5em;
+      line-height: 1.6;
+    }
+
+    .highlight-inner h2 {
+      font-size: 2.4em;
+      margin: 80px 0 30px;
+    }
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
 
     .icon-grid {
       display: grid;
@@ -140,9 +397,12 @@
       margin: 0 auto;
     }
 
+<<<<<<< HEAD
     .icon-grid p { font-size: 1.5em; line-height: 1.6; }
     .icon-grid h3 { font-size: 2em; line-height: 1.6; }
 
+=======
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
     .icon-grid > div {
       width: 100%;
       padding: 20px;
@@ -150,6 +410,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+<<<<<<< HEAD
       transition: transform 0.3s, box-shadow 0.3s;
       background-color: white;
       border-radius: 8px;
@@ -168,11 +429,76 @@
     .dla-kogo-row.reverse { flex-direction: row-reverse; }
 
     .dla-kogo-text { flex: 1; max-width: 50%; }
+=======
+      background-color: #f6f6f6;
+      border-radius: 8px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .icon-grid > div:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .icon-grid h3 {
+      font-size: 2em;
+      line-height: 1.6;
+    }
+
+    .icon-grid p {
+      font-size: 1.5em;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       DLA KOGO
+    ========================= */
+    .dla-kogo-bg {
+      background: #dedede;
+      color: #000;
+      width: 100%;
+      padding: 100px 20px;
+      margin-bottom: 0;
+    }
+
+    .dla-kogo-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      font-size: 1.4em;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      gap: 150px;
+    }
+
+    .dla-kogo-inner h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 2.8em;
+      line-height: 1.2;
+    }
+
+    .dla-kogo-row {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .dla-kogo-row.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .dla-kogo-text {
+      flex: 1;
+      max-width: 50%;
+    }
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
 
     .dla-kogo-img {
       flex: 1;
       max-width: 50%;
       border-radius: 10px;
+<<<<<<< HEAD
       box-shadow: 0 10px 20px rgba(0,0,0,0.3);
       object-fit: cover;
     }
@@ -231,10 +557,350 @@
   </header>
 
   <!-- Sekcja: Usługi - siatka ikon -->
+=======
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      object-fit: cover;
+    }
+
+    /* =========================
+       BLOG (ostatnie wpisy)
+    ========================= */
+    .blog-preview {
+      background: #2a2a2a;
+      color: #000;
+      width: 100%;
+      padding: 100px 20px;
+      margin-bottom: 0;
+    }
+
+    .blog-preview-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .blog-preview-head {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.5em;
+      line-height: 1.6;
+      color: #000;
+    }
+
+    .blog-preview-head h2 {
+      font-size: 2.4em;
+      margin: 0 0 30px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+
+    .blog-preview-head p {
+      margin: 0;
+      font-weight: 400;
+      color: #fff;
+    }
+
+    /* kafelki */
+    .blog-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .blog-card {
+      background: #2a2a2a;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .25s ease, box-shadow .25s ease;
+      border: 1px solid rgba(255,255,255,0.07);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    }
+
+    .blog-card-image {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .blog-card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      color: #fff;
+    }
+
+    .blog-card-body time {
+      font-size: .8em;
+      line-height: 1.4;
+      letter-spacing: .03em;
+      color: #aaa;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .blog-card-body h3 {
+      font-size: 1.2em;
+      line-height: 1.3;
+      font-weight: 700;
+      margin: 0 0 12px;
+      color: #fff;
+      letter-spacing: -0.02em;
+      text-shadow: 0 0 10px rgba(0,0,0,.7);
+    }
+
+    .blog-card-body p {
+      font-size: .95em;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.8);
+      margin: 0 0 20px;
+      flex-grow: 1;
+    }
+
+    .blog-card-more {
+      font-size: .9em;
+      font-weight: 700;
+      text-decoration: none;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color .2s ease;
+    }
+
+    .blog-card-more:hover {
+      color: #999;
+    }
+
+    .blog-card-more .arrow {
+      font-size: 1.1em;
+      line-height: 1;
+    }
+
+    .blog-preview-footer {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .blog-all-link {
+      display: inline-block;
+      background: transparent;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.4);
+      padding: 12px 20px;
+      font-size: .95em;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      background-color: rgba(0,0,0,0.03);
+      transition: all .2s ease;
+    }
+
+    .blog-all-link:hover {
+      color: #444;
+      border-color: rgba(0,0,0,0.6);
+      background-color: rgba(0,0,0,0.05);
+    }
+
+    @media (max-width: 768px) {
+      .kontakt-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .kontakt-lewa,
+      .kontakt-prawa {
+        align-items: center;
+      }
+
+      .hala-zdjecie {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 20px;
+      }
+
+      .hala-cytat {
+        font-size: 1em;
+        padding: 0 20px;
+      }
+
+      .blog-card-image {
+        height: 200px;
+      }
+    }
+
+    /* =========================
+       KONTAKT / STOPKA
+    ========================= */
+    .kontakt-sekcja {
+      background: #000;
+      color: #fff;
+      padding: 50px 20px;
+    }
+
+    .kontakt-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: stretch;
+      gap: 40px;
+      margin-top: 20px;
+    }
+
+    .kontakt-lewa,
+    .kontakt-prawa {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .kontakt-lewa h2 {
+      font-size: 2.6em;
+      margin: 0 0 20px;
+      line-height: 1.3;
+    }
+
+    .kontakt-lewa address {
+      font-style: normal;
+      margin-top: 20px;
+      line-height: 1.8;
+    }
+
+    .hala-zdjecie {
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .hala-cytat {
+      font-style: italic;
+      font-size: 1.1em;
+      color: #ccc;
+      text-align: center;
+      line-height: 1.5;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .hala-cytat strong {
+      display: block;
+      margin-top: 20px;
+      font-weight: 700;
+      font-style: normal;
+      color: #fff;
+    }
+
+    footer .copyright {
+      color: #aaa;
+      text-align: center;
+      font-size: 0.9em;
+      padding-top: 20px;
+      margin-top: 150px;
+      margin-bottom: -30px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- =========================
+       HEADER
+  ========================= -->
+  <header>
+    <div class="hero-slider">
+      <div
+        class="hero-slide active"
+        style="background-image:url('obrazy/slide1.jpg');"
+        data-title="Świadoma automatyzacja.<br>Bez zgadywania."
+        data-desc="Doradzamy, nadzorujemy i koordynujemy wdrożenia automatyzacji oraz robotyzacji w przemyśle. Pomagamy wybrać właściwy proces, właściwą technologię i właściwego poddostawcę – tak, żeby inwestycja była bezpieczna, uzasadniona biznesowo i dowieziona na czas."
+      ></div>
+
+      <div
+        class="hero-slide"
+        style="background-image:url('obrazy/slide2.jpg');"
+        data-title="Reprezentujemy Twój interes na każdym etapie inwestycji"
+        data-desc="Pilnujemy zakresu, terminów i bezpieczeństwa maszyn. Walidujemy dostawców, egzekwujemy wymagania techniczne, koordynujemy FAT/SAT i dbamy, żeby linia była gotowa do produkcji – a nie tylko wyglądała dobrze w prezentacji."
+      ></div>
+
+      <div
+        class="hero-slide"
+        style="background-image:url('obrazy/slide3.jpg');"
+        data-title="Wdrażamy automatyzację tak, żeby produkcja mogła działać już jutro"
+        data-desc="Przygotowujemy proces, ludzi i infrastrukturę pod nowe stanowiska.<br>Dbamy o uruchomienie i bezpieczeństwo. <br>Minimalizujemy przestoje i chaos przy starcie nowej linii."
+      ></div>
+    </div>
+
+    <!-- logo + menu -->
+    <img
+      src="ikony/Logo.svg"
+      alt="RoboInvest"
+      class="brand-logo fade-start"
+    />
+
+    <nav class="fade-start">
+      <a href="#oferta">Oferta</a>
+      <a href="#dla-kogo">Dla kogo</a>
+	  <a href="#blog">Blog</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+
+    <!-- box z dynamicznym tytułem i opisem -->
+    <div class="header-content">
+      <div class="hero-box fade-later">
+        <h1 id="heroTitle">Świadoma automatyzacja. Bez zgadywania.</h1>
+
+        <p id="heroDesc">
+          Doradzamy, nadzorujemy i koordynujemy wdrożenia automatyzacji oraz robotyzacji w przemyśle.
+          Pomagamy wybrać właściwy proces, właściwą technologię i właściwego poddostawcę – tak, żeby
+          inwestycja była bezpieczna, uzasadniona biznesowo i dowieziona na czas.
+        </p>
+      </div>
+    </div>
+
+    <!-- pager kropek -->
+    <div class="hero-dots" id="heroDots"></div>
+
+    <!-- wskaźnik przewijania -->
+    <div class="scroll-indicator">
+      Przewiń, aby zobaczyć ofertę
+      <span class="arrow">↓</span>
+    </div>
+  </header>
+
+  <!-- =========================
+       OFERTA
+  ========================= -->
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
   <section class="highlight" id="oferta">
     <div class="highlight-inner">
       <h2>W czym możemy Ci pomóc?</h2>
       <p>
+<<<<<<< HEAD
         Będziemy reprezentować Cię i dbać o Twoje interesy podczas całego cyklu projektu inwestycyjnego w automatyzację/robotyzację. 
         Jako Twój partner działamy z nastawieniem na maksymalizację korzyści i minimalizację ryzyk z automatyzacji Twojej produkcji.
         Dobór odpowiedniej technologii, podzespołów czy poddostawcy będzie realizowany zgodnie z Twoim uzasadnieniem biznesowym. 
@@ -242,10 +908,20 @@
     </div>
   </section>
   
+=======
+        Będziemy reprezentować Cię i dbać o Twoje interesy podczas całego cyklu projektu inwestycyjnego w automatyzację/robotyzację.
+        Jako Twój partner działamy z nastawieniem na maksymalizację korzyści i minimalizację ryzyk z automatyzacji Twojej produkcji.
+        Dobór odpowiedniej technologii, podzespołów czy poddostawcy będzie realizowany zgodnie z Twoim uzasadnieniem biznesowym.
+      </p>
+    </div>
+  </section>
+
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
   <section>
     <div class="icon-grid">
       <div>
         <h3>DORADZIMY</h3>
+<<<<<<< HEAD
         <img src="ikony/doradzimy.svg" alt="Doradztwo inwestycyjne">
         <p>Wybór procesu produkcyjnego wartego automatyzacji czy robotyzacji nie zawsze jest oczywisty. Doradzamy który z nich wybrać.</p>
       </div>
@@ -253,6 +929,22 @@
         <h3>ANALIZUJEMY</h3>
         <img src="ikony/analizujemy.svg" alt="Analizy techniczne">
         <p>Wskażemy procesy najlepiej nadające się na automatyzację w oparciu o wielopłaszczyznowe analizy i raporty finansowe, techniczne i biznesowe.</p>
+=======
+        <img src="ikony/doradzimy.svg" alt="Doradztwo inwestycyjne" />
+        <p>
+          Wybór procesu produkcyjnego wartego automatyzacji czy robotyzacji nie zawsze jest oczywisty.
+          Doradzamy który z nich wybrać.
+        </p>
+      </div>
+
+      <div>
+        <h3>ANALIZUJEMY</h3>
+        <img src="ikony/analizujemy.svg" alt="Analizy techniczne" />
+        <p>
+          Wskażemy procesy najlepiej nadające się na automatyzację w oparciu o wielopłaszczyznowe analizy
+          i raporty finansowe, techniczne i biznesowe.
+        </p>
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
       </div>
     </div>
   </section>
@@ -261,6 +953,7 @@
     <div class="icon-grid">
       <div>
         <h3>ZDEFINIUJEMY</h3>
+<<<<<<< HEAD
         <img src="ikony/zdefiniujemy.svg" alt="Wymagania i standaryzacja">
         <p>Podstawą każdego projektu inwestycyjnego są jasno określone cele i oczekiwania stawiane przed finalnym produktem. Pomożemy w zdefiniowaniu wymagań i standaryzacji dla nowego, zautomatyzowanego procesu produkcyjnego. .</p>
       </div>
@@ -268,6 +961,22 @@
         <h3>PRZYGOTUJEMY</h3>
         <img src="ikony/przygotujemy.svg" alt="Gotowość procesów">
         <p>Właściwe przygotowanie zakładu produkcyjnego i wykwalifikowana kadra przed wprowadzeniem automatyzacji to połowa sukcesu. Zbadamy czy Twój zespół i procesy są gotowe aby być częścią nowych linii technologicznych.</p>
+=======
+        <img src="ikony/zdefiniujemy.svg" alt="Wymagania i standaryzacja" />
+        <p>
+          Podstawą każdego projektu inwestycyjnego są jasno określone cele i oczekiwania stawiane przed finalnym produktem.
+          Pomożemy w zdefiniowaniu wymagań i standaryzacji dla nowego, zautomatyzowanego procesu produkcyjnego.
+        </p>
+      </div>
+
+      <div>
+        <h3>PRZYGOTUJEMY</h3>
+        <img src="ikony/przygotujemy.svg" alt="Gotowość procesów" />
+        <p>
+          Właściwe przygotowanie zakładu produkcyjnego i wykwalifikowana kadra przed wprowadzeniem automatyzacji
+          to połowa sukcesu. Zbadamy czy Twój zespół i procesy są gotowe aby być częścią nowych linii technologicznych.
+        </p>
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
       </div>
     </div>
   </section>
@@ -276,6 +985,7 @@
     <div class="icon-grid">
       <div>
         <h3>PLANUJEMY</h3>
+<<<<<<< HEAD
         <img src="ikony/planujemy.svg" alt="Mapa drogowa inwestycji">
         <p>Po zbadaniu Twoich potrzeb, zbudujemy mapę drogową wskazującą optymalne podejście do całego przedsięwzięcia. Stworzymy harmonogram inwestycji, macierz ryzyk i szans, oszacujemy ich wpływ i będziemy dbali o ich ciągłą ewaluację.  </p>
       </div>
@@ -283,6 +993,24 @@
         <h3>WYBIERZEMY</h3>
         <img src="ikony/wybierzemy.svg" alt="Właściwy poddostawca">
         <p>Wybór właściwego poddostawcy jest kluczowy do realizacji każdego przedsięwzięcia w automatyzację. Na podstawie specjalizacji, opinii rynkowej oraz analiz płynności finansowej wskażemy kontrahentów godnych współpracy.</p>
+=======
+        <img src="ikony/planujemy.svg" alt="Mapa drogowa inwestycji" />
+        <p>
+          Po zbadaniu Twoich potrzeb, zbudujemy mapę drogową wskazującą optymalne podejście do całego przedsięwzięcia.
+          Stworzymy harmonogram inwestycji, macierz ryzyk i szans, oszacujemy ich wpływ i będziemy dbali
+          o ich ciągłą ewaluację.
+        </p>
+      </div>
+
+      <div>
+        <h3>WYBIERZEMY</h3>
+        <img src="ikony/wybierzemy.svg" alt="Właściwy poddostawca" />
+        <p>
+          Wybór właściwego poddostawcy jest kluczowy do realizacji każdego przedsięwzięcia w automatyzację.
+          Na podstawie specjalizacji, opinii rynkowej oraz analiz płynności finansowej wskażemy kontrahentów
+          godnych współpracy.
+        </p>
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
       </div>
     </div>
   </section>
@@ -291,6 +1019,7 @@
     <div class="icon-grid">
       <div>
         <h3>KOORDYNUJEMY</h3>
+<<<<<<< HEAD
         <img src="ikony/koordynujemy.svg" alt="Koordynacja prac">
         <p>Cykliczne spotkania projektowe, ciągłe monitorowanie i właściwe monitowanie postępów prac pozwoli minimalizować ryzyko opóźnień lub zmian w zakresie. Zarządzamy inwestycją na podstawie wspólnie wypracowanych tolerancji i wskaźników.</p>
       </div>
@@ -298,6 +1027,24 @@
         <h3>ZORGANIZUJEMY</h3>
         <img src="ikony/zorganizujemy.svg" alt="Testy FAT i SAT">
         <p>Organizacja i właściwe przeprowadzone odbiory u dostawcy (FAT) oraz po instalacji na Twoim zakładzie produkcyjnym (SAT) pozwolą upewnić się, że zamówiony produkt spełnia wszystkie wyspecyfikowane wymagania oraz jest bezpieczny dla Twoich pracowników.</p>
+=======
+        <img src="ikony/koordynujemy.svg" alt="Koordynacja prac" />
+        <p>
+          Cykliczne spotkania projektowe, ciągłe monitorowanie i właściwe raportowanie postępów prac
+          pozwoli minimalizować ryzyko opóźnień lub zmian w zakresie.
+          Zarządzamy inwestycją na podstawie wspólnie wypracowanych tolerancji i wskaźników.
+        </p>
+      </div>
+
+      <div>
+        <h3>ZORGANIZUJEMY</h3>
+        <img src="ikony/zorganizujemy.svg" alt="Testy FAT i SAT" />
+        <p>
+          Organizacja i właściwie przeprowadzone odbiory u dostawcy (FAT) oraz po instalacji na Twoim zakładzie
+          produkcyjnym (SAT) pozwolą upewnić się, że zamówiony produkt spełnia wszystkie wyspecyfikowane wymagania
+          oraz jest bezpieczny dla Twoich pracowników.
+        </p>
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
       </div>
     </div>
   </section>
@@ -306,33 +1053,80 @@
     <div class="icon-grid">
       <div>
         <h3>DOPILNUJEMY</h3>
+<<<<<<< HEAD
         <img src="ikony/dopilnujemy.svg" alt="Proces instalacji">
         <p>Przypilnujemy procesu instalacji i rozruchu na Twoim zakładzie, dbając o ciągłość produkcyjną. Dopilnujemy aby ten etap przebiegał sprawnie oraz bezpiecznie, a planowane przestoje nie wpływały na plany produkcyjne.</p>
+=======
+        <img src="ikony/dopilnujemy.svg" alt="Proces instalacji" />
+        <p>
+          Przypilnujemy procesu instalacji i rozruchu na Twoim zakładzie, dbając o ciągłość produkcyjną.
+          Dopilnujemy aby ten etap przebiegał sprawnie oraz bezpiecznie,
+          a planowane przestoje nie wpływały na plany produkcyjne.
+        </p>
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
       </div>
     </div>
   </section>
 
+<<<<<<< HEAD
   <!-- Sekcja: Dla kogo? -->
+=======
+  <!-- =========================
+       DLA KOGO
+  ========================= -->
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
   <section class="dla-kogo-bg" id="dla-kogo">
     <div class="dla-kogo-inner">
       <h2>Niezależnie na jakim etapie jest Twoja produkcja</h2>
 
       <div class="dla-kogo-row">
         <div class="dla-kogo-text">
+<<<<<<< HEAD
           <p>Korzystając z doświadczenia z pracy zarówno z globalnymi przedsiębiorstwami produkcyjnymi jak i integratorami automatyki przemysłowej możemy pomóc Twojemu przedsiębiorstwu niezależnie od rodzaju inwestycji. Czy to będzie integracja nowej linii produkcyjnej, zakup stanowisk półautomatycznych czy modernizacja starych maszyn jesteśmy przekonani, że wspólnymi siłami zakończymy każdy projekt sukcesem. </p>
         </div>
         <img src="obrazy/produkcja.jpg" alt="Automatyzacja produkcji" class="dla-kogo-img">
+=======
+          <p>
+            Korzystając z doświadczenia z pracy zarówno z globalnymi przedsiębiorstwami produkcyjnymi
+            jak i integratorami automatyki przemysłowej możemy pomóc Twojemu przedsiębiorstwu niezależnie od rodzaju inwestycji.
+            Czy to będzie integracja nowej linii produkcyjnej, zakup stanowisk półautomatycznych czy modernizacja
+            starych maszyn jesteśmy przekonani, że wspólnymi siłami zakończymy każdy projekt sukcesem.
+          </p>
+        </div>
+
+        <img
+          src="obrazy/produkcja.jpg"
+          alt="Automatyzacja produkcji"
+          class="dla-kogo-img"
+        />
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
       </div>
 
       <div class="dla-kogo-row reverse">
         <div class="dla-kogo-text">
+<<<<<<< HEAD
           <p>Jeśli posiadasz już wysoce zautomatyzowany zakład produkcyjny, masz wypracowane standardy i procedury ale brakuje Ci kogoś kto poprowadzi kompleksowo Twoje przedsięwzięcia, z przyjemnością odciążymy Cię z szeregu obowiązków i zadbamy o najwyższą jakość prowadzenia projektu.</p>
         </div>
         <img src="obrazy/automatyzacja.jpg" alt="Robotyzacja produkcji" class="dla-kogo-img">
+=======
+          <p>
+            Jeśli posiadasz już wysoce zautomatyzowany zakład produkcyjny,
+            masz wypracowane standardy i procedury ale brakuje Ci kogoś kto poprowadzi kompleksowo Twoje przedsięwzięcia,
+            z przyjemnością odciążymy Cię z szeregu obowiązków i zadbamy o najwyższą jakość prowadzenia projektu.
+          </p>
+        </div>
+
+        <img
+          src="obrazy/automatyzacja.jpg"
+          alt="Robotyzacja produkcji"
+          class="dla-kogo-img"
+        />
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
       </div>
 
       <div class="dla-kogo-row">
         <div class="dla-kogo-text">
+<<<<<<< HEAD
           <p>Pomagamy również firmom usługowym z sektora IT w zrozumieniu świata automatyki przemysłowej i wypracowaniu wspólnej nici porozumienia przy łączeniu najnowocześniejszych technologii z standardami przemysłowymi.</p>
         </div>
         <img src="obrazy/IT.jpg" alt="IT w produkcji" class="dla-kogo-img">
@@ -352,17 +1146,135 @@
           <address>
             <strong>e-mail:</strong> biuro.roboinvest@gmail.com<br>
             <strong>m:</strong> +48 531 402 009<br>
+=======
+          <p>
+            Pomagamy również firmom usługowym z sektora IT w zrozumieniu świata automatyki przemysłowej
+            i wypracowaniu wspólnej nici porozumienia przy łączeniu najnowocześniejszych technologii
+            ze standardami przemysłowymi.
+          </p>
+        </div>
+
+        <img
+          src="obrazy/IT.jpg"
+          alt="IT w produkcji"
+          class="dla-kogo-img"
+        />
+      </div>
+    </div>
+  </section>
+  
+    <!-- =========================
+       BLOG
+  ========================= -->
+  
+  <section class="blog-preview" id="blog">
+  <div class="blog-preview-inner">
+
+      <div class="blog-preview-head">
+        <h2>Blog RoboInvest</h2>
+        <p>Praktycznie o automatyzacji, robotyzacji i bezpieczeństwie maszyn.</p>
+      </div>
+
+    <div class="blog-cards">
+
+      <!-- KAFEL 1 -->
+      <a class="blog-card" href="blog/fat-vs-sat-checklista-odbioru.html">
+        <div class="blog-card-image"
+             style="background-image:url('obrazy/blog-fat-sat.jpg');">
+        </div>
+        <div class="blog-card-body">
+          <time datetime="2025-11-02">2 listopada 2025</time>
+          <h3>FAT vs SAT – jak naprawdę odebrać maszynę i nie obudzić się z problemem na produkcji</h3>
+          <p>
+            Czym różni się FAT od SAT, kogo powinno się zaprosić na odbiory
+            i jakie punkty muszą się znaleźć w protokole zanim dopuścisz linię do pracy.
+          </p>
+          <span class="blog-card-more">
+            Czytaj dalej <span class="arrow">→</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- KAFEL 2 -->
+      <a class="blog-card" href="blog/jak-wybrac-integratora.html">
+        <div class="blog-card-image"
+             style="background-image:url('obrazy/blog-integrator.jpg');">
+        </div>
+        <div class="blog-card-body">
+          <time datetime="2025-10-28">28 października 2025</time>
+          <h3>Jak wybrać integratora automatyki i nie przepalić budżetu</h3>
+          <p>
+            7 pytań, które zadajemy dostawcy zanim klient podpisze zamówienie.
+            To moment, w którym decyduje się nie tylko cena, ale jakość wdrożenia.
+          </p>
+          <span class="blog-card-more">
+            Czytaj dalej <span class="arrow">→</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- KAFEL 3 -->
+      <a class="blog-card" href="blog/odpowiedzialnosc-bezpieczenstwo-stanowiska.html">
+        <div class="blog-card-image"
+             style="background-image:url('obrazy/blog-bhp.jpg');">
+        </div>
+        <div class="blog-card-body">
+          <time datetime="2025-10-15">15 października 2025</time>
+          <h3>Kto odpowiada za bezpieczeństwo stanowiska zrobotyzowanego?</h3>
+          <p>
+            Audyt bezpieczeństwa, ocena ryzyka, dopuszczenie pracowników do pracy.
+            Gdzie kończy się odpowiedzialność integratora, a zaczyna odpowiedzialność pracodawcy.
+          </p>
+          <span class="blog-card-more">
+            Czytaj dalej <span class="arrow">→</span>
+          </span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="blog-preview-footer">
+      <a class="blog-all-link" href="blog/index.html">
+        Zobacz wszystkie wpisy
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- =========================
+       KONTAKT
+  ========================= -->
+  <footer id="kontakt">
+    <section class="kontakt-sekcja">
+      <div class="kontakt-wrapper">
+        <div class="kontakt-lewa">
+          <h2>Jesteś zainteresowany<br />współpracą?</h2>
+
+          <p>Skontaktuj się z nami mailowo lub telefonicznie</p>
+
+          <address>
+            <strong>e-mail:</strong> biuro.roboinvest@gmail.com<br />
+            <strong>m:</strong> +48 531 402 009<br />
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
             <strong>a:</strong> 51-126 Wrocław, POLSKA
           </address>
 
           <address>
+<<<<<<< HEAD
             <strong>RoboInvest Kamil Dzik</strong><br>
             NIP: 8943024691<br>
+=======
+            <strong>RoboInvest Kamil Dzik</strong><br />
+            NIP: 8943024691<br />
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
             REGON: 528421610
           </address>
         </div>
 
         <div class="kontakt-prawa">
+<<<<<<< HEAD
           <img src="obrazy/ja.jpg" alt="Właściciel firmy" class="hala-zdjecie">
           <blockquote class="hala-cytat">
             "Właściwie przygotowane środowisko, szczegółowo zdefiniowany zakres oraz rzetelnie realizowany plan to podstawa świadomej automatyzacji która jest kluczem do maksymalizacji korzyści z wykorzystania automatyki przemysłowej."
@@ -371,10 +1283,117 @@
         </div>
 
       </div> 
+=======
+          <img
+            src="obrazy/ja.jpg"
+            alt="Właściciel firmy"
+            class="hala-zdjecie"
+          />
+
+          <blockquote class="hala-cytat">
+            "Właściwie przygotowane środowisko, szczegółowo zdefiniowany zakres
+            oraz rzetelnie realizowany plan to podstawa świadomej automatyzacji
+            która jest kluczem do maksymalizacji korzyści z wykorzystania automatyki przemysłowej."
+            <strong>KAMIL DZIK</strong>
+          </blockquote>
+        </div>
+      </div>
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
 
       <p class="copyright">&copy; 2025 RoboInvest Kamil Dzik</p>
     </section>
   </footer>
 
+<<<<<<< HEAD
+=======
+  <!-- =========================
+       LOGIKA SLIDERA
+  ========================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const slides        = Array.from(document.querySelectorAll('.hero-slide'));
+      const dotsContainer = document.getElementById('heroDots');
+      const heroTitle     = document.getElementById('heroTitle');
+      const heroDesc      = document.getElementById('heroDesc');
+
+      if (!slides.length) return;
+
+      let index = 0;
+      let intervalId = null;
+
+      // utwórz kropki nawigacyjne pod sliderem
+      const dots = slides.map((_, i) => {
+        const dot = document.createElement('div');
+        dot.classList.add('hero-dot');
+        dot.dataset.index = i;
+        if (i === 0) dot.classList.add('active');
+        dotsContainer.appendChild(dot);
+        return dot;
+      });
+
+      // płynna podmiana nagłówka/opisu
+      function applySlideContent(slideEl) {
+        const newTitle = slideEl.dataset.title || '';
+        const newDesc  = slideEl.dataset.desc  || '';
+
+        heroTitle.style.opacity = 0;
+        heroDesc.style.opacity  = 0;
+
+        setTimeout(() => {
+          heroTitle.innerHTML   = newTitle;
+		  heroDesc.innerHTML  = newDesc; 
+          heroTitle.style.opacity = 1;
+          heroDesc.style.opacity  = 1;
+        }, 200);
+      }
+
+      // pokaż konkretny slajd
+      function showSlide(newIndex) {
+        slides[index].classList.remove('active');
+        dots[index].classList.remove('active');
+
+        index = newIndex;
+
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+
+        applySlideContent(slides[index]);
+      }
+
+      // autoplay
+      function startAuto() {
+        intervalId = setInterval(() => {
+          const next = (index + 1) % slides.length;
+          showSlide(next);
+        }, 5000);
+      }
+
+      function stopAuto() {
+        if (intervalId) {
+          clearInterval(intervalId);
+          intervalId = null;
+        }
+      }
+
+      // kliknięcie w kropkę
+      dots.forEach(dot => {
+        dot.addEventListener('click', e => {
+          const targetIndex = parseInt(e.currentTarget.dataset.index, 10);
+          stopAuto();
+          showSlide(targetIndex);
+          startAuto();
+        });
+      });
+
+      // ustaw tekst dla pierwszego slajdu
+      applySlideContent(slides[0]);
+
+      // auto tylko jeśli mamy więcej niż 1 slajd
+      if (slides.length > 1) {
+        startAuto();
+      }
+    });
+  </script>
+>>>>>>> 5728678 (Pierwsze publikowanie strony)
 </body>
 </html>
