@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1280" />
+  <title>FAT vs SAT – jak naprawdę odebrać maszynę i nie obudzić się z problemem na produkcji</title>
+  <meta name="description" content="FAT vs SAT w praktyce – co sprawdzać u dostawcy, a co na produkcji.">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #fff;
+      color: #222;
+    }
+
+    /* 1. SEKCJA HERO ZE ZDJĘCIEM */
+    .blog-hero {
+      position: relative;
+      min-height: 65vh;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .blog-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('../obrazy/blog-fat-sat.jpg'); /* podmień na swoje */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: brightness(0.7) contrast(1.05);
+      z-index: 0;
+    }
+
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 1;
+    }
+
+    .blog-hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      padding: 0 20px;
+    }
+
+    .blog-hero h1 {
+      font-size: 2.6rem;
+      line-height: 1.15;
+      margin: 0 0 16px;
+      color: #fff;
+      text-shadow: 0 0 15px rgba(0,0,0,.7);
+      letter-spacing: -0.02em;
+    }
+
+    .blog-hero p.meta {
+      color: rgba(255,255,255,.8);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: .85rem;
+      margin: 0;
+    }
+
+    /* 2. SEKCJA TREŚCI */
+    .blog-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 70px 20px 50px;
+      line-height: 1.7;
+    }
+
+    .blog-content > p.intro {
+      font-size: 1.05rem;
+      margin-bottom: 35px;
+    }
+
+    .blog-content h2 {
+      font-size: 1.5rem;
+      margin: 36px 0 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .blog-content p {
+      margin: 0 0 16px;
+    }
+
+    .blog-content a {
+      color: #000;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,.15);
+    }
+
+    .blog-content a:hover {
+      border-bottom-color: rgba(0,0,0,.4);
+    }
+	
+	.keywords-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    .keywords-section h3 {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .keywords-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .keywords-list span {
+      background: #f2f2f2;
+      border: 1px solid #eaeaea;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: .8rem;
+      white-space: nowrap;
+    }
+
+    /* 3. STOPKA / CTA */
+    .blog-footer {
+      background: #000;
+      color: #fff;
+      padding: 20px 20px;
+      text-align: center;
+    }
+
+    .blog-footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .blog-footer h2 {
+      font-size: 2rem;
+      margin: 0 0 20px;
+      line-height: 1.2;
+    }
+
+    .blog-footer p {
+      margin: 0 0 30px;
+      color: rgba(255,255,255,.85);
+    }
+
+    .blog-footer-links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .blog-footer a.btn {
+      display: inline-block;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 10px 18px;
+      border-radius: 10px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all .2s ease;
+      text-shadow: 0 0 8px rgba(0,0,0,.5);
+    }
+
+    .blog-footer a.btn:hover {
+      background: rgba(255,255,255,0.18);
+    }
+
+    .blog-footer small {
+      display: block;
+      margin-top: 40px;
+      color: rgba(255,255,255,.5);
+      font-size: .8rem;
+    }
+
+    @media (max-width: 768px) {
+      .blog-hero { min-height: 55vh; }
+      .blog-hero h1 { font-size: 2.1rem; }
+      .blog-content { padding-top: 50px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. HERO ZE ZDJĘCIEM I TYTUŁEM -->
+  <header class="blog-hero">
+    <div class="blog-hero-bg"></div>
+    <div class="blog-hero-inner">
+      <p class="meta">Blog RoboInvest • 2 listopada 2025</p>
+      <h1><br>FAT vs SAT – jak naprawdę odebrać maszynę i nie obudzić się z problemem na produkcji</h1>
+    </div>
+  </header>
+
+  <!-- 2. TREŚĆ ARTYKUŁU -->
+  <main class="blog-content">
+    <p class="intro">
+    Odbiory <strong>FAT</strong> i <strong>SAT</strong> to często najbardziej niedoceniany etap całego 
+  <strong>procesu inwestycyjnego w automatyzację</strong>. 
+  To właśnie wtedy można wychwycić <strong>błędy dostawcy</strong>, 
+  <strong>nieścisłości w dokumentacji</strong> czy 
+  <strong>niedociągnięcia w zakresie bezpieczeństwa</strong>. 
+  Nawet najlepiej zaprojektowana maszyna może sprawiać problemy podczas uruchomienia, 
+  jeśli pomiędzy projektem a włączeniem do produkcji zabraknie 
+  <strong>rzetelnych testów akceptacyjnych</strong>.
+</p>
+
+<h2><strong>FAT</strong> – Factory Acceptance Test, czyli odbiór u dostawcy</h2>
+<p>
+  <strong>FAT</strong> to test akceptacyjny przeprowadzany w zakładzie producenta, 
+  jeszcze przed rozpoczęciem montażu urządzenia w miejscu docelowym.
+  Jego głównym celem jest potwierdzenie, że zbudowane urządzenie w pełni spełnia wymagania określone w 
+  <strong>specyfikacji wymagań użytkownika</strong>, odzwierciedlającej potrzeby i oczekiwania użytkownika końcowego.
+</p>
+<p>
+  W trakcie jego trwania należy traktować maszynę jako <strong>gotowe urządzenie</strong>, wymagające jedynie 
+  <strong>instalacji w wyznaczonym miejscu</strong>, <strong>podłączenia mediów procesowych</strong> oraz 
+  <strong>integracji z ciągiem produkcyjnym</strong>. 
+  Traktowanie tego etapu jako „pokazu przedpremierowego wersji beta”, w którym wykonawca obiecuje jeszcze liczne zmiany i ulepszenia, 
+  jest poważnym błędem. <strong>FAT</strong> to <strong>odbiór finalnego rozwiązania</strong>, a nie zapowiedź przyszłych poprawek.
+</p>
+<p>Podczas <strong>FAT</strong> sprawdza się m.in.:</p>
+<ul>
+  <li><strong>zgodność</strong> z wymaganiami i oczekiwaniami zamawiającego,</li>
+  <li><strong>poprawność działania</strong> układu sterowania i wizualizacji,</li>
+  <li><strong>bezpieczeństwo pracy</strong> operatora i całego procesu,</li>
+  <li><strong>parametry wydajnościowe</strong> oraz <strong>jakość produktu</strong> (w zakresie możliwej symulacji całego procesu produkcyjnego),</li>
+  <li><strong>łatwość obsługi</strong> i <strong>serwisowalność</strong>,</li>
+  <li><strong>kompletność dokumentacji technicznej</strong> dołączonej do maszyny.</li>
+</ul>
+<p>
+  To kluczowy moment, w którym zespół klienta i dostawcy może wspólnie zweryfikować, 
+  czy maszyna jest wolna od błędów konstrukcyjnych oraz czy nie wymaga dodatkowych elementów, takich jak 
+  <strong>czujniki</strong>, <strong>osłony</strong> czy bardziej <strong>czytelne komunikaty alarmowe</strong>. 
+  To również czas, aby upewnić się, że <strong>układ przyłączy</strong>, <strong>gabaryty</strong> i <strong>ergonomia urządzenia</strong> 
+  są w pełni zgodne z layoutem oraz warunkami technicznymi po stronie klienta końcowego.
+</p>
+
+<h2><strong>SAT</strong> – Site Acceptance Test, czyli odbiór u klienta</h2>
+<p>
+  <strong>SAT</strong> przeprowadza się po dostawie, instalacji i podłączeniu maszyny w docelowym miejscu pracy. 
+  Ten etap ma dać jednoznaczną odpowiedź na pytanie: 
+  <strong>czy maszyna działa poprawnie w rzeczywistych warunkach produkcyjnych</strong> użytkownika 
+  z uwzględnieniem jego procesów, materiałów, środowiska pracy oraz integracji z pozostałymi urządzeniami linii.
+</p>
+<p>Podczas <strong>SAT</strong> sprawdza się m.in.:</p>
+<ul>
+  <li><strong>prawidłowy montaż</strong> i <strong>podłączenie urządzenia</strong>,</li>
+  <li><strong>integrację z ciągiem produkcyjnym</strong> – współpracę z innymi maszynami i systemami,</li>
+  <li><strong>działanie w warunkach zakładu</strong>: temperatura, wilgotność, zasilanie, dostępność mediów,</li>
+  <li><strong>pracę na docelowych materiałach</strong> i w rzeczywistych tolerancjach produkcyjnych,</li>
+  <li><strong>finalną dostępność, wydajność</strong> oraz <strong>jakość procesu produkcyjnego</strong>,</li>
+  <li><strong>pełną zgodność</strong> z wymaganiami zasadniczymi w zakresie bezpieczeństwa oraz 
+      <strong>wewnętrznymi standardami utrzymania ruchu i BHP</strong>.</li>
+</ul>
+<p>
+  Moment <strong>odbiorów SAT</strong> stanowi <strong>zakończenie etapu integracji</strong> i potwierdza, 
+  że maszyna jest w pełni gotowa do pracy w środowisku produkcyjnym. 
+  Po pozytywnym zakończeniu testów <strong>SAT</strong> urządzenie staje się 
+  <strong>realną częścią infrastruktury i możliwości produkcyjnych zakładu</strong>. 
+  Od tego momentu przechodzi z fazy projektu do <strong>codziennej eksploatacji</strong>. 
+  Operatorzy rozpoczynają regularną pracę na maszynie, integrator kończy swój udział w procesie wdrożenia, 
+  a dla działu produkcji rozpoczyna się etap <strong>stopniowego zwiększania wydajności</strong> i <strong>stabilizacji procesu</strong>.
+</p>
+
+<h2>Kto powinien być obecny przy odbiorach <strong>FAT</strong> i <strong>SAT</strong>?</h2>
+<p>
+  Zarówno podczas odbiorów <strong>FAT</strong>, jak i <strong>SAT</strong>, 
+  przy urządzeniu powinien znajdować się szeroki zespół specjalistów reprezentujących zarówno 
+  <strong>klienta końcowego</strong>, jak i <strong>integratora</strong>. 
+  Odbiory to nie tylko formalność — to wspólna weryfikacja, 
+  czy urządzenie rzeczywiście spełnia <strong>wymagania techniczne, jakościowe i bezpieczeństwa</strong>, 
+  dlatego obecność właściwych osób ma kluczowe znaczenie.
+</p>
+<p>
+  Po stronie <strong>klienta</strong> powinny uczestniczyć osoby, które brały udział w opracowaniu 
+  <strong>specyfikacji wymagań użytkownika</strong> i dobrze znają proces podlegający automatyzacji. 
+  To właśnie one komisyjnie podejmują decyzję o pozytywnym lub negatywnym wyniku odbioru.
+</p>
+<p>Wśród nich warto uwzględnić:</p>
+<ul>
+  <li><strong>Dział produkcji</strong> – weryfikuje aspekty operacyjne, w tym akceptowany poziom wydajności, dostępności i ergonomii procesu.</li>
+  <li><strong>Dział jakości</strong> – potwierdza, że produkt wytwarzany przez maszynę spełnia założone normy jakościowe.</li>
+  <li><strong>Dział utrzymania ruchu</strong> – ocenia dostępność serwisową, wygodę czynności konserwacyjnych i możliwość szybkiego reagowania na awarie.</li>
+  <li><strong>Dział BHP</strong> – sprawdza zgodność urządzenia z wymaganiami bezpieczeństwa oraz ergonomię stanowiska pracy.</li>
+</ul>
+<p>
+  Po stronie <strong>dostawcy</strong> ważne jest, aby obecne były osoby, które aktywnie uczestniczyły w projektowaniu, budowie i uruchamianiu urządzenia oraz znają oczekiwania i wymagania klienta. 
+  Dzięki temu mogą na bieżąco wyjaśniać <strong>rozwiązania techniczne</strong>, odpowiadać na pytania oraz szybko reagować w razie konieczności wprowadzenia drobnych korekt.
+</p>
+<p>W skład zespołu powinni wchodzić:</p>
+<ul>
+  <li><strong>Konstruktor mechanik</strong> – odpowiedzialny za projekt i wykonanie części mechanicznej urządzenia,</li>
+  <li><strong>Automatyk / robotyk</strong> – znający szczegóły układu sterowania, logiki programu i konfiguracji systemów bezpieczeństwa,</li>
+  <li><strong>Projektant elektryk</strong> – odpowiadający za szafy sterownicze, instalacje elektryczne i trasy kablowe,</li>
+  <li><strong>Kierownik projektu / inżynier projektu</strong> – koordynujący prace zespołu po stronie dostawcy i odpowiadający za zgodność projektu z umową oraz specyfikacją wymagań użytkownika.</li>
+</ul>
+<p>
+  Obecność tych specjalistów po obu stronach pozwala na <strong>sprawne przeprowadzenie testów</strong>, 
+  <strong>bieżące wyjaśnianie wątpliwości</strong> oraz <strong>weryfikację wszystkich wymagań funkcjonalnych, jakościowych i bezpieczeństwa</strong>.
+</p>
+<p>
+  W idealnym scenariuszu po Twojej stronie powinna być osoba pełniąca rolę <strong>kierownika projektu</strong>, 
+  która <strong>nadzoruje interes inwestora</strong> – koordynuje proces odbiorowy, wspiera specjalistów w weryfikacji ich zakresu odpowiedzialności, 
+  pilnuje kompletności dokumentacji technicznej oraz dokumentuje przebieg odbioru w formie szczegółowych i czytelnych protokołów. 
+  Jeśli w Twoim zespole brakuje takiego specjalisty, możesz powierzyć to zadanie nam. 
+  <strong>Wspieramy naszych klientów</strong> w procesach odbiorów FAT i SAT jako <strong>niezależny partner techniczny</strong> oraz <strong>koordynator projektu</strong>, 
+  dbając o to, by każdy etap przebiegał zgodnie z założeniami.
+</p>
+
+<h2>Podsumowanie</h2>
+<p>
+  <strong>FAT</strong> – to test przeprowadzany u dostawcy, <strong>SAT</strong> – to test realizowany u klienta. 
+  Oba stanowią <strong>kluczowe kamienie milowe</strong> w procesie zakupu i uruchomienia maszyny. 
+  Pominięcie któregoś z nich lub potraktowanie go wyłącznie formalnie może prowadzić do 
+  <strong>opóźnień, dodatkowych kosztów, problemów z integracją</strong> czy 
+  <strong>spadku jakości produkcji</strong>.
+</p>
+<p><strong>Aby tego uniknąć:</strong></p>
+<ul>
+  <li>przygotuj <strong>zakres testów</strong> i listę kryteriów akceptacyjnych z odpowiednim wyprzedzeniem,</li>
+  <li>zapewnij obecność <strong>osób decyzyjnych i technicznych</strong> po obu stronach,</li>
+  <li>przeprowadzaj testy w <strong>warunkach zbliżonych do rzeczywistych</strong>,</li>
+  <li><strong>dokumentuj</strong> wszystkie wyniki, obserwacje i uzgodnienia w sposób przejrzysty i kompletny.</li>
+</ul>
+<p>
+  Rzetelnie przeprowadzone odbiory <strong>FAT</strong> i <strong>SAT</strong> to nie tylko formalność, 
+  ale <strong>gwarancja bezpiecznego startu produkcji</strong> i <strong>świadomej automatyzacji procesów</strong>.
+</p>
+  </main>
+  
+  <!-- 3. LISTA SŁÓW KLUCZOWYCH -->
+  <section class="keywords-section" aria-label="Słowa kluczowe artykułu">
+    <h3>Słowa kluczowe:</h3>
+    <div class="keywords-list">
+      <span>FAT</span>
+      <span>SAT</span>
+      <span>Factory Acceptance Test</span>
+      <span>Site Acceptance Test</span>
+      <span>odbiór maszyny</span>
+      <span>testy akceptacyjne</span>
+      <span>automatyzacja produkcji</span>
+      <span>uruchomienie linii</span>
+      <span>dokumentacja techniczna</span>
+      <span>bezpieczeństwo maszyn</span>
+      <span>integracja z linią</span>
+      <span>odbiór u dostawcy</span>
+      <span>odbiór u klienta</span>
+    </div>
+  </section>
+
+  <!-- 4. STOPKA Z CTA -->
+  <footer class="blog-footer">
+    <div class="blog-footer-inner">
+      <h2><br>Masz przed sobą odbiory FAT albo SAT?</h2>
+      <p>
+        Napisz do nas – przygotujemy wymagania, checklisty FAT/SAT i dopilnujemy,
+        żebyś nie obudził się<br> z maszyną, która “działa tylko na pokaz”.
+      </p>
+      <div class="blog-footer-links">
+        <a class="btn" href="../index.html#kontakt">Skontaktuj się</a>
+        <a class="btn" href="../blog/wszystkie_wpisy.html">Wszystkie wpisy</a>
+		<a class="btn" href="../index.html">Strona RoboInvest</a>
+      </div>
+      <small>&copy; 2025 RoboInvest Kamil Dzik. All rights reserved.</small>
+    </div>
+  </footer>
+
+</body>
+</html>

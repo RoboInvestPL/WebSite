@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1280" />
+  <title>Kto odpowiada za bezpieczeństwo stanowiska zrobotyzowanego</title>
+  <meta name="description" content="Bezpieczeństwo maszyn - gdzie kończy się odpowiedzialność producenta, a zaczyna pracodawcy.">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #fff;
+      color: #222;
+    }
+
+    /* 1. SEKCJA HERO ZE ZDJĘCIEM */
+    .blog-hero {
+      position: relative;
+      min-height: 65vh;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .blog-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('../obrazy/blog-bhp.jpg'); /* podmień na swoje */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: brightness(0.7) contrast(1.05);
+      z-index: 0;
+    }
+
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 1;
+    }
+
+    .blog-hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      padding: 0 20px;
+    }
+
+    .blog-hero h1 {
+      font-size: 2.6rem;
+      line-height: 1.15;
+      margin: 0 0 16px;
+      color: #fff;
+      text-shadow: 0 0 15px rgba(0,0,0,.7);
+      letter-spacing: -0.02em;
+    }
+
+    .blog-hero p.meta {
+      color: rgba(255,255,255,.8);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: .85rem;
+      margin: 0;
+    }
+
+    /* 2. SEKCJA TREŚCI */
+    .blog-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 70px 20px 50px;
+      line-height: 1.7;
+    }
+
+    .blog-content > p.intro {
+      font-size: 1.05rem;
+      margin-bottom: 35px;
+    }
+
+    .blog-content h2 {
+      font-size: 1.5rem;
+      margin: 36px 0 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .blog-content p {
+      margin: 0 0 16px;
+    }
+
+    .blog-content a {
+      color: #000;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,.15);
+    }
+
+    .blog-content a:hover {
+      border-bottom-color: rgba(0,0,0,.4);
+    }
+	
+	.keywords-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    .keywords-section h3 {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .keywords-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .keywords-list span {
+      background: #f2f2f2;
+      border: 1px solid #eaeaea;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: .8rem;
+      white-space: nowrap;
+    }
+
+    /* 3. STOPKA / CTA */
+    .blog-footer {
+      background: #000;
+      color: #fff;
+      padding: 20px 20px;
+      text-align: center;
+    }
+
+    .blog-footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .blog-footer h2 {
+      font-size: 2rem;
+      margin: 0 0 20px;
+      line-height: 1.2;
+    }
+
+    .blog-footer p {
+      margin: 0 0 30px;
+      color: rgba(255,255,255,.85);
+    }
+
+    .blog-footer-links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .blog-footer a.btn {
+      display: inline-block;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 10px 18px;
+      border-radius: 10px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all .2s ease;
+      text-shadow: 0 0 8px rgba(0,0,0,.5);
+    }
+
+    .blog-footer a.btn:hover {
+      background: rgba(255,255,255,0.18);
+    }
+
+    .blog-footer small {
+      display: block;
+      margin-top: 40px;
+      color: rgba(255,255,255,.5);
+      font-size: .8rem;
+    }
+
+    @media (max-width: 768px) {
+      .blog-hero { min-height: 55vh; }
+      .blog-hero h1 { font-size: 2.1rem; }
+      .blog-content { padding-top: 50px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. HERO ZE ZDJĘCIEM I TYTUŁEM -->
+  <header class="blog-hero">
+    <div class="blog-hero-bg"></div>
+    <div class="blog-hero-inner">
+      <p class="meta">Blog RoboInvest • 8 pażdziernika 2025</p>
+      <h1><br>Kto odpowiada za bezpieczeństwo stanowiska zrobotyzowanego</h1>
+    </div>
+  </header>
+
+<!-- 2. TREŚĆ ARTYKUŁU -->
+  <main class="blog-content">
+    <p class="intro">
+      <strong>Bezpieczeństwo maszyn</strong>, w tym <strong>stanowisk zrobotyzowanych</strong>, to jeden z najbardziej newralgicznych aspektów wdrażania automatyzacji i robotyzacji procesów przemysłowych.
+      Gdy inwestycja dobiega końca, a maszyna zostaje uruchomiona, pojawia się kluczowe pytanie: <strong>kto ponosi odpowiedzialność za bezpieczeństwo</strong> – producent czy użytkownik?
+      Na pierwszy rzut oka odpowiedź wydaje się prosta, jednak w rzeczywistości granice tej odpowiedzialności są płynne, a jej zakres zależy od wielu czynników.
+      W tym artykule przyglądamy się, jak w praktyce wygląda <strong>podział obowiązków pomiędzy producentem a pracodawcą</strong> oraz na co zwrócić uwagę, by uniknąć problemów podczas kontroli <strong>Państwowej Inspekcji Pracy (PIP)</strong> lub w razie wypadku przy pracy.
+    </p>
+
+    <h2>Odpowiedzialność producenta (integratora) – czyli bezpieczeństwo „fabryczne”</h2>
+    <p>
+      Na etapie projektowania i budowy maszyny pełną odpowiedzialność za jej bezpieczeństwo ponosi <strong>producent</strong>.
+      Nie ma przy tym znaczenia, czy mówimy o stanowisku półautomatycznym, pojedynczej maszynie czy celi zrobotyzowanej.
+      Każde urządzenie, które spełnia definicję maszyny w rozumieniu przepisów, musi spełniać szereg wymagań prawnych i technicznych.
+    </p>
+    <p>
+      Zgodnie z <strong>Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2023/1230</strong> w sprawie maszyn
+      (które zastępuje od 20 stycznia 2027 r. dotychczas obowiązującą <strong>Dyrektywę Maszynową 2006/42/WE</strong>,
+      wdrożoną w Polsce poprzez <strong>rozporządzenie w sprawie zasadniczych wymagań dla maszyn</strong>),
+      to właśnie na producencie spoczywa obowiązek zapewnienia, aby maszyna:
+    </p>
+    <ul>
+      <li><strong>została poddana ocenie zgodności,</strong></li>
+      <li><strong>spełniała zasadnicze wymagania w zakresie bezpieczeństwa i ochrony zdrowia,</strong></li>
+      <li><strong>posiadała kompletną dokumentację techniczną, dostępną dla organów kontroli rynku,</strong></li>
+      <li><strong>była wyposażona w instrukcję obsługi opracowaną w języku użytkownika, zgodnie z wymaganiami przepisów,</strong></li>
+      <li><strong>była oznakowana znakiem CE,</strong></li>
+      <li><strong>miała wystawioną ważną deklarację zgodności.</strong></li>
+    </ul>
+    <p>
+      To właśnie te elementy stanowią podstawę formalnego potwierdzenia, że maszyna jest bezpieczna i może zostać
+      <strong>wprowadzona do obrotu na terenie Europejskiego Obszaru Gospodarczego</strong>.
+    </p>
+    <p>
+      W przypadku <strong>linii zrobotyzowanych</strong> sytuacja jest jednak bardziej złożona.
+      Integrator, tworząc kompletną linię, łączy często ze sobą kilka maszyn, urządzeń i systemów w taki sposób, aby działały jak jeden organizm,
+      z <strong>wspólnym celem produkcyjnym</strong>, <strong>wzajemnie powiązanymi funkcjami</strong> oraz <strong>wspólnym układem sterowania</strong>,
+      w tym <strong>obwodami bezpieczeństwa</strong>.
+      W takiej sytuacji to właśnie integrator staje się w rozumieniu przepisów <strong>producentem zespołu maszyn</strong>
+      i ma obowiązek przeprowadzić <strong>pełną ocenę zgodności</strong> dla całej <strong>zrobotyzowanej linii produkcyjnej</strong>,
+      tak jak dla jednej maszyny, a nie jedynie dla poszczególnych komponentów wchodzących w jej skład.
+    </p>
+
+    <h2>Odpowiedzialność pracodawcy – czyli bezpieczeństwo „operacyjne”</h2>
+    <p>
+      W momencie, gdy <strong>maszyna, stanowisko zrobotyzowane lub linia produkcyjna</strong> zostaje oddane do użytku w zakładzie,
+      zaczynają obowiązywać przepisy <strong>Kodeksu pracy</strong>,
+      <strong>rozporządzenia w sprawie minimalnych wymagań dotyczących bezpieczeństwa i higieny pracy w zakresie użytkowania maszyn</strong>
+      oraz inne krajowe regulacje.
+      Oznacza to, że od chwili instalacji i uruchomienia urządzenia pełną odpowiedzialność za
+      <strong>bezpieczeństwo i higienę pracy</strong> przejmuje <strong>pracodawca</strong>.
+    </p>
+    <p>Zgodnie z obowiązującymi przepisami to właśnie on odpowiada m.in. za:</p>
+    <ul>
+      <li><strong>przeprowadzenie oceny ryzyka zawodowego na stanowiskach pracy,</strong></li>
+      <li><strong>dopuszczenie maszyn do użytkowania,</strong></li>
+      <li><strong>szkolenie pracowników w zakresie obsługi i bezpieczeństwa,</strong></li>
+      <li><strong>prowadzenie rejestru kontroli, przeglądów i serwisów,</strong></li>
+      <li><strong>utrzymanie systemów bezpieczeństwa w stanie pełnej sprawności i zgodności.</strong></li>
+    </ul>
+    <p>
+      Jeśli więc nawet nowa maszyna posiada <strong>oznakowanie CE</strong> oraz <strong>deklarację zgodności</strong>
+      i została dopiero co zainstalowana na terenie zakładu produkcyjnego, ale posiada <strong>niewłaściwie zabezpieczone strefy zagrożenia</strong>,
+      to w razie wystąpienia zdarzenia wypadkowego <strong>odpowiedzialność za jego skutki spoczywa na pracodawcy</strong>.
+    </p>
+
+    <h2>Bezpieczny start nowej robotyzacji, czyli jak przygotować się do dopuszczenia maszyny do pracy</h2>
+    <p>
+      Jak już wspomniano wcześniej, sam fakt, że maszyna posiada <strong>deklarację zgodności</strong> i <strong>oznakowanie CE</strong>,
+      nie oznacza jeszcze, że może być użytkowana.
+      W najlepszym interesie klienta końcowego jest dopilnowanie, aby <strong>producent (lub integrator)</strong> na każdym etapie cyklu życia maszyny
+      rozumiał i stosował zarówno <strong>najlepsze praktyki inżynierskie</strong>, jak i <strong>aktualne wymagania prawne dotyczące bezpieczeństwa</strong>.
+      Temat <strong>bezpieczeństwa maszynowego</strong> powinien być obecny od samego początku projektu inwestycyjnego,
+      już przy opracowywaniu <strong>specyfikacji wymagań użytkownika</strong>,
+      podczas <strong>cyklicznych spotkań projektowych</strong> między producentem a odbiorcą,
+      a także w trakcie <strong>odbiorów FAT i SAT</strong>.
+      To właśnie na tych etapach można wychwycić błędy projektowe, braki w zabezpieczeniach czy nieścisłości w dokumentacji, zanim maszyna trafi do użytkowania.
+    </p>
+    <p>
+      Po zakończeniu inwestycji w automatyzację lub robotyzację <strong>praca nad bezpieczeństwem się nie kończy</strong>.
+      <strong>Bezpieczeństwo nie jest stanem trwałym</strong> i z upływem czasu może się pogarszać,
+      zwłaszcza gdy zmieniają się <strong>warunki pracy</strong>, <strong>sposób użytkowania maszyny</strong>,
+      przeprowadza się <strong>remonty</strong> lub wprowadza <strong>istotne modyfikacje</strong> w jej konstrukcji bądź sterowaniu.
+      Dlatego należy <strong>regularnie weryfikować i oceniać stan bezpieczeństwa</strong> maszyn,
+      by mieć pewność, że nadal spełniają one wymagania przepisów i nie stwarzają zagrożenia dla personelu.
+    </p>
+    <p>
+      Jeśli chcesz mieć pewność, że <strong>Twoja automatyzacja lub robotyzacja</strong> zostanie wdrożona bezpiecznie, możesz powierzyć to nam.
+      Wykorzystując nasze doświadczenie oraz <strong>niezależne audyty bezpieczeństwa</strong>,
+      zadbamy o <strong>Twój interes na każdym etapie procesu inwestycyjnego</strong> od koncepcji po uruchomienie,
+      tak aby potwierdzić, że <strong>ryzyko jest akceptowalne</strong>, a urządzenie <strong>może zostać dopuszczone do eksploatacji</strong>.
+    </p>
+
+    <h2>Podsumowanie</h2>
+    <p>
+      <strong>Bezpieczne stanowisko zrobotyzowane</strong> to efekt współpracy pomiędzy <strong>producentem (integratorem)</strong> i <strong>użytkownikiem</strong>.
+      Producent odpowiada za <strong>projekt, konstrukcję i zgodność maszyny z wymaganiami zasadniczymi</strong>,
+      natomiast po jej uruchomieniu odpowiedzialność przejmuje <strong>pracodawca</strong>,
+      który musi zapewnić <strong>bezpieczne warunki eksploatacji</strong> oraz zgodność maszyny z <strong>wymaganiami minimalnymi</strong>.
+    </p>
+    <p>Aby mieć pewność, że cały proces – od projektu po użytkowanie – przebiega zgodnie z wymaganiami:</p>
+    <ul>
+      <li><strong>traktuj bezpieczeństwo maszynowe</strong> jako integralny element każdego etapu inwestycji,</li>
+      <li>uwzględniaj kwestie <strong>bezpieczeństwa</strong> już przy tworzeniu <strong>specyfikacji wymagań użytkownika</strong> i podczas <strong>odbiorów FAT/SAT</strong>,</li>
+      <li>w trakcie eksploatacji regularnie <strong>weryfikuj stan zabezpieczeń</strong> i <strong>aktualność oceny ryzyka</strong>.</li>
+    </ul>
+    <p>
+      Pamiętaj, że <strong>odpowiedzialność za bezpieczeństwo maszyn</strong> to <strong>ciągły proces</strong>, który wymaga nadzoru,
+      systematycznej kontroli i współpracy wszystkich stron zaangażowanych w projekt.
+      Świadome podejście do bezpieczeństwa to nie tylko <strong>obowiązek prawny</strong>,
+      ale przede wszystkim <strong>inwestycja w stabilność, wydajność i długofalową niezawodność produkcji</strong>.
+    </p>
+  </main>
+  
+  <!-- 3. LISTA SŁÓW KLUCZOWYCH -->
+  <section class="keywords-section" aria-label="Słowa kluczowe artykułu">
+    <h3>Słowa kluczowe:</h3>
+<div class="keywords-list">
+  <span>bezpieczeństwo maszyn</span>
+  <span>bezpieczeństwo stanowisk zrobotyzowanych</span>
+  <span>audyt bezpieczeństwa</span>
+  <span>ocena ryzyka maszyn</span>
+  <span>dopuszczenie maszyny do pracy</span>
+  <span>producent maszyn</span>
+  <span>integrator maszyn</span>
+  <span>pracodawca odpowiedzialność za bezpieczeństwo</span>
+  <span>rozporządzenie 2023/1230/UE</span>
+  <span>dyrektywa maszynowa 2006/42/WE</span>
+  <span>deklaracja zgodności</span>
+  <span>oznaczenie CE</span>
+  <span>audyt stanowiska zrobotyzowanego</span>
+  <span>robotyzacja i automatyzacja</span>
+</div>
+  </section>
+
+  <!-- 4. STOPKA Z CTA -->
+  <footer class="blog-footer">
+    <div class="blog-footer-inner">
+      <h2><br>Planujesz wdrożenie nowej maszyny do pracy?</h2>
+<p>
+  Napisz do nas – wesprzemy Cię w procesie przygotowania i weryfikacji dokumentacji, 
+  dopilnujemy, aby cały proces inwestycyjny przebiegał zgodnie z wymaganiami prawnymi 
+  oraz pomożemy potwierdzić, że maszyna może zostać bezpiecznie dopuszczona do eksploatacji.
+</p>
+      <div class="blog-footer-links">
+        <a class="btn" href="../index.html#kontakt">Skontaktuj się</a>
+        <a class="btn" href="../blog/wszystkie_wpisy.html">Wszystkie wpisy</a>
+		<a class="btn" href="../index.html">Strona RoboInvest</a>
+      </div>
+      <small>&copy; 2025 RoboInvest Kamil Dzik. All rights reserved.</small>
+    </div>
+  </footer>
+
+</body>
+</html>

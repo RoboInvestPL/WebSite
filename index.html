@@ -129,7 +129,7 @@
       color: #fff;
       text-decoration: none;
       font-weight: 700;
-      font-size: 1.1em;
+      font-size: 1.4em;
       line-height: 1;
       text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
       transition: color 0.2s ease;
@@ -898,17 +898,13 @@
     <div class="blog-cards">
 
       <!-- KAFEL 1 -->
-      <a class="blog-card" href="blog/fat-vs-sat-checklista-odbioru.html">
+      <a class="blog-card" href="blog/FAT_vs_SAT.html">
         <div class="blog-card-image"
              style="background-image:url('obrazy/blog-fat-sat.jpg');">
         </div>
-        <div class="blog-card-body">
-          <time datetime="2025-11-02">2 listopada 2025</time>
-          <h3>FAT vs SAT – jak naprawdę odebrać maszynę i nie obudzić się z problemem na produkcji</h3>
-          <p>
-            Czym różni się FAT od SAT, kogo powinno się zaprosić na odbiory
-            i jakie punkty muszą się znaleźć w protokole zanim dopuścisz linię do pracy.
-          </p>
+        <div class="blog-card-body">         
+         <h3>FAT vs SAT - jak naprawdę odebrać maszynę i nie obudzić się z problemem na produkcji</h3>
+        <p>Czym różni się FAT od SAT, kogo warto zaprosić na odbiory i jak się do nich przygotować.</p>
           <span class="blog-card-more">
             Czytaj dalej <span class="arrow">→</span>
           </span>
@@ -916,17 +912,14 @@
       </a>
 
       <!-- KAFEL 2 -->
-      <a class="blog-card" href="blog/jak-wybrac-integratora.html">
+      <a class="blog-card" href="blog/Odpowiedzialnosc_Bezpieczenstwo_Stanowiska.html">
         <div class="blog-card-image"
-             style="background-image:url('obrazy/blog-integrator.jpg');">
+             style="background-image:url('obrazy/blog-bhp.jpg');">
         </div>
         <div class="blog-card-body">
-          <time datetime="2025-10-28">28 października 2025</time>
-          <h3>Jak wybrać integratora automatyki i nie przepalić budżetu</h3>
-          <p>
-            7 pytań, które zadajemy dostawcy zanim klient podpisze zamówienie.
-            To moment, w którym decyduje się nie tylko cena, ale jakość wdrożenia.
-          </p>
+          <h3>Kto odpowiada za bezpieczeństwo stanowiska zrobotyzowanego?</h3>
+        <p>Jak kształtuje się podział odpowiedzialności między producentem, integratorem a użytkownikiem
+		przed uruchomieniem maszyny i po jej dopuszczeniu do eksploatacji.</p>
           <span class="blog-card-more">
             Czytaj dalej <span class="arrow">→</span>
           </span>
@@ -934,17 +927,14 @@
       </a>
 
       <!-- KAFEL 3 -->
-      <a class="blog-card" href="blog/odpowiedzialnosc-bezpieczenstwo-stanowiska.html">
+      <a class="blog-card" href="blog/URS.html">
         <div class="blog-card-image"
-             style="background-image:url('obrazy/blog-bhp.jpg');">
+             style="background-image:url('obrazy/blog-urs.jpg');">
         </div>
         <div class="blog-card-body">
-          <time datetime="2025-10-15">15 października 2025</time>
-          <h3>Kto odpowiada za bezpieczeństwo stanowiska zrobotyzowanego?</h3>
-          <p>
-            Audyt bezpieczeństwa, ocena ryzyka, dopuszczenie pracowników do pracy.
-            Gdzie kończy się odpowiedzialność integratora, a zaczyna odpowiedzialność pracodawcy.
-          </p>
+          <h3>Specyfikacja Wymagań Użytkownika (URS) - dokument, który ułatwia inwestycję w automatyzację </h3>
+        <p>Jak opracować Specyfikację Wymagań Użytkownika (URS), aby uniknąć nieporozumień z dostawcą i mieć 
+		pełną kontrolę nad projektem.</p>
           <span class="blog-card-more">
             Czytaj dalej <span class="arrow">→</span>
           </span>
@@ -954,7 +944,7 @@
     </div>
 
     <div class="blog-preview-footer">
-      <a class="blog-all-link" href="blog/index.html">
+      <a class="blog-all-link" href="blog/wszystkie_wpisy.html">
         Zobacz wszystkie wpisy
       </a>
     </div>
@@ -1004,13 +994,12 @@
           </blockquote>
         </div>
       </div>
-
-      <p class="copyright">&copy; 2025 RoboInvest Kamil Dzik</p>
+      <p class="copyright">&copy; <span id="copyright-year"></span> RoboInvest Kamil Dzik. All rights reserved.</p>
     </section>
   </footer>
 
   <!-- =========================
-       LOGIKA SLIDERA
+       LOGIKA
   ========================= -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -1096,6 +1085,12 @@
         startAuto();
       }
     });
+	
+  const startYear = 2025; // rok uruchomienia projektu
+  const currentYear = new Date().getFullYear();
+  const yearText = startYear === currentYear ? `${currentYear}` : `${startYear}–${currentYear}`;
+  document.getElementById('copyright-year').textContent = yearText;
+
   </script>
 </body>
 </html>
