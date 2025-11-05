@@ -8,3 +8,5 @@ Disallow: /temp/
 Disallow: /private/
 
 Sitemap: https://roboinvest.pl/sitemap.xml
+
+#
