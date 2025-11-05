@@ -3,10 +3,8 @@
 User-agent: *
 Allow: /
 
-# Blokuj wewnętrzne zasoby, jeśli istnieją
 Disallow: /admin/
 Disallow: /temp/
 Disallow: /private/
 
-# Wskaż mapę witryny
 Sitemap: https://roboinvest.pl/sitemap.xml
