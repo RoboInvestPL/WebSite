@@ -999,99 +999,200 @@
     </section>
   </footer>
 
-  <!-- =========================
-       LOGIKA
-  ========================= -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const slides        = Array.from(document.querySelectorAll('.hero-slide'));
-      const dotsContainer = document.getElementById('heroDots');
-      const heroTitle     = document.getElementById('heroTitle');
-      const heroDesc      = document.getElementById('heroDesc');
+<!-- =========================
+     LOGIKA
+========================= -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slides        = Array.from(document.querySelectorAll('.hero-slide'));
+    const dotsContainer = document.getElementById('heroDots');
+    const heroTitle     = document.getElementById('heroTitle');
+    const heroDesc      = document.getElementById('heroDesc');
 
-      if (!slides.length) return;
+    if (!slides.length) return;
 
-      let index = 0;
-      let intervalId = null;
+    let index = 0;
+    let intervalId = null;
 
-      // utwórz kropki nawigacyjne pod sliderem
-      const dots = slides.map((_, i) => {
-        const dot = document.createElement('div');
-        dot.classList.add('hero-dot');
-        dot.dataset.index = i;
-        if (i === 0) dot.classList.add('active');
-        dotsContainer.appendChild(dot);
-        return dot;
-      });
-
-      // płynna podmiana nagłówka/opisu
-      function applySlideContent(slideEl) {
-        const newTitle = slideEl.dataset.title || '';
-        const newDesc  = slideEl.dataset.desc  || '';
-
-        heroTitle.style.opacity = 0;
-        heroDesc.style.opacity  = 0;
-
-        setTimeout(() => {
-          heroTitle.innerHTML   = newTitle;
-		  heroDesc.innerHTML  = newDesc; 
-          heroTitle.style.opacity = 1;
-          heroDesc.style.opacity  = 1;
-        }, 200);
-      }
-
-      // pokaż konkretny slajd
-      function showSlide(newIndex) {
-        slides[index].classList.remove('active');
-        dots[index].classList.remove('active');
-
-        index = newIndex;
-
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
-
-        applySlideContent(slides[index]);
-      }
-
-      // autoplay
-      function startAuto() {
-        intervalId = setInterval(() => {
-          const next = (index + 1) % slides.length;
-          showSlide(next);
-        }, 5000);
-      }
-
-      function stopAuto() {
-        if (intervalId) {
-          clearInterval(intervalId);
-          intervalId = null;
-        }
-      }
-
-      // kliknięcie w kropkę
-      dots.forEach(dot => {
-        dot.addEventListener('click', e => {
-          const targetIndex = parseInt(e.currentTarget.dataset.index, 10);
-          stopAuto();
-          showSlide(targetIndex);
-          startAuto();
-        });
-      });
-
-      // ustaw tekst dla pierwszego slajdu
-      applySlideContent(slides[0]);
-
-      // auto tylko jeśli mamy więcej niż 1 slajd
-      if (slides.length > 1) {
-        startAuto();
-      }
+    // utwórz kropki nawigacyjne pod sliderem
+    const dots = slides.map((_, i) => {
+      const dot = document.createElement('div');
+      dot.classList.add('hero-dot');
+      dot.dataset.index = i;
+      if (i === 0) dot.classList.add('active');
+      dotsContainer.appendChild(dot);
+      return dot;
     });
-	
+
+    // płynna podmiana nagłówka/opisu
+    function applySlideContent(slideEl) {
+      const newTitle = slideEl.dataset.title || '';
+      const newDesc  = slideEl.dataset.desc  || '';
+
+      heroTitle.style.opacity = 0;
+      heroDesc.style.opacity  = 0;
+
+      setTimeout(() => {
+        heroTitle.innerHTML   = newTitle;
+        heroDesc.innerHTML    = newDesc;
+        heroTitle.style.opacity = 1;
+        heroDesc.style.opacity  = 1;
+      }, 200);
+    }
+
+    // pokaż konkretny slajd
+    function showSlide(newIndex) {
+      slides[index].classList.remove('active');
+      dots[index].classList.remove('active');
+
+      index = newIndex;
+
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+
+      applySlideContent(slides[index]);
+    }
+
+    // autoplay
+    function startAuto() {
+      intervalId = setInterval(() => {
+        const next = (index + 1) % slides.length;
+        showSlide(next);
+      }, 5000);
+    }
+
+    function stopAuto() {
+      if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+    }
+
+    // kliknięcie w kropkę
+    dots.forEach(dot => {
+      dot.addEventListener('click', e => {
+        const targetIndex = parseInt(e.currentTarget.dataset.index, 10);
+        stopAuto();
+        showSlide(targetIndex);
+        startAuto();
+      });
+    });
+
+    // ustaw tekst dla pierwszego slajdu
+    applySlideContent(slides[0]);
+
+    // auto tylko jeśli mamy więcej niż 1 slajd
+    if (slides.length > 1) {
+      startAuto();
+    }
+  });
+
+  // aktualizacja roku w stopce
   const startYear = 2025; // rok uruchomienia projektu
   const currentYear = new Date().getFullYear();
   const yearText = startYear === currentYear ? `${currentYear}` : `${startYear}–${currentYear}`;
   document.getElementById('copyright-year').textContent = yearText;
+</script>
 
-  </script>
+<!-- Dane strukturalne -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "RoboInvest",
+      "url": "https://roboinvest.pl/",
+      "logo": "https://roboinvest.pl/obrazy/logo.png",
+      "email": "biuro.roboinvest@gmail.com",
+      "telephone": "+48 531 402 009",
+      "description": "RoboInvest – specjalizujemy się w zarządzaniu projektami inwestycyjnymi w automatyzację i robotyzację produkcji. Wspieramy inwestorów na każdym etapie cyklu projektu – od opracowania URS i specyfikacji dla maszyn, przez analizy, audyty, Design Review, Project Review, Design Freeze, kwalifikacje IQ/OQ/PQ, po odbiory FAT/SAT i zapewnienie bezpieczeństwa maszyn zgodnie z Rozporządzeniem 2023/1230 (dawna Dyrektywa Maszynowa 2006/42/WE).",
+      "sameAs": [
+        "https://www.linkedin.com/company/roboinvestkamildzik"
+      ],
+      "makesOffer": [
+        {
+          "@type": "Service",
+          "name": "Zarządzanie projektami inwestycyjnymi w automatyzację i robotyzację produkcji",
+          "description": "Kompleksowe zarządzanie projektami inwestycyjnymi w obszarze automatyzacji i robotyzacji – planowanie, budżetowanie, nadzór techniczny, koordynacja dostawców, nadzór nad FAT/SAT i bezpieczeństwem maszyn.",
+          "areaServed": "Polska"
+        },
+        {
+          "@type": "Service",
+          "name": "Odbiory FAT / SAT",
+          "description": "Wsparcie techniczne, dokumentacyjne i merytoryczne podczas odbiorów fabrycznych (FAT) i odbiorów końcowych (SAT) dla projektów przemysłowych."
+        },
+        {
+          "@type": "Service",
+          "name": "Audyty i bezpieczeństwo maszyn",
+          "description": "Analizy oraz raporty według norm PN-EN ISO. Weryfikacja zabezpieczeń i systemów bezpieczeństwa."
+        },
+        {
+          "@type": "Service",
+          "name": "Dokumentacja techniczna i URS",
+          "description": "Opracowanie URS (User Requirement Specification) oraz dokumentacji projektowej i kwalifikacyjnej (IQ/OQ/PQ) zgodnie z wymaganiami GMP i normami zharmonizowanymi."
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "14",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": "Klient przemysłowy",
+          "datePublished": "2025-10-15",
+          "reviewBody": "Wysokiej klasy wsparcie w zakresie automatyzacji i odbiorów FAT/SAT. RoboInvest skutecznie reprezentowało nasz interes podczas całego projektu inwestycyjnego.",
+          "name": "Pełna obsługa projektu inwestycyjnego",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": "Dział inżynieryjny klienta",
+          "datePublished": "2025-09-30",
+          "reviewBody": "Profesjonalne podejście do zarządzania projektem. Świetna komunikacja i terminowość.",
+          "name": "Nadzór projektowy",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "RoboInvest",
+      "image": "https://roboinvest.pl/obrazy/logo.png",
+      "url": "https://roboinvest.pl/",
+      "email": "biuro.roboinvest@gmail.com",
+      "telephone": "+48 531 402 009",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Wrocław",
+        "postalCode": "51-126",
+        "addressCountry": "PL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.107883,
+        "longitude": 17.038538
+      },
+      "areaServed": "Polska"
+    }
+  ]
+}
+</script>
+  
 </body>
 </html>
