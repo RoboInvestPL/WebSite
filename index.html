@@ -224,8 +224,8 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
    MOBILE / TABLET – WSPÓLNE
 ========================================= */
 @media (max-width:1024px){
-  header{ height: clamp(340px, 140vw, 820px) !important; min-height:0 !important; padding-bottom:80px; }
-  .brand-logo{ max-width:180px; top:10px; left:12px; z-index:9; }
+  header{ height: clamp(340px, 51vw, 820px) !important; min-height:0 !important; padding-bottom:80px; }
+  .brand-logo{ max-width:160px; top:10px; left:12px; z-index:9; }
   .header-content{ padding-top:max(80px); padding-left:16px; padding-right:16px; }
   .hero-box{ max-width:680px; margin:0 auto; text-align:center; }
   #heroTitle{ font-size: clamp(26px, 6vw, 34px); line-height:1.15; margin-bottom:12px; text-shadow:0 0 15px rgba(0,0,0,.75); }
@@ -317,9 +317,11 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
 }
 
 /* =========================================
-   MOBILE – IKONY / OFERTA: JEDNA KOLUMNA ≤640px
+   MOBILE – ≤640px
 ========================================= */
 @media (max-width: 640px) {
+   header{ height: clamp(340px, 190vw, 820px) !important; min-height:0 !important; padding-bottom:80px; }
+  .brand-logo{ max-width:180px; top:10px; left:12px; z-index:9; }
   .icon-grid {
     grid-template-columns: 1fr;
     row-gap: 16px; column-gap: 0;
@@ -337,7 +339,7 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
 }
 
 /* =========================================
-   LANDSCAPE (≤1024px) – SIATKI / DLA-KOGO / BLOG / KONTAKT
+   LANDSCAPE (≤1024px) – HEADER / SIATKI / DLA-KOGO / BLOG / KONTAKT
 ========================================= */
 @media (max-width: 1024px) and (orientation: landscape) {
   .icon-grid {
@@ -461,7 +463,7 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
       <div
         class="hero-slide"
         style="background-image:url('obrazy/slide3.jpg');"
-        data-title="Wdrażamy automatyzację tak, żeby produkcja mogła<br> działać już jutro"
+        data-title="Wdrażamy automatyzację tak, żeby produkcja mogła działać<br> już jutro"
         data-desc="Przygotowujemy proces, ludzi i infrastrukturę pod nowe stanowiska.<br>Dbamy o uruchomienie i bezpieczeństwo. <br>Minimalizujemy przestoje i chaos przy starcie nowej linii."
       ></div>
     </div>
