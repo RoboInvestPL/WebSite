@@ -1,211 +1,332 @@
 <!DOCTYPE html>
 <html lang="pl">
+
+<!-- =========================================
+     ALL RIGHTS TO THE CODE ARE FULLY RESERVED
+============================================== -->
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=1280" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog RoboInvest – Praktycznie o automatyzacji, robotyzacji i bezpieczeństwie maszyn</title>
   <meta name="description" content="Wszystkie wpisy bloga RoboInvest – praktycznie o automatyzacji, robotyzacji i bezpieczeństwie maszyn.">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Favicon's -->
+  <link rel="icon" type="image/png" href="/favicon/logo-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/logo.svg" />
+  <link rel="shortcut icon" href="/favicon/logo.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="RoboInvest" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  <!-- OpenGraph SEO -->
+  <meta property="og:title" content="Blog RoboInvest – Praktycznie o automatyzacji, robotyzacji i bezpieczeństwie maszyn">
+  <meta property="og:description" content="Praktyczne artykuły o automatyzacji, robotyzacji, odbiorach maszyn, audytach zgodności i projektach inwestycyjnych.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roboinvest.pl/blog/wszystkie_wpisy.html">
+  <meta property="og:image" content="https://roboinvest.pl/favicon/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <style>
-    * { box-sizing: border-box; }
+<style>
 
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #2a2a2a; /* spójne z kafelkami bloga */
-      color: #fff;
-    }
+/*=========================
+       BASE
+  =========================*/
+  
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'Roboto',sans-serif;
+  background-color:#2a2a2a;
+  color:#fff;
+}
 
-    /* =========================
-       HERO / TYTUŁ PODSTRONY
-       Spójny z sekcją BLOG ze strony głównej
-    ========================= */
-    .blog-hero {
-      background: #000;
-      padding: 20px 20px 40px;
-      text-align: center;
-      color: #fff;
-    }
+/*=========================
+       HERO
+  =========================*/
+  
+.blog-hero{
+  background:#000;
+  padding:20px 20px 40px;
+  text-align:center;
+  color:#fff;
+}
+.blog-hero-inner{
+  max-width:1000px;
+  margin:0 auto;
+}
+.blog-hero h1{
+  font-size:2.8em;
+  line-height:1.2;
+  margin-bottom:10px;
+  text-align:center;
+  font-weight:700;
+}
+.blog-hero p{
+  font-size:1.5em;
+  line-height:1.6;
+  color:rgba(255,255,255,.85);
+  margin:0;
+}
 
-    .blog-hero-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+/*===============================
+       LISTA WPISÓW (KAFELKI)
+  ==============================*/
+  
+.blog-list-wrapper{
+  max-width:1200px;
+  margin:0 auto;
+  padding:80px 20px 100px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:40px;
+}
+.blog-card{
+  background:#2a2a2a;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 20px 40px rgba(0,0,0,.8);
+  display:flex;
+  flex-direction:column;
+  text-decoration:none;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.07);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.blog-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 30px 60px rgba(0,0,0,.9);
+}
+.blog-card-image{
+  position:relative;
+  width:100%;
+  height:180px;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+.blog-card-body{
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  flex-grow:1;
+}
+.blog-card-body time{
+  font-size:.8em;
+  line-height:1.4;
+  letter-spacing:.03em;
+  color:#aaa;
+  text-transform:uppercase;
+  font-weight:700;
+  margin-bottom:12px;
+  display:block;
+}
+.blog-card-body h2{
+  font-size:1.2em;
+  line-height:1.3;
+  font-weight:700;
+  margin:0 0 12px;
+  color:#fff;
+  letter-spacing:-.02em;
+  text-shadow:0 0 10px rgba(0,0,0,.7);
+}
+.blog-card-body p{
+  font-size:.95em;
+  line-height:1.5;
+  color:rgba(255,255,255,.8);
+  margin:0 0 20px;
+  flex-grow:1;
+}
+.blog-card-more{
+  font-size:.9em;
+  font-weight:700;
+  text-decoration:none;
+  color:#fff;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  transition:color .2s ease;
+}
+.blog-card-more:hover{color:#999;}
+.blog-card-more .arrow{
+  font-size:1.1em;
+  line-height:1;
+}
 
-    .blog-hero h1 {
-      font-size: 2.8em;
-      line-height: 1.2;
-      margin-bottom: 10px;
-      text-align: center;
-      font-weight: 700;
-    }
+/*=========================
+       STOPKA
+  =========================*/
+  
+.blog-footer{
+  background:#000;
+  color:#aaa;
+  text-align:center;
+  padding:20px;
+  font-size:.9em;
+}
+.blog-footer-links{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.blog-footer a.btn{
+  display:inline-block;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.25);
+  padding:10px 18px;
+  border-radius:10px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  transition:all .2s ease;
+  text-shadow:0 0 8px rgba(0,0,0,.5);
+}
+.blog-footer a.btn:hover{
+  background:rgba(255,255,255,.18);
+}
+.blog-footer a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  border-bottom:1px solid rgba(255,255,255,.3);
+  padding-bottom:2px;
+}
+.blog-footer a:hover{
+  border-bottom-color:rgba(255,255,255,.6);
+}
 
-    .blog-hero p {
-      font-size: 1.5em;
-      line-height: 1.6;
-      color: rgba(255,255,255,0.85);
-      margin: 0;
-    }
+/*=========================
+       MOBILE / TABLET
+  =========================*/
+ 
+@media (max-width:1024px){
 
-    /* =========================
-       SEKCJA WPISÓW (kafelki)
-    ========================= */
-    .blog-list-wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 20px 100px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 40px;
-    }
+/*-- HERO --*/
 
-    .blog-card {
-      background: #2a2a2a;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.07);
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
+  .blog-hero{
+    padding:32px 16px 40px;
+    text-align:center;
+  }
+  .blog-hero-inner{max-width:680px;}
+  .blog-hero h1{
+    font-size:clamp(24px,6vw,32px);
+    margin-bottom:6px;
+    line-height:1.2;
+  }
+  .blog-hero p{
+    font-size:clamp(14px,3.6vw,17px);
+    line-height:1.45;
+    max-width:60ch;
+    margin:0 auto;
+  }
 
-    .blog-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.9);
-    }
+/*-- LISTA WPISÓW --*/
+  .blog-list-wrapper{
+    padding:40px 16px 60px;
+    grid-template-columns:1fr;
+    gap:20px;
+    max-width:780px;
+  }
+  .blog-card{
+    border-radius:12px;
+    box-shadow:0 14px 28px rgba(0,0,0,.45);
+  }
+  .blog-card-image{height:150px;}
+  .blog-card-body{padding:16px 14px 18px;}
+  .blog-card-body time{
+    font-size:.75em;
+    margin-bottom:10px;
+  }
+  .blog-card-body h2{
+    font-size:clamp(16px,4.2vw,19px);
+    line-height:1.28;
+    margin-bottom:8px;
+  }
+  .blog-card-body p{
+    font-size:clamp(13px,3.4vw,15px);
+    margin-bottom:14px;
+    line-height:1.45;
+  }
+  .blog-card-more{font-size:.85em;}
 
-    .blog-card-image {
-      position: relative;
-      width: 100%;
-      height: 180px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+/*-- STOPKA --*/
+  .blog-footer{
+    padding:28px 16px;
+    font-size:.85em;
+    line-height:1.5;
+  }
+  .blog-footer-links{gap:12px;}
+  .blog-footer a.btn{
+    padding:8px 14px;
+    border-radius:8px;
+    font-size:.9em;
+  }
 
-    .blog-card-body {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
+/*-- WYŁĄCZENIE ANIMACJI / TRANSFORMACJI (MOBILE) --*/
 
-    .blog-card-body time {
-      font-size: .8em;
-      line-height: 1.4;
-      letter-spacing: .03em;
-      color: #aaa;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: block;
-    }
+  .blog-hero,
+  .blog-hero *,
+  .blog-list-wrapper,
+  .blog-list-wrapper *,
+  .blog-card,
+  .blog-card *,
+  .blog-footer,
+  .blog-footer *{
+    animation:none!important;
+    transition:none!important;
+    transform:none!important;
+  }
+  .blog-card,
+  .blog-card:hover{
+    transform:none!important;
+    box-shadow:0 14px 28px rgba(0,0,0,.35)!important;
+  }
+  .blog-card-more,
+  .blog-card-more:hover{
+    transform:none!important;
+    color:inherit!important;
+  }
+}
 
-    .blog-card-body h2 {
-      font-size: 1.2em;
-      line-height: 1.3;
-      font-weight: 700;
-      margin: 0 0 12px;
-      color: #fff;
-      letter-spacing: -0.02em;
-      text-shadow: 0 0 10px rgba(0,0,0,.7);
-    }
+/*-- LANDSCAPE ≤1024px — 3 KAFELKI W RZĘDZIE --*/
 
-    .blog-card-body p {
-      font-size: .95em;
-      line-height: 1.5;
-      color: rgba(255,255,255,0.8);
-      margin: 0 0 20px;
-      flex-grow: 1;
-    }
+@media (max-width:1024px) and (orientation:landscape){
+  .blog-hero{
+    padding:24px 16px 32px;
+  }
+  .blog-hero h1{
+    font-size:clamp(20px,4vw,26px);
+  }
+  .blog-hero p{
+    font-size:clamp(12px,2.6vw,15px);
+  }
 
-    .blog-card-more {
-      font-size: .9em;
-      font-weight: 700;
-      text-decoration: none;
-      color: #fff;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: color .2s ease;
-    }
+  .blog-list-wrapper{
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+    padding:32px 16px 40px;
+  }
+  .blog-card-image{height:120px;}
+  .blog-card-body{padding:12px;}
+  .blog-card-body h2{
+    font-size:clamp(14px,2.6vw,17px);
+  }
+  .blog-card-body p{
+    font-size:clamp(11px,2.4vw,14px);
+  }
+  .blog-card-more{font-size:.78em;}
+}
 
-    .blog-card-more:hover {
-      color: #999;
-    }
-
-    .blog-card-more .arrow {
-      font-size: 1.1em;
-      line-height: 1;
-    }
-
-    /* =========================
-       STOPKA STRONY BLOGA
-    ========================= */
-    .blog-footer {
-      background: #000;
-      color: #aaa;
-      text-align: center;
-      padding: 20px 20px;
-      font-size: .9em;
-    }
-	
-	.blog-footer-links {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .blog-footer a.btn {
-      display: inline-block;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.25);
-      padding: 10px 18px;
-      border-radius: 10px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      transition: all .2s ease;
-      text-shadow: 0 0 8px rgba(0,0,0,.5);
-    }
-
-    .blog-footer a.btn:hover {
-      background: rgba(255,255,255,0.18);
-    }
-
-    .blog-footer a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      border-bottom: 1px solid rgba(255,255,255,0.3);
-      padding-bottom: 2px;
-    }
-
-    .blog-footer a:hover {
-      border-bottom-color: rgba(255,255,255,0.6);
-    }
-
-    @media (max-width: 768px) {
-      .blog-hero h1 {
-        font-size: 2.3em;
-      }
-
-      .blog-hero p {
-        font-size: 1.2em;
-      }
-    }
-  </style>
+</style>
 </head>
 <body>
 
   <!-- =========================
        HERO PODSTRONY BLOGA
   ========================= -->
+  
   <header class="blog-hero">
     <div class="blog-hero-inner">
       <h1>Wszytskie wpisy - blog RoboInvest</h1>
@@ -216,8 +337,9 @@
   <!-- =========================
        KAFELKI WPISÓW BLOGA
   ========================= -->
+  
   <main class="blog-list-wrapper">
-
+  
     <a class="blog-card" href="fat_vs_sat.html">
       <div class="blog-card-image" style="background-image:url('../obrazy/blog-fat-sat.jpg');"></div>
       <div class="blog-card-body">
@@ -255,6 +377,7 @@
   <!-- =========================
        STOPKA
   ========================= -->
+  
  <footer class="blog-footer">
     <div class="blog-footer-inner">
       <div class="blog-footer-links">
@@ -276,5 +399,21 @@
   document.getElementById('copyright-year').textContent = yearText;
 </script>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E793XT6R8P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E793XT6R8P');
+</script>
+
 </body>
+
+<!-- =========================================
+     ALL RIGHTS TO THE CODE ARE FULLY RESERVED
+============================================== -->
+
 </html>
+
