@@ -8,17 +8,19 @@
 <head>
   <meta charset="UTF-8" />
   <!-- Wczytujemy pierwszy slajd wcześniej, żeby hero szybciej się pojawił -->
-  <link rel="preload" as="image" href="obrazy/slide1.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="obrazy/slide1.webp" fetchpriority="high">
   <!-- Kod weryfikacyjny Google (Search Console). -->
   <meta name="google-site-verification" content="mNdWz9KpZc_3eCyJSfgT96xnFP2UdR9cDoxjLSyjjV4" />
   <!-- Ustawienia szerokość widoku -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Tytuł strony -->
   <title>RoboInvest – Świadoma automatyzacja i robotyzacja produkcji</title>
-  <!-- Opis strony dla wyszukiwarek --> 
-  <meta name="description" content="Pomagamy wdrażać rozwiązania z zakresu robotyki przemysłowej, automatyki i optymalizacji produkcji. Zarządzanie projektami inwestycyjnymi w automatyzację i robotyzację">
+
+  
   <!-- Czcionka z Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
   <!-- Favicon's -->
   <link rel="icon" type="image/png" href="/favicon/logo-96x96.png" sizes="96x96" />
@@ -28,13 +30,19 @@
   <meta name="apple-mobile-web-app-title" content="RoboInvest" />
   <link rel="manifest" href="/site.webmanifest" />
   
-  <!-- SEO Booster — meta tagi + OpenGraph -->
+  <!-- SEO OpenGraph -->
   <meta property="og:title" content="RoboInvest – Pomagamy wdrażać rozwiązania z zakresu robotyki przemysłowej, automatyki i optymalizacji produkcji. Zarządzanie projektami inwestycyjnymi w automatyzację i robotyzację">
   <meta property="og:description" content="Automatyzacja, robotyzacja, FAT/SAT, audyty maszyn, URS, bezpieczeństwo maszyn.">
-  <meta property="og:type" content="website">
+   <meta property="og:type" content="website">
   <meta property="og:image" content="https://roboinvest.pl/favicon/logo.svg">
   <meta property="og:url" content="https://roboinvest.pl/">
   <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- SEO - Tag kanoniczyny -->
+  <link rel="canonical" href="https://roboinvest.pl/">
+
+  <!-- SEO - meta name -->
+  <meta name="description" content="Zarządzanie projektami w automatyzacji i robotyzacji produkcji. Wdrażamy rozwiązania z robotyki przemysłowej, automatyki i cyfryzacji procesów.">
 
 <style>
 
@@ -224,7 +232,7 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
    MOBILE / TABLET – WSPÓLNE
 ========================================= */
 @media (max-width:1024px){
-  header{ height: clamp(340px, 51vw, 820px) !important; min-height:0 !important; padding-bottom:80px; }
+  header{ height: clamp(340px, 70vw, 820px) !important; min-height:0 !important; padding-bottom:80px; }
   .brand-logo{ max-width:160px; top:10px; left:12px; z-index:9; }
   .header-content{ padding-top:max(80px); padding-left:16px; padding-right:16px; }
   .hero-box{ max-width:680px; margin:0 auto; text-align:center; }
@@ -443,26 +451,26 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
   <header>
     <!-- Tło zmieniane w JS -->
 	
-	<img src="obrazy/slide1.jpg" alt="" class="hero-preload" decoding="async" fetchpriority="high">
+	<img src="obrazy/slide1.webp" alt="Automatyzacja procesów produkcyjnych" class="hero-preload" decoding="async" fetchpriority="high">
 	
     <div class="hero-slider">
       <div
         class="hero-slide active"
-        style="background-image:url('obrazy/slide1.jpg');"
+        style="background-image:url('obrazy/slide1.webp');"
         data-title="Świadoma automatyzacja.<br>Bez zgadywania."
         data-desc="Doradzamy, nadzorujemy i koordynujemy wdrożenia automatyzacji oraz robotyzacji w przemyśle. Pomagamy wybrać właściwy proces, właściwą technologię i właściwego poddostawcę – tak, żeby inwestycja była bezpieczna, uzasadniona biznesowo i dowieziona na czas."
       ></div>
 
       <div
         class="hero-slide"
-        style="background-image:url('obrazy/slide2.jpg');"
+        style="background-image:url('obrazy/slide2.webp');"
         data-title="Reprezentujemy Twój interes na każdym etapie inwestycji"
         data-desc="Pilnujemy zakresu, terminów i bezpieczeństwa maszyn. Walidujemy dostawców, egzekwujemy wymagania techniczne, koordynujemy FAT/SAT i dbamy, żeby linia była gotowa do produkcji – a nie tylko wyglądała dobrze w prezentacji."
       ></div>
 
       <div
         class="hero-slide"
-        style="background-image:url('obrazy/slide3.jpg');"
+        style="background-image:url('obrazy/slide3.webp');"
         data-title="Wdrażamy automatyzację tak, żeby produkcja mogła działać<br> już jutro"
         data-desc="Przygotowujemy proces, ludzi i infrastrukturę pod nowe stanowiska.<br>Dbamy o uruchomienie i bezpieczeństwo. <br>Minimalizujemy przestoje i chaos przy starcie nowej linii."
       ></div>
@@ -543,7 +551,7 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
     <div class="icon-grid">
       <div>
         <h3>DORADZIMY</h3>
-        <img src="ikony/doradzimy.svg" alt="Doradztwo inwestycyjne" />
+        <img src="ikony/doradzimy.svg" alt="Doradztwo inwestycyjne" loading="lazy" decoding="async" />
         <p>
           Wybór procesu produkcyjnego wartego automatyzacji czy robotyzacji nie zawsze jest oczywisty.
           Doradzamy który z nich wybrać.
@@ -552,7 +560,7 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
 
       <div>
         <h3>ANALIZUJEMY</h3>
-        <img src="ikony/analizujemy.svg" alt="Analizy techniczne" />
+        <img src="ikony/analizujemy.svg" alt="Analizy techniczne" loading="lazy" decoding="async" />
         <p>
           Wskażemy procesy najlepiej nadające się na automatyzację w oparciu o wielopłaszczyznowe analizy
           i raporty finansowe, techniczne i biznesowe.
@@ -565,7 +573,7 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
     <div class="icon-grid">
       <div>
         <h3>ZDEFINIUJEMY</h3>
-        <img src="ikony/zdefiniujemy.svg" alt="Wymagania i standaryzacja" />
+        <img src="ikony/zdefiniujemy.svg" alt="Wymagania i standaryzacja" loading="lazy" decoding="async" />
         <p>
           Podstawą każdego projektu inwestycyjnego są jasno określone cele i oczekiwania stawiane przed finalnym produktem.
           Pomożemy w zdefiniowaniu wymagań i standaryzacji dla nowego, zautomatyzowanego procesu produkcyjnego.
@@ -574,7 +582,7 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
 
       <div>
         <h3>PRZYGOTUJEMY</h3>
-        <img src="ikony/przygotujemy.svg" alt="Gotowość procesów" />
+        <img src="ikony/przygotujemy.svg" alt="Gotowość procesów" loading="lazy" decoding="async" />
         <p>
           Właściwe przygotowanie zakładu produkcyjnego i wykwalifikowana kadra przed wprowadzeniem automatyzacji
           to połowa sukcesu. Zbadamy czy Twój zespół i procesy są gotowe aby być częścią nowych linii technologicznych.
@@ -587,7 +595,7 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
     <div class="icon-grid">
       <div>
         <h3>PLANUJEMY</h3>
-        <img src="ikony/planujemy.svg" alt="Mapa drogowa inwestycji" />
+        <img src="ikony/planujemy.svg" alt="Mapa drogowa inwestycji" loading="lazy" decoding="async" />
         <p>
           Po zbadaniu Twoich potrzeb, zbudujemy mapę drogową wskazującą optymalne podejście do całego przedsięwzięcia.
           Stworzymy harmonogram inwestycji, macierz ryzyk i szans, oszacujemy ich wpływ i będziemy dbali
@@ -597,7 +605,7 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
 
       <div>
         <h3>WYBIERZEMY</h3>
-        <img src="ikony/wybierzemy.svg" alt="Właściwy poddostawca" />
+        <img src="ikony/wybierzemy.svg" alt="Właściwy poddostawca" loading="lazy" decoding="async" />
         <p>
           Wybór właściwego poddostawcy jest kluczowy do realizacji każdego przedsięwzięcia w automatyzację.
           Na podstawie specjalizacji, opinii rynkowej oraz analiz płynności finansowej wskażemy kontrahentów
@@ -611,7 +619,7 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
     <div class="icon-grid">
       <div>
         <h3>KOORDYNUJEMY</h3>
-        <img src="ikony/koordynujemy.svg" alt="Koordynacja prac" />
+        <img src="ikony/koordynujemy.svg" alt="Koordynacja prac" loading="lazy" decoding="async" />
         <p>
           Cykliczne spotkania projektowe, ciągłe monitorowanie i właściwe raportowanie postępów prac
           pozwoli minimalizować ryzyko opóźnień lub zmian w zakresie.
@@ -621,7 +629,7 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
 
       <div>
         <h3>ZORGANIZUJEMY</h3>
-        <img src="ikony/zorganizujemy.svg" alt="Testy FAT i SAT" />
+        <img src="ikony/zorganizujemy.svg" alt="Testy FAT i SAT" loading="lazy" decoding="async" />
         <p>
           Organizacja i właściwie przeprowadzone odbiory u dostawcy (FAT) oraz po instalacji na Twoim zakładzie
           produkcyjnym (SAT) pozwolą upewnić się, że zamówiony produkt spełnia wszystkie wyspecyfikowane wymagania
@@ -635,7 +643,7 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
     <div class="icon-grid">
       <div>
         <h3>DOPILNUJEMY</h3>
-        <img src="ikony/dopilnujemy.svg" alt="Proces instalacji" />
+        <img src="ikony/dopilnujemy.svg" alt="Proces instalacji" loading="lazy" decoding="async" />
         <p>
           Przypilnujemy procesu instalacji i rozruchu na Twoim zakładzie, dbając o ciągłość produkcyjną.
           Dopilnujemy aby ten etap przebiegał sprawnie oraz bezpiecznie,
@@ -664,9 +672,11 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
         </div>
 
         <img
-          src="obrazy/produkcja.jpg"
+          src="obrazy/produkcja.webp"
           alt="Automatyzacja produkcji"
           class="dla-kogo-img"
+		  loading="lazy" 
+		  decoding="async"
         />
       </div>
 
@@ -680,9 +690,11 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
         </div>
 
         <img
-          src="obrazy/automatyzacja.jpg"
+          src="obrazy/automatyzacja.webp"
           alt="Robotyzacja produkcji"
           class="dla-kogo-img"
+		  loading="lazy" 
+		  decoding="async"
         />
       </div>
 
@@ -696,9 +708,11 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
         </div>
 
         <img
-          src="obrazy/IT.jpg"
-          alt="IT w produkcji"
+          src="obrazy/IT.webp"
+          alt="Cyfryzacja produkcji"
           class="dla-kogo-img"
+		  loading="lazy" 
+		  decoding="async"
         />
       </div>
     </div>
@@ -721,7 +735,9 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
         <!-- KAFEL 1 -->
         <a class="blog-card" href="blog/fat_vs_sat.html">
           <div class="blog-card-image"
-               style="background-image:url('obrazy/blog-fat-sat.jpg');">
+               style="background-image:url('obrazy/blog-fat-sat.webp');
+			   loading="lazy" 
+			   decoding="async">
           </div>
           <div class="blog-card-body">         
             <h3>FAT vs SAT - jak naprawdę odebrać maszynę i nie obudzić się z problemem na produkcji</h3>
@@ -735,7 +751,9 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
         <!-- KAFEL 2 -->
         <a class="blog-card" href="blog/odpowiedzialnosc_bezpieczenstwo_stanowiska.html">
           <div class="blog-card-image"
-               style="background-image:url('obrazy/blog-bhp.jpg');">
+               style="background-image:url('obrazy/blog-bhp.webp');
+			   loading="lazy" 
+			   decoding="async">
           </div>
           <div class="blog-card-body">
             <h3>Kto odpowiada za bezpieczeństwo stanowiska zrobotyzowanego?</h3>
@@ -750,7 +768,9 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
         <!-- KAFEL 3 -->
         <a class="blog-card" href="blog/urs.html">
           <div class="blog-card-image"
-               style="background-image:url('obrazy/blog-urs.jpg');">
+               style="background-image:url('obrazy/blog-urs.webp');
+			   loading="lazy" 
+			   decoding="async">
           </div>
           <div class="blog-card-body">
             <h3>Specyfikacja Wymagań Użytkownika (URS) - dokument, który ułatwia inwestycję w automatyzację </h3>
@@ -805,9 +825,11 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
         <!-- PRAWA KOLUMNA – zdjęcie + cytat właściciela -->
         <div class="kontakt-prawa">
           <img
-            src="obrazy/ja.jpg"
+            src="obrazy/ja.webp"
             alt="Właściciel firmy"
             class="hala-zdjecie"
+			loading="lazy" 
+			decoding="async"
           />
 
           <blockquote class="hala-cytat">
