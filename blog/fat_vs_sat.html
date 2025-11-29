@@ -9,11 +9,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preload" as="image" href="obrazy/blog-fat-sat.webp" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <title>FAT vs SAT – jak naprawdę odebrać maszynę i nie obudzić się z problemem na produkcji</title>
   <meta name="description" content="FAT vs SAT w praktyce – co sprawdzać u dostawcy, a co na produkcji.">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   
-  <!-- Favicon's -->
+  <link rel="stylesheet" href="../styles/blog_post.css"> 
+  
   <link rel="icon" type="image/png" href="/favicon/logo-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon/logo.svg" />
   <link rel="shortcut icon" href="/favicon/logo.ico" />
@@ -21,7 +24,6 @@
   <meta name="apple-mobile-web-app-title" content="RoboInvest" />
   <link rel="manifest" href="/site.webmanifest" />
   
-  <!-- OpenGraph SEO -->
   <meta property="og:title" content="FAT vs SAT – jak naprawdę odebrać maszynę i nie obudzić się z problemem na produkcji">
   <meta property="og:description" content="Co sprawdzać u dostawcy, a co na produkcji?">
   <meta property="og:type" content="article">
@@ -43,194 +45,32 @@ body{
 }
 
 /* =========================================
-			HERO
+			MAIN IMAGE
 ========================================= */
-.blog-hero{
-  position:relative;
-  min-height:65vh;
-  background:#000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  overflow:hidden;
-}
-.blog-hero-bg{
-  position:absolute;
-  inset:0;
+.blog-hero-bg {
   background:url('../obrazy/blog-fat-sat.webp') center/cover no-repeat;
-  filter:brightness(.7) contrast(1.05);
-  z-index:0;
-}
-.blog-hero::before{
-  content:'';position:absolute;inset:0;
-  background:rgba(0,0,0,.4);z-index:1;
-}
-.blog-hero-inner{position:relative;z-index:2;max-width:1100px;padding:0 20px;}
-.blog-hero h1{
-  font-size:2.6rem;line-height:1.15;margin:0 0 16px;
-  color:#fff;text-shadow:0 0 15px rgba(0,0,0,.7);
-  letter-spacing:-.02em;
-}
-.blog-hero p.meta{
-  color:rgba(255,255,255,.8);
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  font-size:.85rem;
-  margin:0;
-}
-
-/* =========================================
-			TREŚĆ WPISU
-========================================= */
-.blog-content{
-  max-width:1000px;margin:0 auto;
-  padding:70px 20px 50px;line-height:1.7;
-}
-.blog-content>p.intro{font-size:1.05rem;margin-bottom:35px;}
-.blog-content h2{
-  font-size:1.5rem;
-  margin:36px 0 12px;
-  letter-spacing:-.01em;
-}
-.blog-content p{margin:0 0 16px;}
-.blog-content a{
-  color:#000;font-weight:700;text-decoration:none;
-  border-bottom:1px solid rgba(0,0,0,.15);
-}
-.blog-content a:hover{
-  border-bottom-color:rgba(0,0,0,.4);
-}
-
-/* =========================================
-			KEYWORDS
-========================================= */
-.keywords-section{
-  max-width:1000px;margin:0 auto;
-  padding:0 20px 40px;
-}
-.keywords-section h3{
-  margin-bottom:10px;font-size:1rem;
-  text-transform:uppercase;letter-spacing:.08em;
-}
-.keywords-list{
-  display:flex;flex-wrap:wrap;gap:8px;
-}
-.keywords-list span{
-  background:#f2f2f2;border:1px solid #eaeaea;
-  border-radius:999px;padding:6px 14px;
-  font-size:.8rem;white-space:nowrap;
-}
-
-/* =========================================
-			STOPKA
-========================================= */
-.blog-footer{
-  background:#000;color:#fff;
-  padding:20px;text-align:center;
-}
-.blog-footer-inner{max-width:900px;margin:0 auto;}
-.blog-footer h2{
-  font-size:2rem;margin:0 0 20px;line-height:1.2;
-}
-.blog-footer p{
-  margin:0 0 30px;color:rgba(255,255,255,.85);
-}
-.blog-footer-links{
-  display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
-}
-.blog-footer a.btn{
-  display:inline-block;padding:10px 18px;
-  border-radius:10px;font-weight:700;text-decoration:none;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.25);
-  color:#fff;text-shadow:0 0 8px rgba(0,0,0,.5);
-  transition:.2s;
-}
-.blog-footer a.btn:hover{background:rgba(255,255,255,.18);}
-.blog-footer small{
-  display:block;margin-top:40px;
-  color:rgba(255,255,255,.5);font-size:.8rem;
-}
-
-/* =========================================
-   MOBILE / TABLET (≤1024px)
-========================================= */
-@media(max-width:1024px){
-
-  /* wyłączenie animacji */
-  .blog-hero,*,
-  .blog-content,*,
-  .keywords-section *,
-  .blog-footer,*{
-    animation:none!important;
-    transition:none!important;
-    transform:none!important;
   }
 
-  /* HERO */
-  .blog-hero{min-height:clamp(280px,55vw,480px);padding:40px 16px;}
-  .blog-hero h1{font-size:clamp(22px,6vw,30px);margin-bottom:10px;}
-  .blog-hero p.meta{font-size:clamp(10px,2.5vw,12px);}
-  .blog-hero-bg{background-position:center top;}
-
-  /* TREŚĆ WPISU */
-  .blog-content{
-    padding:40px 16px 32px;
-    font-size:clamp(14px,3.6vw,17px);
-    line-height:1.55;
-  }
-  .blog-content p.intro{
-    font-size:clamp(15px,3.8vw,18px);
-    margin-bottom:24px;
-  }
-  .blog-content h2{
-    font-size:clamp(18px,4.6vw,22px);
-    margin:28px 0 10px;
-  }
-  .blog-content p{margin-bottom:14px;}
-
-  /* KEYWORDS */
-  .keywords-section{padding:0 16px 32px;}
-  .keywords-section h3{
-    font-size:clamp(12px,3vw,14px);
-    margin-bottom:8px;
-  }
-  .keywords-list span{
-    font-size:clamp(11px,2.8vw,13px);
-    padding:5px 11px;
-  }
-
-  /* STOPKA */
-  .blog-footer{padding:32px 16px 40px;}
-  .blog-footer-inner{max-width:700px;}
-  .blog-footer h2{font-size:clamp(20px,5.4vw,26px);}
-  .blog-footer p{font-size:clamp(14px,3.4vw,16px);}
-  .blog-footer a.btn{
-    padding:8px 14px;font-size:clamp(13px,3.4vw,15px);
-  }
-  .blog-footer small{
-    margin-top:28px;font-size:clamp(11px,2.8vw,13px);
-  }
-}
-
-/* MOBILE PORTRAIT ≤640px */
-@media(max-width:640px) and (orientation:portrait){
-  .blog-content{padding-top:32px;}
-  .blog-hero{min-height:clamp(260px,90vw,420px);}
-  .keywords-list{gap:6px;}
-}
-
-/* MOBILE LANDSCAPE */
-@media(max-width:1024px) and (orientation:landscape){
-  .blog-hero{min-height:clamp(250px,48vw,380px);padding:30px 20px;}
-  .blog-content{padding-top:32px;}
-  .blog-footer{padding:28px 16px 32px;}
-}
 </style>
   
 </head>
 <body>
+
+<!-- COOKIE BANNER – RoboInvest -->
+
+<div id="cookie-banner" class="cookie-banner">
+  <div class="cookie-banner__inner">
+    <p class="cookie-banner__text">
+      Ta strona wykorzystuje pliki cookie wyłącznie do celów statystycznych.
+      Wszystkie dane są w pełni anonimizowane. Możesz je zaakceptować lub odrzucić. Szczegóły znajdziesz w
+      <a href="../components/cookies.html">Polityce plików cookies</a>.
+    </p>
+    <div>
+      <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Akceptuję</button>
+      <button id="cookie-reject" class="cookie-btn cookie-btn-reject">Odrzucam</button>
+    </div>
+  </div>
+</div>
 
   <!-- 1. HERO ZE ZDJĘCIEM I TYTUŁEM -->
   <header class="blog-hero">
@@ -403,7 +243,7 @@ body{
         <a class="btn" href="../blog/wszystkie_wpisy.html">Wszystkie wpisy</a>
 		<a class="btn" href="../index.html">Strona RoboInvest</a>
       </div>
-      <small>&copy; 2025 RoboInvest Kamil Dzik. All rights reserved.</small>
+      <small>&copy; <span id="copyright-year"></span> RoboInvest Kamil Dzik. All rights reserved. <a href="../components/cookies.html">Polityka cookies</a></small>
     </div>
   </footer>  
   
@@ -446,15 +286,26 @@ body{
 }
 </script>
   
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E793XT6R8P"></script>
+<!-- Google Analytics with ePrivacy -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  gtag('consent','default',{
+    ad_storage:'denied',
+    analytics_storage:'denied',
+    functionality_storage:'denied',
+    security_storage:'granted'
+  });
 
-  gtag('config', 'G-E793XT6R8P');
 </script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E793XT6R8P"></script>
+
+<script>
+  gtag('js', new Date());
+</script>
+
+<script src="../scripts/cookies.js" defer></script>
 
 </body>
 

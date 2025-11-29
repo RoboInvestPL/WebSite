@@ -19,6 +19,9 @@
   <!-- Ustawienia szerokość widoku -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
+  <!-- Wczytanie CSS -->
+  <link rel="stylesheet" href="styles/index.css"> 
+  
   <!-- Tytuł strony -->
   <title>RoboInvest – Świadoma automatyzacja i robotyzacja produkcji</title>
   
@@ -33,7 +36,7 @@
   <!-- SEO OpenGraph -->
   <meta property="og:title" content="RoboInvest – Pomagamy wdrażać rozwiązania z zakresu robotyki przemysłowej, automatyki i optymalizacji produkcji. Zarządzanie projektami inwestycyjnymi w automatyzację i robotyzację">
   <meta property="og:description" content="Automatyzacja, robotyzacja, FAT/SAT, audyty maszyn, URS, bezpieczeństwo maszyn.">
-   <meta property="og:type" content="website">
+  <meta property="og:type" content="website">
   <meta property="og:image" content="https://roboinvest.pl/favicon/logo.svg">
   <meta property="og:url" content="https://roboinvest.pl/">
   <meta name="twitter:card" content="summary_large_image">
@@ -46,407 +49,37 @@
 
   <!-- Kod weryfikacyjny Google (Search Console). -->
   <meta name="google-site-verification" content="mNdWz9KpZc_3eCyJSfgT96xnFP2UdR9cDoxjLSyjjV4" />
-
+  
 <style>
 
 /* =========================================
    RESET / BASE
 ========================================= */
+
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 html, body { overflow-x: hidden; }
 body { margin: 0; font-family: 'Roboto', sans-serif; color: #222; background-color: #f6f6f6; }
 
-/* =========================================
-   HEADER / HERO
-========================================= */
-header{
-  position: relative;
-  height: 80vh;
-  display: flex; flex-direction: column; justify-content: center; align-items: center;
-  color: #fff; overflow: hidden; background: #000;
-}
-.hero-slider{ position: absolute; inset: 0; z-index: 0; }
-.hero-slide{
-  position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; filter: brightness(0.7) contrast(1.05); opacity: 0; transition: opacity 1s ease; }
-.hero-preload{
-  position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; }
-.hero-slide.active{ opacity: 1; }
-header::before{ content:''; position:absolute; inset:0; background:rgba(0,0,0,.4); z-index:1; }
-header *{ position: relative; z-index: 2; }
-
-@keyframes fadeInText{ from{opacity:0; transform:translateY(40px)} to{opacity:1; transform:translateY(0)} }
-.fade-start{ opacity:0; animation:fadeInText .5s ease-out .1s forwards; }
-.fade-later{ opacity:0; animation:fadeInText 1.2s ease-out .4s forwards; }
-
-.brand-logo{ position:absolute; top:20px; left:30px; max-width:250px; display:block; }
-
-/* =========================================
-   NAV (DESKTOP)
-========================================= */
-nav{
-  position:absolute; top:20px; right:30px;
-  display:flex; gap:12px;
-  background:rgba(0,0,0,.35);
-  border:1px solid rgba(255,255,255,.2);
-  backdrop-filter: blur(8px) saturate(140%); -webkit-backdrop-filter: blur(8px) saturate(140%);
-  border-radius:12px; padding:10px 16px;
-  box-shadow:0 20px 40px rgba(0,0,0,.4);
-}
-.nav-links{ display:flex; align-items:center; gap:12px; }
-nav a{
-  color:#fff; text-decoration:none; font-weight:700; font-size:1.4em; line-height:1;
-  text-shadow:0 0 10px rgba(0,0,0,.8); transition: color .2s ease; white-space:nowrap;
-}
-nav a:hover{ color:#919191; }
-nav a.lang-switch{
-  border:1px solid rgba(255,255,255,.5); border-radius:8px; padding:6px 10px; line-height:1.1; font-size:.95em;
-  box-shadow:0 10px 20px rgba(0,0,0,.6); background:rgba(0,0,0,.4);
-}
-.menu-toggle{ display:none; } /* ukryty na PC */
-
-/* =========================================
-   HERO TEXT
-========================================= */
-.header-content{ display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; padding:0 20px; }
-.hero-box{ max-width:800px; width:calc(100% - 40px); margin:0 auto; text-align:center; }
-#heroTitle{
-  font-size:3em; line-height:1.2; margin:0 0 40px; font-weight:700; letter-spacing:-.02em;
-  color:#fff; text-shadow:0 0 15px rgba(0,0,0,.7); transition:opacity .2s linear;
-}
-#heroDesc{
-  font-size:1.5em; line-height:1.6; margin:0; font-weight:400;
-  color:rgba(255,255,255,.85); text-shadow:0 0 10px rgba(0,0,0,.8); max-width:1000px; transition:opacity .2s linear;
-}
-
-/* =========================================
-   HERO DOTS & SCROLL
-========================================= */
-.hero-dots{
-  position:absolute; left:50%; bottom:15px; transform:translateX(-50%);
-  display:flex; gap:20px; z-index:3;
-}
-.hero-dot{
-  width:10px; height:10px; border-radius:50%;
-  background:rgba(255,255,255,.4); border:1px solid rgba(255,255,255,.8);
-  cursor:pointer; transition: all .2s ease;
-}
-.hero-dot.active{ background:rgba(255,255,255,.9); border-color:#fff; transform:scale(1.2); box-shadow:0 0 10px rgba(255,255,255,.8); }
-
-.scroll-indicator{
-  position:absolute; left:50%; bottom:80px; transform:translateX(-50%);
-  color:rgba(255,255,255,.7); font-size:.9em; line-height:1.4; text-align:center; font-weight:500;
-  text-shadow:0 0 8px rgba(0,0,0,.9); z-index:3; user-select:none; pointer-events:none;
-  opacity:0; animation:fadeInScroll 1s ease 1.2s forwards;
-}
-.scroll-indicator .arrow{ font-size:1.2em; line-height:1; display:block; margin-top:6px; animation:bounceArrow 1.3s infinite ease-in-out; }
-@keyframes fadeInScroll{ from{opacity:0; transform:translate(-50%,10px)} to{opacity:1; transform:translate(-50%,0)} }
-@keyframes bounceArrow{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(4px)} }
-
-/* =========================================
-   OFERTA (DESKTOP DEFAULT)
-========================================= */
-.highlight{ padding:0; text-align:center; background-color:#f6f6f6; }
-.highlight-inner{ max-width:900px; margin:0 auto; font-size:1.5em; line-height:1.6; }
-.highlight-inner h2{ font-size:2.4em; margin:80px 0 30px; }
-
-.icon-grid{
-  display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap:40px; justify-items:center; padding:80px 20px; max-width:1200px; margin:0 auto;
-}
-.icon-grid>div{
-  width:100%; padding:20px; display:flex; flex-direction:column; align-items:center; text-align:center;
-  background-color:#f6f6f6; border-radius:8px; transition: transform .3s, box-shadow .3s;
-}
-.icon-grid>div:hover{ transform:translateY(-10px); box-shadow:0 10px 30px rgba(0,0,0,.1); }
-.icon-grid h3{ font-size:2em; line-height:1.6; }
-.icon-grid p{ font-size:1.5em; line-height:1.6; }
-
-/* =========================================
-   DLA KOGO (DESKTOP)
-========================================= */
-.dla-kogo-bg{ background:#dedede; color:#000; width:100%; padding:100px 20px; margin-bottom:0; }
-.dla-kogo-inner{
-  max-width:1200px; margin:0 auto; font-size:1.4em; line-height:1.6;
-  display:flex; flex-direction:column; gap:100px; margin-top:-100px; padding-top:10px;
-}
-.dla-kogo-inner h2{ text-align:center; margin-bottom:10px; font-size:2.8em; line-height:1.2; }
-.dla-kogo-row{ display:flex; align-items:center; gap:40px; }
-.dla-kogo-row.reverse{ flex-direction:row-reverse; }
-.dla-kogo-text{ flex:1; max-width:50%; }
-.dla-kogo-img{ flex:1; max-width:50%; border-radius:10px; box-shadow:0 10px 20px rgba(0,0,0,.3); object-fit:cover; }
-
-/* =========================================
-   BLOG (DESKTOP)
-========================================= */
-.blog-preview{ background:#2a2a2a; color:#000; width:100%; padding:100px 20px; margin-bottom:0; }
-.blog-preview-inner{ max-width:1200px; margin:0 auto; display:flex; flex-direction:column; gap:40px; }
-.blog-preview-head{ max-width:900px; margin:0 auto; text-align:center; font-size:1.5em; line-height:1.6; color:#000; }
-.blog-preview-head h2{ font-size:2.2em; margin:0 0 30px; line-height:1.2; font-weight:700; letter-spacing:-.02em; color:#fff; }
-.blog-preview-head p{ margin:0; font-weight:400; color:#fff; }
-
-.blog-cards{ display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:32px; }
-.blog-card{
-  background:#2a2a2a; border-radius:16px; box-shadow:0 20px 40px rgba(0,0,0,.4);
-  overflow:hidden; display:flex; flex-direction:column; transition: transform .25s ease, box-shadow .25s ease;
-  border:1px solid rgba(255,255,255,.07); text-decoration:none; color:inherit;
-}
-.blog-card:hover{ transform:translateY(-6px); box-shadow:0 30px 60px rgba(0,0,0,.5); }
-.blog-card-image{ position:relative; width:100%; height:180px; background-size:cover; background-position:center; background-repeat:no-repeat; }
-.blog-card-body{ padding:24px; display:flex; flex-direction:column; flex-grow:1; color:#fff; }
-.blog-card-body time{
-  font-size:.8em; line-height:1.4; letter-spacing:.03em; color:#aaa; text-transform:uppercase; font-weight:700; margin-bottom:12px; display:block;
-}
-.blog-card-body h3{ font-size:1.2em; line-height:1.3; font-weight:700; margin:0 0 12px; color:#fff; letter-spacing:-.02em; text-shadow:0 0 10px rgba(0,0,0,.7); }
-.blog-card-body p{ font-size:.95em; line-height:1.5; color:rgba(255,255,255,.8); margin:0 0 20px; flex-grow:1; }
-.blog-card-more{ font-size:.9em; font-weight:700; text-decoration:none; color:#fff; display:inline-flex; align-items:center; gap:6px; transition: color .2s ease; }
-.blog-card-more:hover{ color:#999; }
-.blog-card-more .arrow{ font-size:1.1em; line-height:1; }
-.blog-preview-footer{ text-align:center; margin-top:10px; }
-.blog-all-link{
-  display:inline-block; background:transparent; border-radius:10px; border:1px solid rgba(0,0,0,.4);
-  padding:12px 20px; font-size:.95em; font-weight:700; line-height:1.2; color:#fff; text-decoration:none;
-  box-shadow:0 20px 40px rgba(0,0,0,.1); background-color:rgba(0,0,0,.03); transition: all .2s ease;
-}
-.blog-all-link:hover{ color:#444; border-color:rgba(0,0,0,.6); background-color:rgba(0,0,0,.05); }
-
-/* =========================================
-   KONTAKT / STOPKA (DESKTOP)
-========================================= */
-.kontakt-sekcja{ background:#000; color:#fff; padding:50px 20px; }
-.kontakt-wrapper{ max-width:1200px; margin:0 auto; display:flex; align-items:stretch; gap:40px; margin-top:20px; padding-top:80px; }
-.kontakt-lewa, .kontakt-prawa{ flex:1; display:flex; flex-direction:column; justify-content:space-between; }
-.kontakt-lewa h2{ font-size:3em; margin:0 0 20px; line-height:1.3; }
-.kontakt-lewa address{ font-size:1.3em; font-style:normal; margin-top:20px; line-height:1.8; }
-.hala-zdjecie{ width:280px; height:280px; object-fit:cover; border-radius:50%; margin:0 auto 20px; box-shadow:0 10px 30px rgba(0,0,0,.4); }
-.hala-cytat{ font-style:italic; font-size:1.1em; color:#ccc; text-align:center; line-height:1.5; max-width:500px; margin:0 auto; }
-.hala-cytat strong{ display:block; margin-top:20px; font-weight:700; font-style:normal; color:#fff; }
-footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20px; margin-top:150px; margin-bottom:-30px; }
-
-/* =========================================
-   DESKTOP-ONLY NAV TUNING
-========================================= */
-@media (min-width:1025px){
-  .menu-toggle{ display:none !important; }
-  .nav-links{ display:flex; flex-direction:row; gap:12px; align-items:center; }
-}
-
-/* =========================================
-   MOBILE / TABLET – WSPÓLNE
-========================================= */
-@media (max-width:1024px){
-  header{ height: clamp(340px, 70vw, 820px) !important; min-height:0 !important; padding-bottom:80px; }
-  .brand-logo{ max-width:160px; top:10px; left:12px; z-index:9; }
-  .header-content{ padding-top:max(80px); padding-left:16px; padding-right:16px; }
-  .hero-box{ max-width:680px; margin:0 auto; text-align:center; }
-  #heroTitle{ font-size: clamp(26px, 6vw, 34px); line-height:1.15; margin-bottom:12px; text-shadow:0 0 15px rgba(0,0,0,.75); }
-  #heroDesc{ font-size: clamp(15px, 3.6vw, 18px); line-height:1.45; max-width:90ch; margin-inline:auto; text-shadow:0 0 10px rgba(0,0,0,.65); }
-  .scroll-indicator{ bottom:60px !important; z-index:3; }
-  .hero-dots{ bottom:12px !important; z-index:3; }
-  .hero-slide{ background-position:center top; }
-
-
-  nav{
-    position:absolute; top:20px; right:20px; z-index:9; display:flex; align-items:center;
-    background:transparent !important; border:0 !important; box-shadow:none !important; padding:0 !important;
-  }
-  .menu-toggle{
-    --btn: max(44px, calc(var(--logo-size, 180px) * 0.3));
-    width:var(--btn); height:var(--btn);
-    display:inline-flex; flex-direction:column; justify-content:center; align-items:center; gap:6px;
-    background:#000; border:1px solid rgba(255,255,255,.25); border-radius:12px; padding:8px;
-    box-shadow:0 8px 20px rgba(0,0,0,.35); cursor:pointer; transition: background .2s ease, transform .15s ease;
-  }
-  .menu-toggle:hover{ background:#111; }
-  .menu-toggle .bar{ width:70%; height:3px; background:#fff; border-radius:2px; transition: transform .25s ease, opacity .2s ease, width .25s ease; }
-  .menu-toggle.active .bar:nth-child(1){ transform:translateY(9px) rotate(45deg); width:75%; }
-  .menu-toggle.active .bar:nth-child(2){ opacity:0; }
-  .menu-toggle.active .bar:nth-child(3){ transform:translateY(-9px) rotate(-45deg); width:75%; }
-
-  .nav-links{
-    position:absolute; top:calc(100% + 8px); right:0;
-    width: clamp(220px, calc(var(--logo-size, 180px) * 1.1), 320px);
-    background:rgba(0,0,0,.85); border:1px solid rgba(255,255,255,.15); border-radius:12px; overflow:hidden;
-    box-shadow:0 12px 28px rgba(0,0,0,.45);
-    display:flex; flex-direction:column; align-items:stretch;
-    max-height:0; opacity:0; transition:max-height .28s ease, opacity .2s ease; padding:0;
-  }
-  .nav-links.active{ max-height:320px; opacity:1; }
-  .nav-links a{ display:block; width:100%; padding:12px 16px; color:#fff; text-decoration:none; font-weight:600; font-size:1rem; }
-  .nav-links a + a{ border-top:1px solid rgba(255,255,255,.08); }
-  .nav-links a:hover{ background:rgba(255,255,255,.08); }
-
-  .highlight-inner{ padding:0 16px; font-size:clamp(16px, 1.8vw, 18px); line-height:1.55; }
-  .highlight-inner h2{ font-size:clamp(24px, 4.6vw, 32px); margin:48px 0 16px; }
-  .icon-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap:20px; padding:40px 16px; max-width:900px; }
-  .icon-grid>div{ padding:16px; border-radius:10px; box-shadow:0 1px 0 rgba(0,0,0,.05); transition:none; }
-  .icon-grid>div:hover{ transform:none; box-shadow:0 1px 0 rgba(0,0,0,.05); }
-  .icon-grid h3{ font-size:clamp(16px, 3.8vw, 20px); line-height:1.3; margin:8px 0 6px; }
-  .icon-grid p{ font-size:clamp(14px, 3vw, 18px); line-height:1.5; margin:0; }
-  .icon-grid img{ display:block; width:clamp(48px, 10vw, 72px); height:auto; margin:6px 0 0; }
-
-  .dla-kogo-bg { padding: 64px 16px; }
-  .dla-kogo-inner {
-    gap: 48px; margin-top: 0; padding-top: 0;
-    font-size: clamp(15px, 1.9vw, 18px); line-height: 1.55;
-  }
-  .dla-kogo-inner h2 { font-size: clamp(22px, 5.2vw, 30px); margin: 0 0 8px; text-align: center; }
-  .dla-kogo-row, .dla-kogo-row.reverse {
-    display: flex; flex-direction: column; align-items: center; gap: 16px;
-  }
-  .dla-kogo-text { max-width: 720px; width: 100%; text-align: left; }
-  .dla-kogo-img {
-    width: 100%; max-width: 820px; height: auto; aspect-ratio: 16/9;
-    object-fit: cover; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,.25);
-  }
-
-  .blog-preview { padding: 40px 16px; }
-  .blog-preview-head { max-width: 720px; margin: 0 auto 16px; }
-  .blog-preview-head h2 { font-size: clamp(20px, 5vw, 26px); margin: 12px 0 6px; }
-  .blog-preview-head p { font-size: clamp(14px, 3.4vw, 16px); line-height: 1.45; margin: 0 auto 8px; }
-  .blog-cards { grid-template-columns: 1fr; gap: 16px; }
-  .blog-card { border-radius: 12px; box-shadow: 0 14px 28px rgba(0,0,0,.35); }
-  .blog-card-image { height: 150px; }
-  .blog-card-body { padding: 14px; }
-  .blog-card-body h3 { font-size: clamp(16px, 4.2vw, 18px); line-height: 1.3; margin-bottom: 8px; }
-  .blog-card-body p { font-size: clamp(13px, 3.6vw, 15px); line-height: 1.45; margin-bottom: 14px; }
-  .blog-card-more { font-size: .85em; }
-
-  .kontakt-sekcja{ padding: 28px 16px; }
-  .kontakt-wrapper{ flex-direction: column; gap: 18px; padding-top: 24px; margin-top: 0; }
-  .kontakt-lewa h2{ font-size: clamp(20px, 6vw, 26px); line-height: 1.25; margin: 0 0 8px; }
-  .kontakt-lewa address{ font-size: clamp(14px, 3.6vw, 16px); line-height: 1.6; margin-top: 8px; }
-  .kontakt-lewa address a{
-    display:inline-flex; align-items:center; gap:8px; padding:8px 10px; margin-top:6px;
-    border-radius:10px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.18);
-    color:#fff; text-decoration:none; font-weight:700;
-  }
-  .kontakt-lewa address a:hover{ background: rgba(255,255,255,.12); }
-  .hala-zdjecie{ width: clamp(140px, 32vw, 200px); height: clamp(140px, 32vw, 200px); margin: 8px auto 10px; }
-  .hala-cytat{ font-size: clamp(12px, 3.2vw, 14px); line-height: 1.5; max-width: 38ch; }
-  footer .copyright{ margin-top: 30px; margin-bottom: 2px; font-size: 0.85em; }
-}
-
-/* =========================================
-   MOBILE – ≤640px
-========================================= */
-@media (max-width: 640px) {
-   header{ height: clamp(340px, 190vw, 820px) !important; min-height:0 !important; padding-bottom:80px; }
-  .brand-logo{ max-width:180px; top:10px; left:12px; z-index:9; }
-  .icon-grid {
-    grid-template-columns: 1fr;
-    row-gap: 16px; column-gap: 0;
-    padding: 0 16px;   /* tylko boki; spójny rytm między kolejnymi gridami */
-    margin: 0 auto;
-  }
-  .icon-grid + .icon-grid { margin-top: 16px; }
-  .icon-grid > div {
-    display:flex; flex-direction:column; align-items:center; gap:10px;
-    padding:16px 14px; margin:0 !important;
-  }
-  .icon-grid h3, .icon-grid p, .icon-grid img { margin:0 !important; }
-  .icon-grid h3 { font-size: clamp(16px, 3.8vw, 20px); line-height: 1.3; text-align: center; }
-  .icon-grid p  { font-size: clamp(14px, 3.5vw, 18px); line-height: 1.5; text-align: center; }
-}
-
-/* =========================================
-   LANDSCAPE (≤1024px) – HEADER / SIATKI / DLA-KOGO / BLOG / KONTAKT
-========================================= */
-@media (max-width: 1024px) and (orientation: landscape) {
-  .icon-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 20px; row-gap: 20px; justify-content: center; grid-auto-flow: row dense;
-  }
-  .icon-grid > div:nth-last-child(1):nth-child(odd) {
-    grid-column: 1 / -1; justify-self: center; width: 100%; max-width: 520px;
-  }
-
-  .dla-kogo-bg { padding: 80px 24px; }
-  .dla-kogo-inner { gap: 64px; }
-  .dla-kogo-row, .dla-kogo-row.reverse {
-    display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 32px 24px;
-  }
-  .dla-kogo-row.reverse .dla-kogo_text { order: 2; } 
-  .dla-kogo-row.reverse .dla-kogo-text { order: 2; }
-  .dla-kogo-row.reverse .dla-kogo-img  { order: 1; }
-  .dla-kogo-text { max-width: unset; font-size: clamp(15px, 1.6vw, 18px); line-height: 1.55; }
-  .dla-kogo-img {
-    width:100%; height:auto; aspect-ratio:16/9; object-fit:cover;
-    border-radius:10px; box-shadow:0 10px 20px rgba(0,0,0,.3);
-  }
-
-  .blog-preview { padding: 32px 20px; }
-  .blog-preview-head { max-width: 960px; margin: 0 auto 18px; }
-  .blog-preview-head h2 { font-size: clamp(18px, 3.2vw, 24px); margin: 10px 0 4px; }
-  .blog-preview-head p  { font-size: clamp(13px, 2.2vw, 15px); margin: 0 auto; }
-  .blog-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-  .blog-card-image { height: 130px; }
-  .blog-card-body { padding: 12px; }
-  .blog-card-body h3 { font-size: clamp(14px, 2.2vw, 16px); margin-bottom: 6px; }
-  .blog-card-body p  { font-size: clamp(12px, 1.9vw, 14px); margin-bottom: 12px; line-height: 1.4; }
-  .blog-card-more { font-size: .82em; }
-  .blog-cards > .blog-card:last-child:nth-child(3n+1) { grid-column: 2 / 3; justify-self: center; }
-
-  .kontakt-sekcja{ padding: 28px 20px; }
-  .kontakt-wrapper{ flex-direction: row; align-items: center; gap: 24px; padding-top: 28px; margin-top: 0; }
-  .kontakt-lewa, .kontakt-prawa{ flex: 1 1 50%; }
-  .kontakt-lewa h2{ font-size: clamp(20px, 4.4vw, 28px); margin-bottom: 8px; line-height: 1.2; }
-  .kontakt-lewa address{ font-size: clamp(13px, 2.2vw, 15px); line-height: 1.55; margin-top: 6px; }
-  .kontakt-lewa address a{
-    display:inline-flex; align-items:center; gap:8px; padding:8px 10px;
-    border-radius:10px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.18);
-    color:#fff; text-decoration:none; font-weight:700;
-  }
-  .hala-zdjecie{ width: clamp(140px, 22vw, 180px); height: clamp(140px, 22vw, 180px); margin: 6px auto 10px; }
-  .hala-cytat{ font-size: clamp(12px, 2vw, 14px); max-width: 46ch; }
-
-  footer .copyright {
-    margin-top: 20px !important; margin-bottom: -20px !important;
-    padding-top: 10px; font-size: 0.85em; opacity: 0.9;
-  }
-}
-
-/* =========================================
-   DROBNE KOREKTY
-========================================= */
-@media (max-width: 480px) {
-  .dla-kogo-inner { gap: 40px; }
-  .dla-kogo-text  { font-size: 1rem; line-height: 1.55; }
-  }
-
-@media (max-width:1024px){
-  .highlight,
-  .highlight *{ 
-	animation:none!important; transition:none!important; box-shadow:none!important; transform:none!important; }
-  .icon-grid>div,
-  .icon-grid>div:hover{ 
-	transform:none!important; box-shadow:none!important; }
-}
-
-@media (max-width:1024px){
-  .blog-preview,
-  .blog-preview *{
-    animation:none!important; transition:none!important; transform:none!important; }
-  .blog-card,
-  .blog-card:hover,
-  .blog-card-more,
-  .blog-card-more:hover{ transform:none!important; }
-}
-
-@media (max-width:640px) and (orientation:portrait){
-  .icon-grid h3,
-  .icon-grid p,
-  .icon-grid img{ margin: 0 !important; }
-  .icon-grid{
-    display: grid; grid-template-columns: 1fr; row-gap: 10px !important; padding: 5px 16px; }
-  .icon-grid > div { 
-	display: flex; flex-direction: column; align-items: center; text-align: center; padding: 24px 16px 32px; background: #f6f6f6; border-radius: 10px; margin: 0 !important; }
- }
- 
 </style>
 
 <body>
 
+<!-- COOKIE BANNER – RoboInvest -->
+
+<div id="cookie-banner" class="cookie-banner">
+  <div class="cookie-banner__inner">
+    <p class="cookie-banner__text">
+      Ta strona wykorzystuje pliki cookie wyłącznie do celów statystycznych.
+      Wszystkie dane są w pełni anonimizowane. Możesz je zaakceptować lub odrzucić. Szczegóły znajdziesz w
+      <a href="components/cookies.html">Polityce plików cookies</a>.
+    </p>
+    <div>
+      <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Akceptuję</button>
+      <button id="cookie-reject" class="cookie-btn cookie-btn-reject">Odrzucam</button>
+    </div>
+  </div>
+</div>
 
   <!-- =========================
        HEADER
@@ -844,7 +477,7 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
         </div>
       </div>
       <!-- Rok jest wstawiany w JS na dole – nie trzeba go tu zmieniać co roku -->
-      <p class="copyright">&copy; <span id="copyright-year"></span> RoboInvest Kamil Dzik. All rights reserved.</p>
+      <p class="copyright">&copy; <span id="copyright-year"></span> RoboInvest Kamil Dzik. All rights reserved. <a href="../components/cookies.html">Polityka cookies.</p>
     </section>
   </footer>
 
@@ -852,173 +485,31 @@ footer .copyright{ color:#aaa; text-align:center; font-size:.9em; padding-top:20
 <!-- =========================
      LOGIKA
 ========================= -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  /* =========================
-     LOGIKA: HERO SLIDER
-  ========================= */
-  // Pobieramy wszystkie elementy potrzebne do slidera w hero
-  const slides        = Array.from(document.querySelectorAll('.hero-slide'));
-  const dotsContainer = document.getElementById('heroDots');
-  const heroTitle     = document.getElementById('heroTitle');
-  const heroDesc      = document.getElementById('heroDesc');
 
-  if (slides.length) {
-    let index = 0;          // aktualny slajd
-    let intervalId = null;  // potrzebne do autoplay
+<script src="scripts/main.js" defer></script>
 
-    // Tworzymy kropki nawigacyjne (tylko jeśli istnieje kontener na kropki)
-    const dots = dotsContainer
-      ? slides.map((_, i) => {
-          const dot = document.createElement('div');
-          dot.classList.add('hero-dot');
-          dot.dataset.index = String(i);
-          if (i === 0) dot.classList.add('active');
-          dotsContainer.appendChild(dot);
-          return dot;
-        })
-      : [];
+<script src="scripts/InternalTraffic.js" defer></script>
 
-    // Funkcja podmieniająca tekst tytułu i opisu na dane z atrybutów data- w slajdzie
-    function applySlideContent(slideEl) {
-      const newTitle = slideEl?.dataset?.title || '';
-      const newDesc  = slideEl?.dataset?.desc  || '';
-
-      // chwila wygaszenia
-      if (heroTitle) heroTitle.style.opacity = 0;
-      if (heroDesc)  heroDesc.style.opacity  = 0;
-
-      setTimeout(() => {
-        // w tytule i opisie używane jest <br>, więc używamy innerHTML
-        if (heroTitle) heroTitle.innerHTML = newTitle;
-        if (heroDesc)  heroDesc.innerHTML  = newDesc;
-        // ponownie pokazujemy tekst
-        if (heroTitle) heroTitle.style.opacity = 1;
-        if (heroDesc)  heroDesc.style.opacity  = 1;
-      }, 200);
-    }
-
-    // Funkcja przełączająca slajd na konkretny indeks (z zawinięciem mod N)
-    function showSlide(newIndex) {
-      const safeIndex = ((newIndex % slides.length) + slides.length) % slides.length;
-
-      slides[index].classList.remove('active');
-      dots[safeIndex] && dots[index]?.classList.remove('active');
-
-      index = safeIndex;
-
-      slides[index].classList.add('active');
-      dots[index] && dots[index].classList.add('active');
-
-      applySlideContent(slides[index]);
-    }
-
-    // Automatyczne przewijanie co X sekund (z zabezpieczeniem przed duplikacją)
-    function startAuto() {
-      if (intervalId) return;
-      intervalId = setInterval(() => showSlide(index + 1), 5000);
-    }
-
-    // Zatrzymuje autoplay (np. po kliknięciu w kropkę)
-    function stopAuto() {
-      if (intervalId) {
-        clearInterval(intervalId);
-        intervalId = null;
-      }
-    }
-
-    // Po kliknięciu w kropkę przełącz na konkretny slajd
-    if (dots.length) {
-      dots.forEach(dot => {
-        dot.addEventListener('click', e => {
-          const targetIndex = parseInt(e.currentTarget.dataset.index, 10) || 0;
-          stopAuto();             // zatrzymujemy auto
-          showSlide(targetIndex); // pokazujemy wybrany
-          startAuto();            // i znowu włączamy auto
-        });
-      });
-    }
-
-    // Ustawiamy treść dla pierwszego slajdu
-    applySlideContent(slides[0]);
-
-    // Włączamy autoplay tylko, jeśli jest więcej niż 1 slajd
-    if (slides.length > 1) startAuto();
-  }
-
-  /* =========================
-     LOGIKA: ROK W STOPCE
-     (nie trzeba zmieniać ręcznie co roku)
-  ========================= */
-  const startYear = 2025; // rok uruchomienia projektu
-  const currentYear = new Date().getFullYear();
-  const yearText = startYear === currentYear ? String(currentYear) : `${startYear}–${currentYear}`;
-  const yearEl = document.getElementById('copyright-year');
-  if (yearEl) yearEl.textContent = yearText;
-
-  /* =========================
-     LOGIKA: HAMBURGER
-     - otwieranie/zamykanie
-     - zamykanie po kliknięciu linku/poza/ESC
-     - obsługa klawiatury (Enter/Space)
-  ========================= */
-  const toggle = document.getElementById('menuToggle');
-  const panel  = document.getElementById('navLinks');
-
-  if (toggle && panel) {
-    const closeMenu = () => {
-      toggle.classList.remove('active');
-      panel.classList.remove('active');
-      toggle.setAttribute('aria-expanded', 'false');
-    };
-
-    const openMenu = () => {
-      toggle.classList.add('active');
-      panel.classList.add('active');
-      toggle.setAttribute('aria-expanded', 'true');
-    };
-
-    const toggleMenu = (e) => {
-      e?.stopPropagation?.();
-      if (panel.classList.contains('active')) { closeMenu(); } else { openMenu(); }
-    };
-
-    // Klik w ikonę
-    toggle.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(e); });
-
-    // Klawiatura: Enter/Spacja otwierają/zamykają
-    toggle.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleMenu(e);
-      }
-    });
-
-    // Klik poza panelem zamyka
-    document.addEventListener('click', (e) => {
-      if (!panel.contains(e.target) && !toggle.contains(e.target)) closeMenu();
-    });
-
-    // Kliknięcie w link w panelu zamyka
-    panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-
-    // ESC zamyka
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
-    });
-  }
-});
-</script>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E793XT6R8P"></script>
+<!-- Google Analytics with ePrivacy -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  gtag('consent','default',{
+    ad_storage:'denied',
+    analytics_storage:'denied',
+    functionality_storage:'denied',
+    security_storage:'granted'
+  });
 
-  gtag('config', 'G-E793XT6R8P');
 </script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E793XT6R8P"></script>
+
+<script>
+  gtag('js', new Date());
+</script>
+
+<script src="scripts/cookies.js" defer></script>
 
 <!-- Dane strukturalne dla Google (SEO)-->
 <script type="application/ld+json">
