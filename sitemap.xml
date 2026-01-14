@@ -9,7 +9,7 @@
 
   <url>
     <loc>https://roboinvest.pl/blog/wszystkie_wpisy.html</loc>
-    <lastmod>2025-12-05</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <priority>0.8</priority>
   </url>
   
@@ -35,6 +35,12 @@
   <url>
     <loc>https://roboinvest.pl/blog/standaryzacja.html</loc>
     <lastmod>2025-12-05</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://roboinvest.pl/blog/coboty.html</loc>
+    <lastmod>2026-01-14</lastmod>
     <priority>0.9</priority>
   </url>
 </urlset>
