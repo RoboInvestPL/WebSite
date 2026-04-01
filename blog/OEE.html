@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<!-- =========================================
+     ALL RIGHTS TO THE CODE ARE FULLY RESERVED
+============================================== -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" as="image" href="obrazy/blog-OEE.webp" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Kiedy automatyzacja ma sens? Rola OEE i Six Big Losses w podejmowaniu decyzji</title>
+  <meta name="description" content="Sprawdź, jak wykorzystać OEE i Six Big Losses do oceny, czy automatyzacja rozwiąże realne problemy produkcyjne.">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../styles/blog_post.css"> 
+  
+  <!-- Favicon's -->
+  <link rel="icon" href="/favicon-v2.ico" type="image/x-icon" sizes="any">
+  <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="apple-mobile-web-app-title" content="RoboInvest">
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  <meta property="og:title" content="Kiedy automatyzacja ma sens? Rola OEE i Six Big Losses w podejmowaniu decyzji">
+  <meta property="og:description" content="Dowiedz się, jak OEE i Six Big Losses pomagają ocenić sens automatyzacji procesu i uniknąć błędnych decyzji inwestycyjnych.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://roboinvest.pl/blog/OEE.html">
+  <meta property="og:image" content="https://roboinvest.pl/obrazy/blog-OEE.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  
+<style>
+
+/* =========================================
+			BASE
+========================================= */
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'Roboto',sans-serif;
+  background:#fff;
+  color:#222;
+}
+
+/* =========================================
+			MAIN IMAGE
+========================================= */
+.blog-hero-bg {
+  background:url('../obrazy/blog-OEE.webp') center/cover no-repeat;
+  }
+
+</style>
+
+</head>
+<body>
+
+<!-- COOKIE BANNER – RoboInvest -->
+
+<div id="cookie-banner" class="cookie-banner">
+  <div class="cookie-banner__inner">
+    <p class="cookie-banner__text">
+      Ta strona wykorzystuje pliki cookie wyłącznie do celów statystycznych.
+      Wszystkie dane są w pełni anonimizowane. Możesz je zaakceptować lub odrzucić. Szczegóły znajdziesz w
+      <a href="../components/cookies.html">Polityce plików cookies</a>.
+    </p>
+    <div>
+      <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Akceptuję</button>
+      <button id="cookie-reject" class="cookie-btn cookie-btn-reject">Odrzucam</button>
+    </div>
+  </div>
+</div>
+
+  <!-- 1. HERO ZE ZDJĘCIEM I TYTUŁEM -->
+  <header class="blog-hero">
+    <div class="blog-hero-bg"></div>
+    <div class="blog-hero-inner">
+      <p class="meta">Blog RoboInvest • 11 marca 2026</p>
+      <h1><br>Kiedy automatyzacja ma sens? Rola OEE i Six Big Losses w podejmowaniu decyzji</h1>
+    </div>
+  </header>
+
+<!-- 2. TREŚĆ ARTYKUŁU -->
+<main class="blog-content">
+<p class="intro">
+<p>
+Zanim zapadnie decyzja o <strong>automatyzacji procesu</strong>, warto najpierw ocenić, co rzeczywiście ogranicza jego <strong>efektywność</strong>. 
+W praktyce rozmowy o <strong>robotyzacji</strong> często koncentrują się na możliwym do osiągnięcia <strong>czasie cyklu</strong> lub powtarzalności. 
+Sama zdolność do zwiększenia <strong>wydajności</strong> nie oznacza jednak jeszcze poprawy całego procesu. 
+Jeżeli już na obecnym etapie występują <strong>awarie</strong>, długie <strong>przezbrojenia</strong>, <strong>mikroprzestoje</strong> lub problemy jakościowe, to robotyzacja nie usunie tych przyczyn, lecz może jedynie uwidocznić je w większej skali. 
+Dlatego przed rozpoczęciem <strong>projektu inwestycyjnego</strong> warto opomiarować proces z wykorzystaniem prostych narzędzi, takich jak wskaźnik <strong>OEE</strong>. 
+Pozwala to określić, w których obszarach rzeczywiście tracona jest efektywność oraz ocenić, czy <strong>automatyzacja</strong> będzie właściwą odpowiedzią na realny problem procesu.
+</p>
+
+<h2>Czym jest OEE</h2>
+<p> 
+<strong>OEE (Overall Equipment Effectiveness)</strong> to wskaźnik, który opisuje <strong>efektywność wykorzystania maszyny</strong> poprzez trzy składowe:
+
+<ul>
+  <li><strong>dostępność,</strong></li>
+  <li><strong>wydajność,</strong></li>
+  <li><strong>jakość.</strong></li>
+</ul> 
+<p>
+W najbardziej klasycznym ujęciu jest ich iloczynem: <strong>OEE = A × P × Q</strong>.
+</p>
+<p> 
+W procesach dyskretnych (jednostkowych) wskaźnik <strong>OEE</strong> można wyznaczyć na podstawie czasu pracy, czasu cyklu oraz liczby wyprodukowanych części w odniesieniu do <strong>planu operacyjnego</strong>. 
+Dzięki temu jego pomiar da się wdrożyć nawet w procesach, które nie są wyposażone w rozbudowane systemy zbierania danych. 
+Analiza <strong>OEE</strong> porządkuje informacje o przebiegu produkcji i pozwala wskazać obszary, w których pojawiają się największe <strong>ograniczenia procesu</strong>.  
+</p>
+
+<h2>Six Big Losses</h2>
+<p>
+Analizę <strong>OEE</strong> uzupełnia koncepcja <strong>Six Big Losses</strong>, czyli sześciu głównych źródeł <strong>strat produkcyjnych</strong> związanych z pracą wyposażenia produkcyjnego. 
+Pojęcie to zostało wprowadzone w ramach metodologii <strong>TPM (Total Productive Maintenance)</strong> i jest bezpośrednio powiązane z ideą eliminacji marnotrawstwa charakterystyczną dla <strong>Lean Manufacturing</strong>. 
+Każda z tych strat wpływa na jedną z trzech składowych <strong>OEE</strong>: dostępność, wydajność lub jakość procesu.
+</p>
+<p>
+Do strat wpływających na <strong>dostępność</strong> zalicza się przede wszystkim <strong>awarie maszyn</strong> oraz <strong>przezbrojenia</strong> i nastawy. 
+Awarie obejmują wszystkie nieplanowane zdarzenia prowadzące do zatrzymania produkcji, natomiast przezbrojenia i nastawy to planowane przerwy w pracy maszyny, niezbędne do rozpoczęcia lub kontynuowania produkcji, których czas trwania bywa dłuższy, niż zakładano.
+</p>
+<p>
+Na <strong>wydajność</strong> wpływają przede wszystkim <strong>mikroprzestoje</strong> oraz obniżona prędkość pracy maszyny. 
+Mikroprzestoje to krótkie zatrzymania procesu, często wymagające interwencji operatora, spowodowane na przykład zacięciem materiału, drobnymi kolizjami lub koniecznością szybkiego czyszczenia. 
+Obniżona prędkość pracy występuje wtedy, gdy maszyna pracuje wolniej, niż wynika to z jej nominalnego czasu cyklu, na przykład z powodu zużycia komponentów lub wydłużenia czasów poszczególnych podprocesów, takich jak łączenie, testowanie czy inspekcja.
+</p>
+<p>
+Trzecia grupa strat dotyczy <strong>jakości</strong>. 
+Obejmuje ona niezgodne części powstające podczas stabilnej produkcji oraz braki pojawiające się w fazie uruchomienia procesu. 
+Te drugie występują najczęściej po starcie maszyny lub po przezbrojeniu i są związane z czasem potrzebnym na ustabilizowanie parametrów produkcyjnych.
+</p>
+<p>
+Identyfikacja tych sześciu źródeł strat pozwala lepiej zrozumieć, dlaczego rzeczywista <strong>efektywność procesu</strong> odbiega od jego potencjału. 
+Dopiero taka analiza umożliwia ocenę, czy ograniczenia wynikają z technologii procesu, organizacji pracy, czy też z samego wyposażenia produkcyjnego.
+</p>
+
+<h2>OEE jako kryterium akceptacji FAT i SAT</h2>
+<p>
+W świadomie prowadzonych projektach <strong>automatyzacji i robotyzacji</strong> tworzenie kryteriów akceptacji wyłącznie w oparciu o nominalny czas cyklu nie daje pełnego obrazu efektywności procesu. 
+Maszyna może osiągać założone tempo pracy, a jednocześnie generować straty wynikające z przestojów, mikrozakłóceń lub problemów jakościowych. 
+Dlatego kryteria odbiorowe warto definiować szerzej, w oparciu o składowe <strong>OEE</strong>, czyli ocenę rzeczywistej <strong>dostępności</strong>, <strong>wydajności</strong> i <strong>jakości</strong> w odniesieniu do zdefiniowanego czasu produkcyjnego.
+</p>
+<p>
+Na etapie <strong>FAT (Factory Acceptance Test)</strong> możliwa jest weryfikacja potencjału maszyny. 
+Obejmuje to potwierdzenie osiągania założonego czasu cyklu, poprawności sekwencji oraz stabilności pracy w warunkach testowych. 
+W tym zakresie można również wstępnie ocenić wydajność i jakość procesu, jednak ze względu na ograniczone warunki środowiskowe oraz brak pełnej integracji z otoczeniem produkcyjnym, ocena dostępności ma charakter ograniczony.
+</p>
+<p>
+Decydujące znaczenie ma etap <strong>SAT (Site Acceptance Test)</strong>, w którym maszyna pracuje już w docelowym środowisku produkcyjnym. 
+To właśnie tutaj ujawniają się rzeczywiste straty związane z dostępnością, mikroprzestojami oraz jakością. 
+W tym etapie możliwa jest pełna ocena procesu w odniesieniu do rzeczywistych warunków pracy, w tym interakcji z operatorem, logistyką oraz innymi elementami linii technologicznej.
+</p>
+<p>
+Uwzględnienie składowych <strong>OEE</strong> w kryteriach odbiorowych pozwala rozszerzyć ocenę z samej poprawności działania maszyny na faktyczną <strong>zdolność procesu</strong> do stabilnej i efektywnej pracy. 
+Takie podejście porządkuje oczekiwania pomiędzy inwestorem a integratorem oraz ogranicza ryzyko sytuacji, w której maszyna formalnie spełnia wymagania odbiorowe, ale w rzeczywistych warunkach produkcyjnych nie osiąga zakładanej efektywności
+</p>
+
+<h2>Podsumowanie</h2>
+<p>
+Decyzja o <strong>automatyzacji procesu</strong> nie powinna wynikać wyłącznie z chęci zwiększenia wydajności lub zastąpienia pracy ręcznej. 
+Jeżeli proces już na etapie wyjściowym jest niestabilny, generuje częste przestoje, wymaga wielu interwencji operatora lub nie zapewnia powtarzalnej jakości, automatyzacja może nie usunąć tych problemów, lecz jedynie przenieść je na wyższy poziom złożoności i kosztów.
+</p>
+<p>
+Właśnie dlatego przed rozpoczęciem inwestycji warto opomiarować proces i przeanalizować go z wykorzystaniem wskaźnika <strong>OEE</strong> oraz koncepcji <strong>Six Big Losses</strong>. 
+Takie podejście pozwala zrozumieć, gdzie rzeczywiście tracona jest efektywność, a następnie świadomie ocenić, czy projekt automatyzacji odpowiada na realne ograniczenia procesu.
+</p>
+
+</main>
+  
+<!-- 3. LISTA SŁÓW KLUCZOWYCH -->
+<section class="keywords-section" aria-label="Słowa kluczowe artykułu">
+  <h3>Słowa kluczowe:</h3>
+  <div class="keywords-list">
+    <span>OEE</span>
+    <span>Overall Equipment Effectiveness</span>
+    <span>Six Big Losses</span>
+	<span>TPM (Total Productive Maintenance)</span>
+	<span>Lean Manufacturing</span>
+    <span>efektywność procesu</span>
+    <span>straty produkcyjne</span>
+    <span>analiza procesu</span>
+    <span>automatyzacja produkcji</span>
+    <span>robotyzacja procesów</span>
+    <span>opłacalność automatyzacji</span>
+    <span>decyzje inwestycyjne</span>
+    <span>wydajność produkcji</span>
+  </div>
+</section>
+
+<!-- 4. STOPKA Z CTA -->
+<footer class="blog-footer">
+  <div class="blog-footer-inner">
+    <h2><br>Rozważasz automatyzację procesu, ale nie masz pewności, czy ma to sens?</h2>
+    <p>
+      Skontaktuj się z nami – pomożemy opomiarować proces, przeanalizować straty w oparciu o OEE 
+      i Six Big Losses oraz ocenić, czy inwestycja rzeczywiście poprawi efektywność, 
+      czy tylko utrwali istniejące problemy.
+    </p>
+    <div class="blog-footer-links">
+      <a class="btn" href="../index.html#kontakt">Skontaktuj się</a>
+      <a class="btn" href="../blog/wszystkie_wpisy.html">Wszystkie wpisy</a>
+      <a class="btn" href="../index.html">Strona RoboInvest</a>
+    </div>
+    <small>&copy; <span id="copyright-year"></span> RoboInvest Kamil Dzik. All rights reserved. <a href="../components/cookies.html">Polityka cookies</a></small>
+  </div>
+</footer>
+
+  <!-- 5. SEO -->  
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://roboinvest.pl/blog/coboty.html"
+  },
+  "headline": "Kiedy automatyzacja ma sens? Rola OEE i Six Big Losses w podejmowaniu decyzji",
+  "description": "Dowiedz się, jak OEE i Six Big Losses pomagają ocenić sens automatyzacji procesu i uniknąć błędnych decyzji inwestycyjnych.",
+  "image": "https://roboinvest.pl/obrazy/blog-OEE.webp",
+  "author": {
+    "@type": "Person",
+    "name": "Kamil Dzik"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "RoboInvest",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://roboinvest.pl/favicon/logo.svg"
+    }
+  },
+  "datePublished": "2026-01-12T09:00:00+01:00",
+  "dateModified": "2026-01-12T09:00:00+01:00",
+  "articleSection": "Blog",
+  "inLanguage": "pl-PL",
+  "keywords": [
+    "Overall Equipment Effectiveness"
+    "Six Big Losses"
+	"TPM (Total Productive Maintenance)"
+	"Lean Manufacturing"
+    "efektywność procesu"
+    "straty produkcyjne"
+    "analiza procesu"
+    "RoboInvest"
+  ]
+}
+</script>
+  
+<!-- Google Analytics with ePrivacy -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{
+    ad_storage:'denied',
+    analytics_storage:'denied',
+    functionality_storage:'denied',
+    security_storage:'granted'
+  });
+
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E793XT6R8P"></script>
+
+<script>
+  gtag('js', new Date());
+</script>
+
+<script src="../scripts/cookies.js" defer></script>
+
+</body>
+
+<!-- =========================================
+     ALL RIGHTS TO THE CODE ARE FULLY RESERVED
+============================================== -->
+
+</html>
